@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chihiro.org.cn/"/>
-  <updated>2019-03-18T12:30:12.721Z</updated>
+  <updated>2019-03-18T12:29:05.050Z</updated>
   <id>https://chihiro.org.cn/</id>
   
   <author>
@@ -15,6 +15,93 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>面向对象编程的理解</title>
+    <link href="https://chihiro.org.cn/blogs/2369825694.html"/>
+    <id>https://chihiro.org.cn/blogs/2369825694.html</id>
+    <published>2019-03-18T12:40:00.000Z</published>
+    <updated>2019-03-18T12:29:05.050Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;面向过程和面向对象&quot;&gt;&lt;a href=&quot;#面向过程和面向对象&quot; class=&quot;headerlink&quot; title=&quot;面向过程和面向对象&quot;&gt;&lt;/a&gt;面向过程和面向对象&lt;/h2&gt;&lt;h3 id=&quot;面向过程思想概述&quot;&gt;&lt;a href=&quot;#面向过程思想概述&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="软件编程" scheme="https://chihiro.org.cn/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="Java" scheme="https://chihiro.org.cn/tags/Java/"/>
+    
+      <category term="面向对象编程" scheme="https://chihiro.org.cn/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>代码整洁之道</title>
+    <link href="https://chihiro.org.cn/blogs/793584201.html"/>
+    <id>https://chihiro.org.cn/blogs/793584201.html</id>
+    <published>2019-03-18T12:35:00.000Z</published>
+    <updated>2019-03-18T12:26:57.243Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;读了代码整洁之道，觉得这本书写的很好，所以就将里面自己觉得很经典的内容记录下来，作为自己以后写代码的标准和准则。同时也为那些曾经困惑过的人一点参考吧！&lt;/p&gt;
+&lt;h2 id=&quot;一、在正式开始之前，我们先思考几个几个问题：&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="软件编程" scheme="https://chihiro.org.cn/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="整洁代码" scheme="https://chihiro.org.cn/tags/%E6%95%B4%E6%B4%81%E4%BB%A3%E7%A0%81/"/>
+    
+      <category term="重构" scheme="https://chihiro.org.cn/tags/%E9%87%8D%E6%9E%84/"/>
+    
+      <category term="测试" scheme="https://chihiro.org.cn/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Google Java编程风格指南</title>
+    <link href="https://chihiro.org.cn/blogs/3366701135.html"/>
+    <id>https://chihiro.org.cn/blogs/3366701135.html</id>
+    <published>2019-03-18T12:30:00.000Z</published>
+    <updated>2019-03-18T12:22:57.300Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1 前言&quot;&gt;&lt;/a&gt;1 前言&lt;/h2&gt;&lt;p&gt;这份文档是&lt;code&gt;Google
+        
+      
+    
+    </summary>
+    
+      <category term="软件编程" scheme="https://chihiro.org.cn/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="Java" scheme="https://chihiro.org.cn/tags/Java/"/>
+    
+      <category term="Google" scheme="https://chihiro.org.cn/tags/Google/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux 常用命令</title>
