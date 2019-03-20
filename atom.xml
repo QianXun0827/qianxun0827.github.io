@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chihiro.org.cn/"/>
-  <updated>2019-03-19T13:08:36.911Z</updated>
+  <updated>2019-03-20T12:10:35.736Z</updated>
   <id>https://chihiro.org.cn/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Java设计模式之状态模式</title>
+    <link href="https://chihiro.org.cn/blogs/1603223013.html"/>
+    <id>https://chihiro.org.cn/blogs/1603223013.html</id>
+    <published>2019-03-20T12:00:00.000Z</published>
+    <updated>2019-03-20T12:10:35.736Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、模式动机&quot;&gt;&lt;a href=&quot;#一、模式动机&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="软件编程" scheme="https://chihiro.org.cn/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="Java" scheme="https://chihiro.org.cn/tags/Java/"/>
+    
+      <category term="设计模式" scheme="https://chihiro.org.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java设计模式之策略模式</title>
     <link href="https://chihiro.org.cn/blogs/2812777186.html"/>
     <id>https://chihiro.org.cn/blogs/2812777186.html</id>
     <published>2019-03-19T13:00:00.000Z</published>
-    <updated>2019-03-19T13:08:36.911Z</updated>
+    <updated>2019-03-20T11:57:39.837Z</updated>
     
     <summary type="html">
     
@@ -49,7 +77,7 @@
     <link href="https://chihiro.org.cn/blogs/2369825694.html"/>
     <id>https://chihiro.org.cn/blogs/2369825694.html</id>
     <published>2019-03-18T12:40:00.000Z</published>
-    <updated>2019-03-19T04:12:17.455Z</updated>
+    <updated>2019-03-20T11:55:49.685Z</updated>
     
     <summary type="html">
     
@@ -66,9 +94,9 @@
       <category term="软件编程" scheme="https://chihiro.org.cn/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="Java" scheme="https://chihiro.org.cn/tags/Java/"/>
-    
       <category term="面向对象编程" scheme="https://chihiro.org.cn/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="Java" scheme="https://chihiro.org.cn/tags/Java/"/>
     
   </entry>
   
@@ -77,7 +105,7 @@
     <link href="https://chihiro.org.cn/blogs/793584201.html"/>
     <id>https://chihiro.org.cn/blogs/793584201.html</id>
     <published>2019-03-18T12:35:00.000Z</published>
-    <updated>2019-03-19T04:12:08.796Z</updated>
+    <updated>2019-03-20T11:55:47.062Z</updated>
     
     <summary type="html">
     
@@ -108,7 +136,7 @@
     <link href="https://chihiro.org.cn/blogs/3366701135.html"/>
     <id>https://chihiro.org.cn/blogs/3366701135.html</id>
     <published>2019-03-18T12:30:00.000Z</published>
-    <updated>2019-03-19T04:12:27.454Z</updated>
+    <updated>2019-03-20T11:55:44.809Z</updated>
     
     <summary type="html">
     
