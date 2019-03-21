@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chihiro.org.cn/"/>
-  <updated>2019-03-20T12:10:35.736Z</updated>
+  <updated>2019-03-20T12:11:23.739Z</updated>
   <id>https://chihiro.org.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://chihiro.org.cn/blogs/1603223013.html"/>
     <id>https://chihiro.org.cn/blogs/1603223013.html</id>
     <published>2019-03-20T12:00:00.000Z</published>
-    <updated>2019-03-20T12:10:35.736Z</updated>
+    <updated>2019-03-20T12:11:23.739Z</updated>
     
     <summary type="html">
     
@@ -94,9 +94,9 @@
       <category term="软件编程" scheme="https://chihiro.org.cn/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="面向对象编程" scheme="https://chihiro.org.cn/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"/>
-    
       <category term="Java" scheme="https://chihiro.org.cn/tags/Java/"/>
+    
+      <category term="面向对象编程" scheme="https://chihiro.org.cn/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
