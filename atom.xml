@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chihiro.org.cn/"/>
-  <updated>2019-03-21T12:58:45.418Z</updated>
+  <updated>2019-03-22T10:38:44.354Z</updated>
   <id>https://chihiro.org.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java设计模式之单例模式</title>
+    <link href="https://chihiro.org.cn/blogs/606353581.html"/>
+    <id>https://chihiro.org.cn/blogs/606353581.html</id>
+    <published>2019-03-22T11:30:00.000Z</published>
+    <updated>2019-03-22T10:38:44.354Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;模式动机&quot;&gt;&lt;a href=&quot;#模式动机&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="软件编程" scheme="https://chihiro.org.cn/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="Java" scheme="https://chihiro.org.cn/tags/Java/"/>
+    
+      <category term="设计模式" scheme="https://chihiro.org.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>Java设计模式之工厂模式</title>
@@ -122,9 +150,9 @@
       <category term="软件编程" scheme="https://chihiro.org.cn/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="面向对象编程" scheme="https://chihiro.org.cn/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"/>
-    
       <category term="Java" scheme="https://chihiro.org.cn/tags/Java/"/>
+    
+      <category term="面向对象编程" scheme="https://chihiro.org.cn/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
