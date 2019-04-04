@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta name="baidu-site-verification" content="ZeyYBV52u1">
     <meta name="google-site-verification" content=" Mozilla/5.0 (compatible; Google-Site-Verification/1.0)">
-    <meta name="keywords" content="Java设计模式之建造者模式, chihiro">
-    <meta name="description" content="一、模式动机无论是在现实世界中还是在软件系统中，都存在一些复杂的对象，它们拥有多个组成部分，如汽车，它包括车轮、方向盘、发动机等各种部件。而对于大多数用户而言，无须知道这些部件的装配细节，也几乎不会使用单独某个部件，而是使用一辆完整的汽车，">
+    <meta name="keywords" content="FastDFS-Nginx分布式文件系统搭建, chihiro">
+    <meta name="description" content="因为不想把博客的图片放在别人的图床上，所以自己研究了个图片服务器。本人搭建的为单机方案，当然此服务器自带集群方案，只是博主没有配置。有需要集群配置方案的也很简单，改几个配置就可以了。具体集群步骤可以问问度娘。首先感谢牧佑大佬的试错总结，没有">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +19,7 @@
     <meta name="keywords" content="{% for tag in page.tags %}{{ tag.name }},{% endfor %}">
     <meta name="keywords" content="{{ theme.keywords }}">
 
-    <title>Java设计模式之建造者模式 | 千与千寻</title>
+    <title>FastDFS-Nginx分布式文件系统搭建 | 千与千寻</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -282,13 +282,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s2.ax1x.com/2019/03/26/ANWB3n.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s2.ax1x.com/2019/04/04/A2D1gO.png')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Java设计模式之建造者模式
+                        FastDFS-Nginx分布式文件系统搭建
                     </div>
                 </div>
             </div>
@@ -380,12 +380,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Java/" target="_blank">
-                                <span class="chip bg-color">Java</span>
+                            <a href="/tags/FastDFS/" target="_blank">
+                                <span class="chip bg-color">FastDFS</span>
                             </a>
                         
-                            <a href="/tags/设计模式/" target="_blank">
-                                <span class="chip bg-color">设计模式</span>
+                            <a href="/tags/Nginx/" target="_blank">
+                                <span class="chip bg-color">Nginx</span>
+                            </a>
+                        
+                            <a href="/tags/分布式文件系统/" target="_blank">
+                                <span class="chip bg-color">分布式文件系统</span>
                             </a>
                         
                     </div>
@@ -396,8 +400,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/软件编程/" class="post-category" target="_blank">
-                                软件编程
+                            <a href="/categories/服务器/" class="post-category" target="_blank">
+                                服务器
                             </a>
                         
                     </div>
@@ -408,7 +412,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-03-26
+                    2019-04-04
                 </div>
 
 		
@@ -422,14 +426,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2,817
+                        4,107
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        10 分
+                        19 分
                     </div>
                     
                 
@@ -445,206 +449,392 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一、模式动机"><a href="#一、模式动机" class="headerlink" title="一、模式动机"></a>一、模式动机</h2><p>无论是在现实世界中还是在软件系统中，都存在一些复杂的对象，它们拥有多个组成部分，如汽车，它包括车轮、方向盘、发动机等各种部件。而对于大多数用户而言，无须知道这些部件的装配细节，也几乎不会使用单独某个部件，而是使用一辆完整的汽车，可以通过建造者模式对其进行设计与描述，建造者模式可以将部件和其组装过程分开，一步一步创建一个复杂的对象。用户只需要指定复杂对象的类型就可以得到该对象，而无须知道其内部的具体构造细节。</p>
-<p>在软件开发中，也存在大量类似汽车一样的复杂对象，它们拥有一系列成员属性，这些成员属性中有些是引用类型的成员对象。而且在这些复杂对象中，还可能存在一些限制条件，如某些属性没有赋值则复杂对象不能作为一个完整的产品使用；有些属性的赋值必须按照某个顺序，一个属性没有赋值之前，另一个属性可能无法赋值等。</p>
-<p>复杂对象相当于一辆有待建造的汽车，而对象的属性相当于汽车的部件，建造产品的过程就相当于组合部件的过程。由于组合部件的过程很复杂，因此，这些部件的组合过程往往被“外部化”到一个称作建造者的对象里，建造者返还给客户端的是一个已经建造完毕的完整产品对象，而用户无须关心该对象所包含的属性以及它们的组装方式，这就是建造者模式的模式动机。</p>
-<h2 id="二、模式定义"><a href="#二、模式定义" class="headerlink" title="二、模式定义"></a>二、模式定义</h2><blockquote>
-<p>造者模式(<code>Builder Pattern</code>)：将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。建造者模式属于<strong>对象创建型模式</strong>。建造者模式又可以称为<strong>生成器模式</strong>。</p>
+                <p>因为不想把博客的图片放在别人的图床上，所以自己研究了个图片服务器。本人搭建的为单机方案，当然此服务器自带集群方案，只是博主没有配置。有需要集群配置方案的也很简单，改几个配置就可以了。具体集群步骤可以问问度娘。首先感谢<a href="https://blog.csdn.net/qq_34301871/article/details/80060235" rel="external nofollow noopener noreferrer" target="_blank">牧佑</a>大佬的试错总结，没有他的总结，我也写不出来这篇博客，当然我也出现了不少未知错误。话不多说，直接开始！</p>
+<blockquote>
+<p>首先声明：本文不介绍Nginx和FastDfs的来源及应用场景，文中出现的<code>120.\*\*.\*\*\*.165</code>地址为博主服务器ip地址，实际搭建时请更改为自己的ip！<br>fastdfs 5.11 版本对照：Version 5.11对应的fastdfs-nginx-module的Version 1.20<br>fastdfs 5.10 版本对照：Version 5.10对应的fastdfs-nginx-module的Version 1.19<br><strong> 如果版本不对应，后期安装会报错！！！</strong></p>
 </blockquote>
-<p>建造者模式是一步一步创建一个复杂的对象，它允许用户只通过指定复杂对象的类型和内容就可以构建它们，用户不需要知道内部的具体构建细节。</p>
-<h2 id="三、模式结构"><a href="#三、模式结构" class="headerlink" title="三、模式结构"></a>三、模式结构</h2><h3 id="1-角色组成"><a href="#1-角色组成" class="headerlink" title="1. 角色组成"></a>1. 角色组成</h3><p>建造者模式包含如下角色：</p>
+<h2 id="安装FastDfs"><a href="#安装FastDfs" class="headerlink" title="安装FastDfs"></a>安装FastDfs</h2><p>作者的GitHub地址：<a href="https://github.com/happyfish100" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/happyfish100</a>（本次所需的工具大部分都可以找到）</p>
+<p>首先搭建需要用到的所有工具截图</p>
+<p><img src="https://s2.ax1x.com/2019/04/04/A23d6P.png" alt=""></p>
+<p>在此直接公布下载地址，毕竟时间宝贵！</p>
+<hr>
 <ul>
-<li><code>Builder</code>：抽象建造者</li>
-<li><code>ConcreteBuilder</code>：具体建造者</li>
-<li><code>Director</code>：导演者</li>
-<li><code>Product</code>：产品角色</li>
+<li><p><strong>fastdfs 5.11</strong>  点击如下图即可，完成下载。</p>
+<p><a href="https://github.com/happyfish100/fastdfs/releases" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/happyfish100/fastdfs/releases</a>  </p>
+</li>
 </ul>
-<h3 id="2-结构图"><a href="#2-结构图" class="headerlink" title="2. 结构图"></a>2. 结构图</h3><p><img src="https://s2.ax1x.com/2019/03/26/ANWrj0.jpg" alt="建造者模式结构图"></p>
-<h2 id="四、示例代码"><a href="#四、示例代码" class="headerlink" title="四、示例代码"></a>四、示例代码</h2><p>首先，是产品类：</p>
-<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
- * 产品类.
- *
- * Created by blinkfox on 2016/10/8.
- */</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Product</span> <span class="token punctuation">{</span>
-
-    <span class="token keyword">private</span> String part1<span class="token punctuation">;</span>
-
-    <span class="token keyword">private</span> String part2<span class="token punctuation">;</span>
-
-    <span class="token comment" spellcheck="true">/* getter 和 setter方法. */</span>
-
-    <span class="token keyword">public</span> String <span class="token function">getPart1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> part1<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setPart1</span><span class="token punctuation">(</span>String part1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>part1 <span class="token operator">=</span> part1<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">public</span> String <span class="token function">getPart2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> part2<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setPart2</span><span class="token punctuation">(</span>String part2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>part2 <span class="token operator">=</span> part2<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-<span class="token punctuation">}</span>
-</code></pre>
-<p>其实，是抽象的建造者<code>Builder</code>接口和具体的建造者<code>ConcreteBuilder</code>类：</p>
-<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
- * 抽象的建造者.
- *
- * Created by blinkfox on 2016/10/8.
- */</span>
-<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Builder</span> <span class="token punctuation">{</span>
-
-    <span class="token comment" spellcheck="true">/**
-     * 产品建造部分1.
-     */</span>
-    <span class="token keyword">void</span> <span class="token function">buildPart1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token comment" spellcheck="true">/**
-     * 产品建造部分2.
-     */</span>
-    <span class="token keyword">void</span> <span class="token function">buildPart2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token comment" spellcheck="true">/**
-     * 得到建造的产品.
-     *
-     * @return 产品
-     */</span>
-    Product <span class="token function">getResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token punctuation">}</span>
-</code></pre>
-<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
- * 具体的建造者实现类.
- *
- * Created by blinkfox on 2016/10/8.
- */</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ConcreteBuilder</span> <span class="token keyword">implements</span> <span class="token class-name">Builder</span> <span class="token punctuation">{</span>
-
-    <span class="token comment" spellcheck="true">/** 产品. */</span>
-    <span class="token keyword">private</span> Product product <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Product</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token comment" spellcheck="true">/**
-     * 产品建造部分1.
-     */</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">buildPart1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        product<span class="token punctuation">.</span><span class="token function">setPart1</span><span class="token punctuation">(</span><span class="token string">"编号：95757"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token comment" spellcheck="true">/**
-     * 产品建造部分2.
-     */</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">buildPart2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        product<span class="token punctuation">.</span><span class="token function">setPart2</span><span class="token punctuation">(</span><span class="token string">"名称：小机器人"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token comment" spellcheck="true">/**
-     * 得到建造的产品.
-     *
-     * @return 产品
-     */</span>
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> Product <span class="token function">getResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> product<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-<span class="token punctuation">}</span>
-</code></pre>
-<p>最后，导演者<code>Director</code>类：</p>
-<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
- * 导演者类.
- *
- * Created by blinkfox on 2016/10/8.
- */</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Director</span> <span class="token punctuation">{</span>
-
-    <span class="token comment" spellcheck="true">/** 当前需要的建造者对象. */</span>
-    <span class="token keyword">private</span> Builder builder<span class="token punctuation">;</span>
-
-    <span class="token comment" spellcheck="true">/**
-     * 构造方法.
-     *
-     * @param builder
-     */</span>
-    <span class="token keyword">public</span> <span class="token function">Director</span><span class="token punctuation">(</span>Builder builder<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>builder <span class="token operator">=</span> builder<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token comment" spellcheck="true">/**
-     * 产品构造方法，负责调用各个零件建造方法.
-     */</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">construct</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        builder<span class="token punctuation">.</span><span class="token function">buildPart1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        builder<span class="token punctuation">.</span><span class="token function">buildPart2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-<span class="token punctuation">}</span>
-</code></pre>
-<p>以下是建造者模式的客户端场景类：</p>
-<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
- * 建造者模式的客户端场景类.
- *
- * Created by blinkfox on 2016/10/8.
- */</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BuilderClient</span> <span class="token punctuation">{</span>
-
-    <span class="token comment" spellcheck="true">/**
-     * 主入口方法.
-     *
-     * @param args 数组参数
-     */</span>
-    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        Builder builder <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ConcreteBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        Director director <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Director</span><span class="token punctuation">(</span>builder<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        director<span class="token punctuation">.</span><span class="token function">construct</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        Product product <span class="token operator">=</span> builder<span class="token punctuation">.</span><span class="token function">getResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>product<span class="token punctuation">.</span><span class="token function">getPart1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>product<span class="token punctuation">.</span><span class="token function">getPart2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-<span class="token punctuation">}</span>
-</code></pre>
-<h2 id="五、模式分析"><a href="#五、模式分析" class="headerlink" title="五、模式分析"></a>五、模式分析</h2><p>抽象建造者类中定义了产品的创建方法和返回方法;</p>
-<p>建造者模式的结构中还引入了一个导演者类<code>Director</code>，该类的作用主要有两个：一方面它隔离了客户与生产过程；另一方面它负责控制产品的生成过程。导演者针对抽象建造者编程，客户端只需要知道具体建造者的类型，即可通过导演者类调用建造者的相关方法，返回一个完整的产品对象</p>
-<p>在客户端代码中，无须关心产品对象的具体组装过程，只需确定具体建造者的类型即可，建造者模式将复杂对象的构建与对象的表现分离开来，这样使得同样的构建过程可以创建出不同的表现。</p>
-<h3 id="1-优点"><a href="#1-优点" class="headerlink" title="1. 优点"></a>1. 优点</h3><p>建造者模式的优点：</p>
+<p><img src="https://s2.ax1x.com/2019/04/04/A28Khj.png" alt="">  </p>
+<hr>
 <ul>
-<li>在建造者模式中， 客户端不必知道产品内部组成的细节，将产品本身与产品的创建过程解耦，使得相同的创建过程可以创建不同的产品对象。</li>
-<li>每一个具体建造者都相对独立，而与其他的具体建造者无关，因此可以很方便地替换具体建造者或增加新的具体建造者， 用户使用不同的具体建造者即可得到不同的产品对象 。</li>
-<li>可以更加精细地控制产品的创建过程 。将复杂产品的创建步骤分解在不同的方法中，使得创建过程更加清晰，也更方便使用程序来控制创建过程。</li>
-<li>增加新的具体建造者无须修改原有类库的代码，指挥者类针对抽象建造者类编程，系统扩展方便，符合“开闭原则”。</li>
+<li><strong>fastdfs-client-java-master</strong> 点击如下图即可，完成下载。</li>
 </ul>
-<h3 id="2-缺点"><a href="#2-缺点" class="headerlink" title="2. 缺点"></a>2. 缺点</h3><p>建造者模式的缺点：</p>
+<p><a href="https://github.com/happyfish100/fastdfs-client-java" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/happyfish100/fastdfs-client-java</a>  </p>
+<p><img src="https://s2.ax1x.com/2019/04/04/A28Khj.png" alt="">  </p>
+<hr>
 <ul>
-<li>建造者模式所创建的产品一般具有较多的共同点，其组成部分相似，如果产品之间的差异性很大，则不适合使用建造者模式，因此其使用范围受到一定的限制。</li>
-<li>如果产品的内部变化复杂，可能会导致需要定义很多具体建造者类来实现这种变化，导致系统变得很庞大。</li>
+<li><strong>fastdfs-nginx-module-master</strong> 点击如下图即可，完成下载。  </li>
 </ul>
-<h3 id="3-适用环境"><a href="#3-适用环境" class="headerlink" title="3. 适用环境"></a>3. 适用环境</h3><p>在以下情况下可以使用建造者模式：</p>
+<p><a href="https://github.com/happyfish100/fastdfs-nginx-module" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/happyfish100/fastdfs-nginx-module</a>  </p>
+<p><img src="https://s2.ax1x.com/2019/04/04/A28Bg1.png" alt="">  </p>
+<hr>
 <ul>
-<li>需要生成的产品对象有复杂的内部结构，这些产品对象通常包含多个成员属性。</li>
-<li>需要生成的产品对象的属性相互依赖，需要指定其生成顺序。</li>
-<li>对象的创建过程独立于创建该对象的类。在建造者模式中引入了指挥者类，将创建过程封装在指挥者类中，而不在建造者类中。</li>
-<li>隔离复杂对象的创建和使用，并使得相同的创建过程可以创建不同的产品。</li>
+<li><strong>libfastcommon-master</strong> 点击如下图即可，完成下载。    </li>
 </ul>
-<h3 id="4-建造者模式与抽象工厂模式的比较"><a href="#4-建造者模式与抽象工厂模式的比较" class="headerlink" title="4. 建造者模式与抽象工厂模式的比较"></a>4. 建造者模式与抽象工厂模式的比较</h3><ul>
-<li>与抽象工厂模式相比，建造者模式返回一个组装好的完整产品，而抽象工厂模式返回一系列相关的产品，这些产品位于不同的产品等级结构，构成了一个产品族。</li>
-<li>在抽象工厂模式中，客户端实例化工厂类，然后调用工厂方法获取所需产品对象，而在建造者模式中，客户端可以不直接调用建造者的相关方法，而是通过指挥者类来指导如何生成对象，包括对象的组装过程和建造步骤，它侧重于一步步构造一个复杂对象，返回一个完整的对象。</li>
-<li>如果将抽象工厂模式看成汽车配件生产工厂，生产一个产品族的产品，那么建造者模式就是一个汽车组装工厂，通过对部件的组装可以返回一辆完整的汽车。</li>
+<p><a href="https://github.com/happyfish100/libfastcommon" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/happyfish100/libfastcommon  </a>  </p>
+<p><img src="https://s2.ax1x.com/2019/04/04/A28gED.png" alt="">  </p>
+<hr>
+<ul>
+<li><strong>nginx-1.12.0.tar</strong> 点击如下图即可，完成下载。  </li>
 </ul>
-<h2 id="六、模式总结"><a href="#六、模式总结" class="headerlink" title="六、模式总结"></a>六、模式总结</h2><ul>
-<li>建造者模式将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。建造者模式是一步一步创建一个复杂的对象，它允许用户只通过指定复杂对象的类型和内容就可以构建它们，用户不需要知道内部的具体构建细节。建造者模式属于对象创建型模式。</li>
-<li>建造者模式包含如下四个角色：抽象建造者为创建一个产品对象的各个部件指定抽象接口；具体建造者实现了抽象建造者接口，实现各个部件的构造和装配方法，定义并明确它所创建的复杂对象，也可以提供一个方法返回创建好的复杂产品对象；产品角色是被构建的复杂对象，包含多个组成部件；指挥者负责安排复杂对象的建造次序，指挥者与抽象建造者之间存在关联关系，可以在其<code>construct()</code>建造方法中调用建造者对象的部件构造与装配方法，完成复杂对象的建造</li>
-<li>在建造者模式的结构中引入了一个导演者类，该类的作用主要有两个：一方面它隔离了客户与生产过程；另一方面它负责控制产品的生成过程。指挥者针对抽象建造者编程，客户端只需要知道具体建造者的类型，即可通过指挥者类调用建造者的相关方法，返回一个完整的产品对象。</li>
-<li>建造者模式的主要优点在于客户端不必知道产品内部组成的细节，将产品本身与产品的创建过程解耦，使得相同的创建过程可以创建不同的产品对象，每一个具体建造者都相对独立，而与其他的具体建造者无关，因此可以很方便地替换具体建造者或增加新的具体建造者，符合“开闭原则”，还可以更加精细地控制产品的创建过程；其主要缺点在于由于建造者模式所创建的产品一般具有较多的共同点，其组成部分相似，因此其使用范围受到一定的限制，如果产品的内部变化复杂，可能会导致需要定义很多具体建造者类来实现这种变化，导致系统变得很庞大。</li>
-<li>建造者模式适用情况包括：需要生成的产品对象有复杂的内部结构，这些产品对象通常包含多个成员属性；需要生成的产品对象的属性相互依赖，需要指定其生成顺序；对象的创建过程独立于创建该对象的类；隔离复杂对象的创建和使用，并使得相同的创建过程可以创建不同类型的产品。</li>
-</ul>
+<p><a href="http://nginx.org/download/" rel="external nofollow noopener noreferrer" target="_blank">http://nginx.org/download/</a>  </p>
+<p><img src="https://s2.ax1x.com/2019/04/04/A282Ue.png" alt="">  </p>
+<hr>
+<p>到此，所需要的工具已经下载完毕。</p>
+<p>下面开始搭建，博主使用的是阿里云轻量级服务器下的linux系统，下面的工具运行命令可看情况安装，但实际安装后已存在的工具不会重复安装，所以完全可以直接复制过去执行一遍，以防万一。</p>
+<p>首先下载 所需全部工具运行命令</p>
+<pre class=" language-linux"><code class="language-linux">yum -y install zlib zlib-devel pcre pcre-devel gcc gcc-c++ openssl openssl-devel libevent libevent-devel perl unzip net-tools wget
+</code></pre>
+<p>等待下载完成 然后安装rz 命令</p>
+<pre class=" language-linux"><code class="language-linux">yum install lrzsz -y
+</code></pre>
+<p>通过rz命令 或者sftp上传到/home目录下自己新建一个目录（根据个人习惯）</p>
+<p><code>cd /var</code> 进入var目录<br><code>mkdir fdfs</code> 创建fdfs文件夹<br><code>cd fdfs</code> 进入fdfs文件夹<br><code>rz</code>(或直接将文件拖拽进shell窗口) 将下载好的文件传输至服务器<br><code>ls</code> 如下图所示5个压缩文件<br><img src="https://s2.ax1x.com/2019/04/04/A2GQaD.png" alt="">  </p>
+<h3 id="安装libfastcommon"><a href="#安装libfastcommon" class="headerlink" title="安装libfastcommon"></a>安装libfastcommon</h3><p>解压刚才上传的文件，然后进入解压完成的文件目录</p>
+<p><code>unzip libfastcommon-master.zip</code> 解压libfastcommon-master<br><code>cd libfastcommon-master</code>  进入libfastcommon-master<br><code>ll</code><br>我们会看到</p>
+<p><img src="https://s2.ax1x.com/2019/04/04/A2GNsP.png" alt="">  </p>
+<p>开始安装 执行</p>
+<pre><code>./make.sh
+./make.sh install
+</code></pre><p>看看有没有报错，如果没有错误就可以执行软链接了。</p>
+<pre><code>ln -s /usr/lib64/libfastcommon.so /usr/local/lib/libfastcommon.so 
+ln -s /usr/lib64/libfastcommon.so /usr/lib/libfastcommon.so 
+ln -s /usr/lib64/libfdfsclient.so /usr/local/lib/libfdfsclient.so
+ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
+</code></pre><h3 id="安装FastDfs-1"><a href="#安装FastDfs-1" class="headerlink" title="安装FastDfs"></a>安装FastDfs</h3><p>然后回到/var/fdfs(或者你创建的文件下)</p>
+<p>解压fastdfs</p>
+<p><code>unzip fastdfs-5.11.zip</code></p>
+<p>解压完成进入fastdfs5.11</p>
+<pre><code>cd fastdfs-5.11 
+./make.sh
+./make.sh install
+</code></pre><p>如果没有报错那么，万里长征第一步已经成功，如果报错，请根据报错提示重装。</p>
+<p>成功之后查看目录</p>
+<pre><code>[root@izwz9hx50rbasf6sqasl7vz fdfs]# cd /etc/fdfs/  
+[root@izwz9hx50rbasf6sqasl7vz fdfs]# ll  
+-rw-r--r-- 1 root root  1461 Jun  8 21:56 client.conf.sample  
+-rw-r--r-- 1 root root  7927 Jun  8 21:56 storage.conf.sample  
+-rw-r--r-- 1 root root  7389 Jun  8 21:56 tracker.conf.sample  
+</code></pre><p>我们需要把这三个实例文件服务一份，去掉sample</p>
+<pre><code>cp client.conf.sample client.conf
+cp storage.conf.sample storage.conf
+cp tracker.conf.sample tracker.conf
+</code></pre><p>到此~FastDFS安装结束。</p>
+<h3 id="安装tracker"><a href="#安装tracker" class="headerlink" title="安装tracker"></a>安装tracker</h3><p> · 创建tarcker工作目录</p>
+<p>这个目录可以自定义，用来保存tracker的data和log   </p>
+<p>根据个人习惯创建下面的目录：</p>
+<pre><code>[root@izwz9hx50rbasf6sqasl7vz ~]# cd /var/
+[root@izwz9hx50rbasf6sqasl7vz var]# mkdir fastdfs
+[root@izwz9hx50rbasf6sqasl7vz var]# cd fastdfs/
+[root@izwz9hx50rbasf6sqasl7vz fastdfs]# mkdir fastdfs_tracker
+[root@izwz9hx50rbasf6sqasl7vz fastdfs]# cd fastdfs_tracker/
+[root@izwz9hx50rbasf6sqasl7vz fastdfs_tracker]# pwd
+/var/fastdfs/fastdfs_tracker        #这个是我最终创建的目录
+[root@izwz9hx50rbasf6sqasl7vz fastdfs_tracker]#
+</code></pre><p>· 配置tracker</p>
+<pre><code>cd /etc/fdfs
+vim tracker.conf
+</code></pre><p>打开后找到下面4处然后修改即可（点点111）</p>
+<pre><code>1. disabled=false #默认开启 
+2. port=22122 #默认端口号 
+3. base_path=/var/fastdfs/fastdfs_tracker #刚刚创建的目录 
+4. http.server_port=6666 #默认端口是8080
+</code></pre><p>保存修改文件</p>
+<p>启动 tracker 命令如下。</p>
+<pre><code>service fdfs_trackerd start
+</code></pre><p>如果不能成功启动，可以通systemctl命令</p>
+<pre><code>systemctl start fdfs_trackerd
+</code></pre><p>成功之后可以看见</p>
+<pre><code>[root@izwz9hx50rbasf6sqasl7vz fdfs]# service fdfs_trackerd start
+Starting fdfs_trackerd (via systemctl):                    [  OK  ]
+</code></pre><p>进入 （点点111） 创建的tracker目录。发现目录多了data和log两个目录</p>
+<pre><code>[root@izwz9hx50rbasf6sqasl7vz fdfs]# cd /var/fastdfs/fastdfs_tracker/
+[root@izwz9hx50rbasf6sqasl7vz fastdfs_tracker]# ll
+total 0
+drwxr-xr-x 2 root root 178 Jun 16 21:19 data
+drwxr-xr-x 2 root root  26 Jun 13 22:01 logs
+</code></pre><p>然后 我们不能每次都这么启动tracker，我们需要给tracker加入开机启动</p>
+<p>首先需要给执行权限，</p>
+<pre><code>chmod +x /etc/rc.d/rc.local
+</code></pre><p>然后开始修改rc.local</p>
+<pre><code>vim /etc/rc.d/rc.local
+</code></pre><p>在配置文件最后加下最后一句话即可</p>
+<pre><code>#!/bin/bash
+# THIS FILE IS ADDED FOR COMPATIBILITY PURPOSES
+#
+# It is highly advisable to create own systemd services or udev rules
+# to run scripts during boot instead of using this file.
+#
+# In contrast to previous versions due to parallel execution during boot
+# this script will NOT be run after all other services.
+#
+# Please note that you must run &#39;chmod +x /etc/rc.d/rc.local&#39; to ensure
+# that this script will be executed during boot.
+
+touch /var/lock/subsys/local
+service fdfs_trackerd start
+</code></pre><p>保存，然后 查看tracker端口监听情况</p>
+<pre><code>[root@izwz9hx50rbasf6sqasl7vz fastdfs_tracker]# netstat -unltp|grep fdfs
+tcp        0      0 0.0.0.0:22122           0.0.0.0:*               LISTEN      2233/fdfs_trackerd
+</code></pre><p>到此22122端口监听成功。</p>
+<h3 id="安装storage"><a href="#安装storage" class="headerlink" title="安装storage"></a>安装storage</h3><p>为storage配置工作目录，由于storage还需要一个目录用来存储数据，所以我另外多建了一个fasdfs_storage_data </p>
+<pre><code>[root@izwz9hx50rbasf6sqasl7vz fastdfs]# ls
+fastdfs_storage  fastdfs_storage_data  fastdfs_tracker
+</code></pre><p>修改storage配置文件</p>
+<p>修改storage.conf</p>
+<pre><code>vim /etc/fdfs/storage.conf
+</code></pre><p>找到如下几处地方修改即可</p>
+<pre><code>1. disabled=false 
+2. group_name=group1 #组名，根据实际情况修改 
+3. port=23000  #设置storage的端口号，默认是23000，同一个组的storage端口号必须一致 
+4. base_path=/var/fastdfs/fastdfs_storage  #设置storage数据文件和日志目录 
+5. store_path_count=1 #存储路径个数，需要和store_path个数匹配 
+6. store_path0=/var/fastdfs/fastdfs_storage_data #实际文件存储路径 
+7. tracker_server=120.\*\*.\*\*\*.165:22122 #我CentOS7的ip地址 
+8. http.server_port=8888 #设置 http 端口号
+</code></pre><p>保存之后 创建软引用</p>
+<pre><code>ln -s /usr/bin/fdfs_storaged /usr/local/bin
+</code></pre><p>启动storage</p>
+<pre><code>service fdfs_storaged start
+</code></pre><p>同理 如果不能启动可以用下述命令</p>
+<pre><code>systemctl start fdfs_storaged
+</code></pre><p>成功应该是如下</p>
+<pre><code>[root@izwz9hx50rbasf6sqasl7vz fdfs]# service fdfs_stroaged start
+Starting fdfs_storaged (via systemctl):                    [  OK  ]
+</code></pre><p>同样设置开机启动</p>
+<p>修改rc.local</p>
+<pre><code>vim /etc/rc.d/rc.local
+
+#!/bin/bash
+# THIS FILE IS ADDED FOR COMPATIBILITY PURPOSES
+#
+# It is highly advisable to create own systemd services or udev rules
+# to run scripts during boot instead of using this file.
+#
+# In contrast to previous versions due to parallel execution during boot
+# this script will NOT be run after all other services.
+#
+# Please note that you must run &#39;chmod +x /etc/rc.d/rc.local&#39; to ensure
+# that this script will be executed during boot.
+
+touch /var/lock/subsys/local
+service fdfs_trackerd start
+service fdfs_storaged start
+</code></pre><p>同样查看服务是否启动</p>
+<pre><code>[root@izwz9hx50rbasf6sqasl7vz fastdfs]# netstat -unltp | grep fdfs
+tcp        0      0 0.0.0.0:22122           0.0.0.0:*               LISTEN      2233/fdfs_trackerd
+tcp        0      0 0.0.0.0:23000           0.0.0.0:*               LISTEN      2323/fdfs_storaged
+</code></pre><p>服务启动，到此fastdfs已经配置完成了。最后我们再确认一下，storage是否注册到了tracker中去。 </p>
+<pre><code>/usr/bin/fdfs_monitor /etc/fdfs/storage.conf
+</code></pre><p>成功后可以看到：   </p>
+<p>ip_addr = 120.**.***.165 (localhost.localdomain) ACTIVE 的字样</p>
+<p>ok，修改客户端配置文件</p>
+<pre><code>vim /etc/fdfs/client.conf
+
+base_path=/var/fastdfs/fastdfs_tracker #tracker服务器文件路径
+tracker_server=120.\*\*.\*\*\*.165:22122 #tracker服务器IP地址和端口号
+http.tracker_server_port=6666 # tracker 服务器的 http端口号，必须和tracker的设置对应起来
+</code></pre><p>接下来上传图片到centos7为测试</p>
+<p>rz 命令选择一张照片 上传到随便一个目录但是 一定要复制出来</p>
+<p>接下来</p>
+<pre><code>/usr/bin/fdfs_upload_file  /etc/fdfs/client.conf  /root/测试.jpg  #你上传的图片路径（linux上的）
+</code></pre><p>成功之后会返回图片的路径</p>
+<pre><code>group1/M00/00/00/rBEcC1ykgdiALaceAACZsuwCbKE956.jpg
+</code></pre><p>我们去刚才上传的路径查看是否上传成功~~~</p>
+<pre><code>cd /var/fastdfs/fastdfs_storage_data/data
+
+ls
+
+0  0D  1A  27  34  41  4E  5B  68  75  82  8F  9C  A9  B6  C3  D0  DD  EA  F7
+01  0E  1B  28  35  42  4F  5C  69  76  83  90  9D  AA  B7  C4  D1  DE  EB  F8
+02  0F  1C  29  36  43  50  5D  6A  77  84  91  9E  AB  B8  C5  D2  DF  EC  F9
+03  10  1D  2A  37  44  51  5E  6B  78  85  92  9F  AC  B9  C6  D3  E0  ED  FA
+04  11  1E  2B  38  45  52  5F  6C  79  86  93  A0  AD  BA  C7  D4  E1  EE  FB
+05  12  1F  2C  39  46  53  60  6D  7A  87  94  A1  AE  BB  C8  D5  E2  EF  FC
+06  13  20  2D  3A  47  54  61  6E  7B  88  95  A2  AF  BC  C9  D6  E3  F0  FD
+07  14  21  2E  3B  48  55  62  6F  7C  89  96  A3  B0  BD  CA  D7  E4  F1  FE
+08  15  22  2F  3C  49  56  63  70  7D  8A  97  A4  B1  BE  CB  D8  E5  F2  FF
+09  16  23  30  3D  4A  57  64  71  7E  8B  98  A5  B2  BF  CC  D9  E6  F3  M00
+0A  17  24  31  3E  4B  58  65  72  7F  8C  99  A6  B3  C0  CD  DA  E7  F4
+0B  18  25  32  3F  4C  59  66  73  80  8D  9A  A7  B4  C1  CE  DB  E8  F5
+0C  19  26  33  40  4D  5A  67  74  81  8E  9B  A8  B5  C2  CF  DC  E9  F6
+[root@izwz9hx50rbasf6sqasl7vz data]# cd 00
+[root@izwz9hx50rbasf6sqasl7vz 00]# ls
+00  0D  1A  27  34  41  4E  5B  68  75  82  8F  9C  A9  B6  C3  D0  DD  EA  F7
+01  0E  1B  28  35  42  4F  5C  69  76  83  90  9D  AA  B7  C4  D1  DE  EB  F8
+02  0F  1C  29  36  43  50  5D  6A  77  84  91  9E  AB  B8  C5  D2  DF  EC  F9
+03  10  1D  2A  37  44  51  5E  6B  78  85  92  9F  AC  B9  C6  D3  E0  ED  FA
+04  11  1E  2B  38  45  52  5F  6C  79  86  93  A0  AD  BA  C7  D4  E1  EE  FB
+05  12  1F  2C  39  46  53  60  6D  7A  87  94  A1  AE  BB  C8  D5  E2  EF  FC
+06  13  20  2D  3A  47  54  61  6E  7B  88  95  A2  AF  BC  C9  D6  E3  F0  FD
+07  14  21  2E  3B  48  55  62  6F  7C  89  96  A3  B0  BD  CA  D7  E4  F1  FE
+08  15  22  2F  3C  49  56  63  70  7D  8A  97  A4  B1  BE  CB  D8  E5  F2  FF
+09  16  23  30  3D  4A  57  64  71  7E  8B  98  A5  B2  BF  CC  D9  E6  F3
+0A  17  24  31  3E  4B  58  65  72  7F  8C  99  A6  B3  C0  CD  DA  E7  F4
+0B  18  25  32  3F  4C  59  66  73  80  8D  9A  A7  B4  C1  CE  DB  E8  F5
+0C  19  26  33  40  4D  5A  67  74  81  8E  9B  A8  B5  C2  CF  DC  E9  F6
+[root@localhost 00]# cd 00
+[root@localhost 00]# ls
+
+rBEcC1ykgdiALaceAACZsuwCbKE956.jpg 
+</code></pre><p>果然我们找到了图片了。  </p>
+<p>data下有256个1级目录，每级目录下又有256个2级子目录，总共65536个文件，新写的文件会以hash的方式被路由到其中某个子目录下，然后将文件数据直接作为一个本地文件存储到该目录中。</p>
+<p>然后我们HTTP访问文件</p>
+<p><a href="http://120.\*\*.\*\*\*.165:9999/group1/M00/00/00/rBEcC1ykgdiALaceAACZsuwCbKE956.jpg" rel="external nofollow noopener noreferrer" target="_blank">http://120.\*\*.\*\*\*.165:9999/group1/M00/00/00/rBEcC1ykgdiALaceAACZsuwCbKE956.jpg</a> </p>
+<p><img src="https://s2.ax1x.com/2019/04/04/A2YbVK.png" alt="">  </p>
+<p>我们发现，http不能直接访问到图片。这是为什么呢。   </p>
+<p>原来早在4.05的时候，就remove embed HTTP support</p>
+<pre><code>Version 4.05  2012-12-30
+ * client/fdfs_upload_file.c can specify storage ip port and store path index
+ * add connection pool
+ * client load storage ids config
+ * common/ini_file_reader.c does NOT call chdir
+ * keep the mtime of file same
+ * use g_current_time instead of call time function
+ * remove embed HTTP support
+</code></pre><p>HTTP请求不能访问文件的原因</p>
+<blockquote>
+<p>我们在使用FastDFS部署一个分布式文件系统的时候，通过FastDFS的客户端API来进行文件的上传、下载、删除等操作。同时通过FastDFS的HTTP服务器来提供HTTP服务。但是FastDFS的HTTP服务较为简单，无法提供负载均衡等高性能的服务，所以FastDFS的开发者——淘宝的架构师余庆同学，为我们提供了Nginx上使用的FastDFS模块（也可以叫FastDFS的Nginx模块）。<br>FastDFS通过Tracker服务器,将文件放在Storage服务器存储,但是同组之间的服务器需要复制文件,有延迟的问题.假设Tracker服务器将文件上传到了120.**.***.165,文件ID已经返回客户端,这时,后台会将这个文件复制到120.**.***.1651,如果复制没有完成,客户端就用这个ID在120.**.***.165取文件,肯定会出现错误。这个fastdfs-nginx-module可以重定向连接到源服务器取文件,避免客户端由于复制延迟的问题,出现错误。<br>正是这样，FastDFS需要结合nginx，所以取消原来对HTTP的直接支持。</p>
+</blockquote>
+<h2 id="FastDFS的nginx模块安装"><a href="#FastDFS的nginx模块安装" class="headerlink" title="FastDFS的nginx模块安装"></a>FastDFS的nginx模块安装</h2><h3 id="配置storage-nginx"><a href="#配置storage-nginx" class="headerlink" title="配置storage nginx"></a>配置storage nginx</h3><p>准备nginx安装</p>
+<p>cd /var/fdfs</p>
+<p>在安装nginx之前要安装nginx所需的依赖lib:  </p>
+<pre><code>yum -y install pcre pcre-devel  
+yum -y install zlib zlib-devel  
+yum -y install openssl openssl-devel
+</code></pre><p>安装nginx并添加fastdfs-nginx-module</p>
+<p>解压nginx,和fastdfs-nginx-module:  </p>
+<pre><code>tar -zxvf nginx-1.12.0.tar.gz
+unzip fastdfs-nginx-module-master.zip
+</code></pre><p>然后进入nginx安装目录，添加fastdfs-nginx-module：</p>
+<pre><code>./configure --prefix=/usr/local/nginx \
+--add-module=/var/fdfs/fastdfs-nginx-module-master/src    
+</code></pre><blockquote>
+<p>注意，这里有个坑！一开始对nginx的插件安装并不了解，使用的是yum下载的nginx，这样下载后的nginx好像是自带了某些插件，不需要配置SSL(因为博主的博客使用nginx做的静态代理，并且使用了SSL加密)。然而！从官网下载的nginx并不带有这个插件，所有导致博主在编译的时候一直报错。因为nginx的插件是批量添加的，所以，如果配置了HTTPS代理，那么就需要按如下方式配置两个插件！</p>
+</blockquote>
+<pre><code>./configure --prefix=/usr/local/nginx \
+--with-http_ssl_module \
+--add-module=/var/fdfs/fastdfs-nginx-module-master/src 
+</code></pre><p>如果没有错误信息，开始安装</p>
+<pre><code>make
+make install
+</code></pre><blockquote>
+<p>这里还有个坑！<code>make</code>编译的时候可能会报这个错<code>/usr/include/fastdfs/fdfs_define.h:15:27: fatal error: common_define.h: No such file or directory</code>。<br>下面给出解决方案：<br>修改fastdfs-nginx-module-1.20/src/config文件，重新配置<br>ngx_module_incs=<code>&quot;/usr/include/fastdfs /usr/include/fastcommon/&quot;</code><br>CORE_INCS=<code>&quot;$CORE_INCS /usr/include/fastdfs /usr/include/fastcommon/&quot;</code></p>
+</blockquote>
+<p>nginx的默认目录是/usr/local/nginx 开始 配置storage nginx</p>
+<pre><code>root@izwz9hx50rbasf6sqasl7vz nginx-1.12.0]# cd /usr/local/nginx
+[root@izwz9hx50rbasf6sqasl7vz nginx]# ll
+</code></pre><p>修改nginx.conf:  </p>
+<pre><code>[root@izwz9hx50rbasf6sqasl7vz nginx]# cd conf/
+[root@izwz9hx50rbasf6sqasl7vz conf]# ls
+fastcgi.conf            koi-win             scgi_params
+fastcgi.conf.default    mime.types          scgi_params.default
+fastcgi_params          mime.types.default  uwsgi_params
+fastcgi_params.default  nginx.conf          uwsgi_params.default
+koi-utf                 nginx.conf.default  win-utf
+[root@izwz9hx50rbasf6sqasl7vz conf]# vi nginx.conf
+</code></pre><p>修改listen 9999.然后 新增本地location</p>
+<pre><code>server {
+        listen       9999;
+        server_name  localhost;
+
+        location / {
+            root   html;
+            index  index.html index.htm;
+        }
+
+        location /group1/M00 {
+            root /var/fastdfs/fastdfs_storage_data/data;
+            ngx_fastdfs_module;
+        }
+</code></pre><p>然后进入FastDFS安装时的解压过的目录，将http.conf和mime.types拷贝到/etc/fdfs目录下：</p>
+<pre><code>[root@izwz9hx50rbasf6sqasl7vz fastdfs-5.11]# cd /var/fdfs/fastdfs-5.11/conf
+[root@izwz9hx50rbasf6sqasl7vz conf]# ls
+anti-steal.jpg  http.conf   storage.conf      tracker.conf
+client.conf     mime.types  storage_ids.conf
+cp http.conf /etc/fdfs/
+cp mime.types /etc/fdfs/
+</code></pre><p>另外还需要把fastdfs-nginx-module安装目录中src目录下的mod_fastdfs.conf也拷贝到/etc/fdfs目录下：</p>
+<pre><code>cp /var/fdfs/fastdfs-nginx-module-master/src/mod_fastdfs.conf /etc/fdfs/
+</code></pre><p>对刚刚拷贝的mod_fastdfs.conf文件进行修改：</p>
+<pre><code>vim /etc/fdfs/mod_fastdfs.conf
+
+base_path=/usr/muyou/dev/fastdfs/fastdfs_storage  #保存日志目录
+tracker_server=120.\*\*.\*\*\*.165:22122 #tracker服务器的IP地址以及端口号
+storage_server_port=23000 #storage服务器的端口号
+url_have_group_name = true #文件 url 中是否有 group 名
+store_path0=/var/fastdfs/fastdfs_storage_data   #存储路径
+group_count = 3 #设置组的个数，事实上这次只使用了group1
+</code></pre><p>在文件的最后，设置group  </p>
+<pre><code>[group1]
+group_name=group1
+storage_server_port=23000
+store_path_count=1
+store_path0=/var/fastdfs/fastdfs_storage_data
+store_path1=/var/fastdfs/fastdfs_storage_data
+
+# group settings for group #2
+# since v1.14
+# when support multi-group, uncomment following section as neccessary
+[group2]
+group_name=group2
+storage_server_port=23000
+store_path_count=1
+store_path0=/var/fastdfs/fastdfs_storage_data
+
+[group3]
+group_name=group3
+storage_server_port=23000
+store_path_count=1
+store_path0=/var/fastdfs/fastdfs_storage_data
+</code></pre><p>创建M00至storage存储目录的符号连接：  </p>
+<pre><code>ln  -s  /var/fastdfs/fastdfs_storage_data/data/ /var/fastdfs/fastdfs_storage_data/data/M00
+</code></pre><p>启动nginx:  </p>
+<pre><code>/usr/local/nginx/sbin/nginx
+</code></pre><p>成功启动：  </p>
+<pre><code>[root@localhost conf]# /usr/local/nginx/sbin/nginx
+ngx_http_fastdfs_set pid=1231
+</code></pre><p><img src="https://s2.ax1x.com/2019/04/04/A2DAvF.png" alt=""> </p>
+<p>恭喜你，storage的nginx已配置成功。接下来，我们还要继续配置tracker的nginx。  </p>
+<h3 id="配置tracker-nginx"><a href="#配置tracker-nginx" class="headerlink" title="配置tracker nginx"></a>配置tracker nginx</h3><p>一样的还是修改nginx.conf。需将upstream指向tracker的nginx地址。  </p>
+<pre><code>vim /usr/local/nginx/conf/nginx.conf
+
+ upstream fdfs_group1 {
+        server 127.0.0.1:9999;
+    }
+    server {
+        listen       9989;
+        server_name  localhost;
+
+        #charset koi8-r;
+
+        #access_log  logs/host.access.log  main;
+
+        location /group1/M00 {
+            proxy_pass http://fdfs_group1;
+        }
+</code></pre><p>启动nginx:</p>
+<pre><code>/usr/local/nginx/sbin/nginx2
+</code></pre><p><img src="https://s2.ax1x.com/2019/04/04/A2Deb9.png" alt=""></p>
+<p>如果 访问不了 那就修改防火墙吧(阿里服务器上请不要随意关闭防火墙，可能是安全组没有打开！)</p>
+<p>firewall-cmd –zone=public –add-port=23000/tcp –permanent #开户端口号  </p>
+<p>或者</p>
+<p>systemctl enable firewalld.service #开启防火墙</p>
+<p>systemctl stop firewalld.service  #关闭防火墙(开机会仍会启动)</p>
+<p>systemctl disable firewalld.service  #禁用防火墙(开机后不再启动)</p>
+<p>然后在找刚才那个路径 测试</p>
+<p><img src="https://s2.ax1x.com/2019/04/04/A2D9Nq.png" alt="">  </p>
+<p>OK，到此已经结束，大功告成~</p>
+<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>本篇博客基于网上很多资料完成，按照流程搭建下来不会报错。但碍于linux环境的复杂多样，如果遇到未知错误，请多耐心查找原因(百度是个好东西！)。当然也可以联系博主~博主有时间会解答的噢</p>
 
             </div>
             <hr>
@@ -792,7 +982,7 @@
                     </span>
                     <a href="https://chihiro.org.cn" class="b-link-green">千与千寻</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/blogs/2173505135.html" class="b-link-green">Java设计模式之建造者模式</a>
+                    <a href="/blogs/4286120219.html" class="b-link-green">FastDFS-Nginx分布式文件系统搭建</a>
                 </p>
             </div>
         </div>
@@ -1074,47 +1264,53 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/blogs/157566173.html">
+                <a href="/blogs/4286120219.html">
                     <div class="card-image">
                         
-                        <img src="https://s2.ax1x.com/2019/03/31/AD74ij.jpg" class="responsive-img" alt="Java面向对象设计之适配器模式">
+                        <img src="https://s2.ax1x.com/2019/04/04/A2D1gO.png" class="responsive-img" alt="FastDFS-Nginx分布式文件系统搭建">
                         
-                        <span class="card-title">Java面向对象设计之适配器模式</span>
+                        <span class="card-title">FastDFS-Nginx分布式文件系统搭建</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-		    <div class="summary">
+                    <div class="summary">
 			
-			适配器模式介绍及使用。
+			分布式文件系统FastDFS的搭建，并依赖于nginx作代理。
 			
 		    </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-31
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/软件编程/" class="post-category" target="_blank">
-                                    软件编程
+                            <a href="/categories/服务器/" class="post-category" target="_blank">
+                                    服务器
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java/" target="_blank">
-                        <span class="chip bg-color">Java</span>
+                    <a href="/tags/FastDFS/" target="_blank">
+                        <span class="chip bg-color">FastDFS</span>
                     </a>
                     
-                    <a href="/tags/设计模式/" target="_blank">
-                        <span class="chip bg-color">设计模式</span>
+                    <a href="/tags/Nginx/" target="_blank">
+                        <span class="chip bg-color">Nginx</span>
+                    </a>
+                    
+                    <a href="/tags/分布式文件系统/" target="_blank">
+                        <span class="chip bg-color">分布式文件系统</span>
                     </a>
                     
                 </div>
@@ -1128,22 +1324,22 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/blogs/606353581.html">
+                <a href="/blogs/157566173.html">
                     <div class="card-image">
                         
-                        <img src="https://s2.ax1x.com/2019/03/22/A8BukD.jpg" class="responsive-img" alt="Java设计模式之单例模式">
+                        <img src="https://s2.ax1x.com/2019/03/31/AD74ij.jpg" class="responsive-img" alt="Java面向对象设计之适配器模式">
                         
-                        <span class="card-title">Java设计模式之单例模式</span>
+                        <span class="card-title">Java面向对象设计之适配器模式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary">
 			
-			单例模式介绍及使用。
+			适配器模式介绍及使用。
 			
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-22
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-31
                             </span>
                         <span class="publish-author">
                             
