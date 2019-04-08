@@ -426,7 +426,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        4,107
+                        4,139
                     </div>
                     
 
@@ -529,7 +529,7 @@ ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
 cp storage.conf.sample storage.conf
 cp tracker.conf.sample tracker.conf
 </code></pre><p>到此~FastDFS安装结束。</p>
-<h3 id="安装tracker"><a href="#安装tracker" class="headerlink" title="安装tracker"></a>安装tracker</h3><p> · 创建tarcker工作目录</p>
+<h3 id="安装tracker"><a href="#安装tracker" class="headerlink" title="安装tracker"></a>安装tracker</h3><p>创建tarcker工作目录</p>
 <p>这个目录可以自定义，用来保存tracker的data和log   </p>
 <p>根据个人习惯创建下面的目录：</p>
 <pre><code>[root@izwz9hx50rbasf6sqasl7vz ~]# cd /var/
@@ -540,7 +540,7 @@ cp tracker.conf.sample tracker.conf
 [root@izwz9hx50rbasf6sqasl7vz fastdfs_tracker]# pwd
 /var/fastdfs/fastdfs_tracker        #这个是我最终创建的目录
 [root@izwz9hx50rbasf6sqasl7vz fastdfs_tracker]#
-</code></pre><p>· 配置tracker</p>
+</code></pre><p>配置tracker</p>
 <pre><code>cd /etc/fdfs
 vim tracker.conf
 </code></pre><p>打开后找到下面4处然后修改即可（点点111）</p>
@@ -636,8 +636,8 @@ tcp        0      0 0.0.0.0:23000           0.0.0.0:*               LISTEN      
 </code></pre><p>服务启动，到此fastdfs已经配置完成了。最后我们再确认一下，storage是否注册到了tracker中去。 </p>
 <pre><code>/usr/bin/fdfs_monitor /etc/fdfs/storage.conf
 </code></pre><p>成功后可以看到：   </p>
-<p>ip_addr = 120.**.***.165 (localhost.localdomain) ACTIVE 的字样</p>
-<p>ok，修改客户端配置文件</p>
+<pre><code>ip_addr = 120.\*\*.\*\*\*.165 (localhost.localdomain) ACTIVE 的字样
+</code></pre><p>ok，修改客户端配置文件</p>
 <pre><code>vim /etc/fdfs/client.conf
 
 base_path=/var/fastdfs/fastdfs_tracker #tracker服务器文件路径
@@ -728,7 +728,7 @@ unzip fastdfs-nginx-module-master.zip
 <pre><code>make
 make install
 </code></pre><blockquote>
-<p>这里还有个坑！<code>make</code>编译的时候可能会报这个错<code>/usr/include/fastdfs/fdfs_define.h:15:27: fatal error: common_define.h: No such file or directory</code>。<br>下面给出解决方案：<br>修改fastdfs-nginx-module-1.20/src/config文件，重新配置<br>ngx_module_incs=<code>&quot;/usr/include/fastdfs /usr/include/fastcommon/&quot;</code><br>CORE_INCS=<code>&quot;$CORE_INCS /usr/include/fastdfs /usr/include/fastcommon/&quot;</code></p>
+<p>这里还有个坑！<code>make</code>编译的时候可能会报这个错<code>/usr/include/fastdfs/fdfs_define.h:15:27: fatal error: common_define.h: No such file or directory</code>。<br>下面给出解决方案：<br>修改fastdfs-nginx-module-1.20/src/config文件，并且重新配置一次./configure<br>ngx_module_incs=<code>&quot;/usr/include/fastdfs /usr/include/fastcommon/&quot;</code><br>CORE_INCS=<code>&quot;$CORE_INCS /usr/include/fastdfs /usr/include/fastcommon/&quot;</code><br>配置完毕后再次./configure后进行make。</p>
 </blockquote>
 <p>nginx的默认目录是/usr/local/nginx 开始 配置storage nginx</p>
 <pre><code>root@izwz9hx50rbasf6sqasl7vz nginx-1.12.0]# cd /usr/local/nginx
@@ -822,8 +822,8 @@ ngx_http_fastdfs_set pid=1231
         location /group1/M00 {
             proxy_pass http://fdfs_group1;
         }
-</code></pre><p>启动nginx:</p>
-<pre><code>/usr/local/nginx/sbin/nginx2
+</code></pre><p>重新加载nginx的配置文件:</p>
+<pre><code>[root@localhost conf]# nginx -s reload
 </code></pre><p><img src="https://s2.ax1x.com/2019/04/04/A2Deb9.png" alt=""></p>
 <p>如果 访问不了 那就修改防火墙吧(阿里服务器上请不要随意关闭防火墙，可能是安全组没有打开！)</p>
 <p>firewall-cmd –zone=public –add-port=23000/tcp –permanent #开户端口号  </p>
@@ -834,7 +834,12 @@ ngx_http_fastdfs_set pid=1231
 <p>然后在找刚才那个路径 测试</p>
 <p><img src="https://s2.ax1x.com/2019/04/04/A2D9Nq.png" alt="">  </p>
 <p>OK，到此已经结束，大功告成~</p>
-<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>本篇博客基于网上很多资料完成，按照流程搭建下来不会报错。但碍于linux环境的复杂多样，如果遇到未知错误，请多耐心查找原因(百度是个好东西！)。当然也可以联系博主~博主有时间会解答的噢</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><ul>
+<li><p>本篇博客基于网上很多资料完成，按照流程搭建下来不会报错。但碍于linux环境的复杂多样，如果遇到未知错误，请多耐心查找原因(百度是个好东西！)。当然也可以联系博主~博主有时间会解答的噢。</p>
+</li>
+<li><p>FastDFS的Java客户端，<a href="https://chihiro.org.cn/blogs/504695146.html">点我达~</a></p>
+</li>
+</ul>
 
             </div>
             <hr>
@@ -1264,53 +1269,47 @@ ngx_http_fastdfs_set pid=1231
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/blogs/4286120219.html">
+                <a href="/blogs/504695146.html">
                     <div class="card-image">
                         
-                        <img src="https://s2.ax1x.com/2019/04/04/A2D1gO.png" class="responsive-img" alt="FastDFS-Nginx分布式文件系统搭建">
+                        <img src="https://s2.ax1x.com/2019/04/08/A4Hu9I.png" class="responsive-img" alt="FastDFS的Java客户端">
                         
-                        <span class="card-title">FastDFS-Nginx分布式文件系统搭建</span>
+                        <span class="card-title">FastDFS的Java客户端</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">
+		    <div class="summary">
 			
-			分布式文件系统FastDFS的搭建，并依赖于nginx作代理。
+			分布式文件服务器FastDFS的Java客户端。
 			
 		    </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-04
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-08
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/服务器/" class="post-category" target="_blank">
-                                    服务器
+                            <a href="/categories/后端/" class="post-category" target="_blank">
+                                    后端
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
+                    <a href="/tags/Java/" target="_blank">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
                     <a href="/tags/FastDFS/" target="_blank">
                         <span class="chip bg-color">FastDFS</span>
-                    </a>
-                    
-                    <a href="/tags/Nginx/" target="_blank">
-                        <span class="chip bg-color">Nginx</span>
-                    </a>
-                    
-                    <a href="/tags/分布式文件系统/" target="_blank">
-                        <span class="chip bg-color">分布式文件系统</span>
                     </a>
                     
                 </div>
@@ -1471,7 +1470,7 @@ ngx_http_fastdfs_set pid=1231
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-matery</a>主题搭建.
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">46.5k</span><br>
+                <span class="white-color">47.6k</span><br>
             
 	    <a href="https://996.icu" rel="external nofollow noopener noreferrer" target="_blank"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu"></a>&nbsp;
 	    <span class="white-color"><a href="http://www.miibeian.gov.cn/" target="_blank" style="color: white;font-size: 15px;" rel="external nofollow noopener noreferrer">粤ICP备19022950号</a></span>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chihiro.org.cn/"/>
-  <updated>2019-04-04T09:08:22.573Z</updated>
+  <updated>2019-04-08T07:25:56.868Z</updated>
   <id>https://chihiro.org.cn/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>FastDFS的Java客户端</title>
+    <link href="https://chihiro.org.cn/blogs/504695146.html"/>
+    <id>https://chihiro.org.cn/blogs/504695146.html</id>
+    <published>2019-04-08T10:30:00.000Z</published>
+    <updated>2019-04-08T07:25:56.868Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="https://chihiro.org.cn/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="Java" scheme="https://chihiro.org.cn/tags/Java/"/>
+    
+      <category term="FastDFS" scheme="https://chihiro.org.cn/tags/FastDFS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>FastDFS-Nginx分布式文件系统搭建</title>
     <link href="https://chihiro.org.cn/blogs/4286120219.html"/>
     <id>https://chihiro.org.cn/blogs/4286120219.html</id>
     <published>2019-04-04T10:30:00.000Z</published>
-    <updated>2019-04-04T09:08:22.573Z</updated>
+    <updated>2019-04-08T07:22:01.925Z</updated>
     
     <summary type="html">
     
@@ -51,7 +79,7 @@
     <link href="https://chihiro.org.cn/blogs/157566173.html"/>
     <id>https://chihiro.org.cn/blogs/157566173.html</id>
     <published>2019-03-31T02:10:00.000Z</published>
-    <updated>2019-03-31T02:14:20.488Z</updated>
+    <updated>2019-04-08T06:59:18.876Z</updated>
     
     <summary type="html">
     
@@ -135,7 +163,7 @@
     <link href="https://chihiro.org.cn/blogs/2168237024.html"/>
     <id>https://chihiro.org.cn/blogs/2168237024.html</id>
     <published>2019-03-21T13:00:00.000Z</published>
-    <updated>2019-03-21T12:58:45.418Z</updated>
+    <updated>2019-04-08T06:59:21.562Z</updated>
     
     <summary type="html">
     
