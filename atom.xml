@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chihiro.org.cn/"/>
-  <updated>2019-04-08T07:29:41.525Z</updated>
+  <updated>2019-05-23T02:23:47.439Z</updated>
   <id>https://chihiro.org.cn/</id>
   
   <author>
@@ -15,6 +15,90 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java设计模式之责任链模式</title>
+    <link href="https://chihiro.org.cn/blogs/486801453.html"/>
+    <id>https://chihiro.org.cn/blogs/486801453.html</id>
+    <published>2019-04-22T11:30:00.000Z</published>
+    <updated>2019-05-23T02:23:47.439Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;模式动机&quot;&gt;&lt;a href=&quot;#模式动机&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="软件编程" scheme="https://chihiro.org.cn/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="Java" scheme="https://chihiro.org.cn/tags/Java/"/>
+    
+      <category term="设计模式" scheme="https://chihiro.org.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java设计模式之代理模式</title>
+    <link href="https://chihiro.org.cn/blogs/2920622723.html"/>
+    <id>https://chihiro.org.cn/blogs/2920622723.html</id>
+    <published>2019-04-22T11:30:00.000Z</published>
+    <updated>2019-05-23T02:23:47.438Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、模式动机&quot;&gt;&lt;a href=&quot;#一、模式动机&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="软件编程" scheme="https://chihiro.org.cn/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="Java" scheme="https://chihiro.org.cn/tags/Java/"/>
+    
+      <category term="设计模式" scheme="https://chihiro.org.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java设计模式之装饰模式</title>
+    <link href="https://chihiro.org.cn/blogs/859121656.html"/>
+    <id>https://chihiro.org.cn/blogs/859121656.html</id>
+    <published>2019-04-11T10:30:00.000Z</published>
+    <updated>2019-04-11T03:56:29.036Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、模式动机&quot;&gt;&lt;a href=&quot;#一、模式动机&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="软件编程" scheme="https://chihiro.org.cn/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="Java" scheme="https://chihiro.org.cn/tags/Java/"/>
+    
+      <category term="设计模式" scheme="https://chihiro.org.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>FastDFS的Java客户端</title>

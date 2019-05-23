@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta name="baidu-site-verification" content="ZeyYBV52u1">
     <meta name="google-site-verification" content=" Mozilla/5.0 (compatible; Google-Site-Verification/1.0)">
-    <meta name="keywords" content="Java设计模式之策略模式, chihiro">
-    <meta name="description" content="一、模式动机完成一项任务，往往可以有多种不同的方式，每一种方式称为一个策略，我们可以根据环境或者条件的不同选择不同的策略来完成该项任务。在软件开发中也常常遇到类似的情况，实现某一个功能有多个途径，此时可以使用一种设计模式来使得系统可以灵活地">
+    <meta name="keywords" content="Java设计模式之代理模式, chihiro">
+    <meta name="description" content="一、模式动机在某些情况下，一个客户不想或者不能直接引用一个对象，此时可以通过一个称之为“代理”的第三者来实现间接引用。代理对象可以在客户端和目标对象之间起到中介的作用，并且可以通过代理对象去掉客户不能看到 的内容和服务或者添加客户需要的额外">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +19,7 @@
     <meta name="keywords" content="{% for tag in page.tags %}{{ tag.name }},{% endfor %}">
     <meta name="keywords" content="{{ theme.keywords }}">
 
-    <title>Java设计模式之策略模式 | 千与千寻</title>
+    <title>Java设计模式之代理模式 | 千与千寻</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -282,13 +282,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s2.ax1x.com/2019/03/19/Auaq7q.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s2.ax1x.com/2019/04/22/Eka62D.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Java设计模式之策略模式
+                        Java设计模式之代理模式
                     </div>
                 </div>
             </div>
@@ -408,7 +408,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-03-19
+                    2019-04-22
                 </div>
 
 		
@@ -422,14 +422,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2,340
+                        1,710
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        8 分
+                        6 分
                     </div>
                     
                 
@@ -445,127 +445,136 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一、模式动机"><a href="#一、模式动机" class="headerlink" title="一、模式动机"></a>一、模式动机</h2><p>完成一项任务，往往可以有多种不同的方式，每一种方式称为一个策略，我们可以根据环境或者条件的不同选择不同的策略来完成该项任务。在软件开发中也常常遇到类似的情况，实现某一个功能有多个途径，此时可以使用一种设计模式来使得系统可以灵活地选择解决途径，也能够方便地增加新的解决途径。</p>
-<p>在软件系统中，有许多算法可以实现某一功能，如查找、排序等，一种常用的方法是硬编码(<code>Hard Coding</code>)在一个类中，如需要提供多种查找算法，可以将这些算法写到一个类中，在该类中提供多个方法，每一个方法对应一个具体的查找算法；当然也可以将这些查找算法封装在一个统一的方法中，通过if…else…等条件判断语句来进行选择。这两种实现方法我们都可以称之为硬编码，如果需要增加一种新的查找算法，需要修改封装算法类的源代码；更换查找算法，也需要修改客户端调用代码。在这个算法类中封装了大量查找算法，该类代码将较复杂，维护较为困难。</p>
-<p>除了提供专门的查找算法类之外，还可以在客户端程序中直接包含算法代码，这种做法更不可取，将导致客户端程序庞大而且难以维护，如果存在大量可供选择的算法时问题将变得更加严重。</p>
-<p>为了解决这些问题，可以<strong>定义一些独立的类来封装不同的算法，每一个类封装一个具体的算法，在这里，每一个封装算法的类我们都可以称之为策略(Strategy)，为了保证这些策略的一致性，一般会用一个抽象的策略类来做算法的定义，而具体每种算法则对应于一个具体策略类</strong>。</p>
+                <h2 id="一、模式动机"><a href="#一、模式动机" class="headerlink" title="一、模式动机"></a>一、模式动机</h2><p>在某些情况下，一个客户不想或者不能直接引用一个对象，此时可以通过一个称之为“代理”的第三者来实现间接引用。代理对象可以在客户端和目标对象之间起到中介的作用，并且可以通过代理对象去掉客户不能看到 的内容和服务或者添加客户需要的额外服务。</p>
+<p>通过引入一个新的对象来实现对真实对象的操作或者将新的对象作为真实对象的一个替身，这种实现机制即为代理模式，通过引入代理对象来间接访问一个对象，这就是代理模式的模式动机。</p>
 <h2 id="二、模式定义"><a href="#二、模式定义" class="headerlink" title="二、模式定义"></a>二、模式定义</h2><blockquote>
-<p><strong>策略模式(Strategy Pattern)：定义一系列算法，将每一个算法封装起来，并让它们可以相互替换。策略模式让算法独立于使用它的客户而变化，也称为政策模式(Policy)</strong>。</p>
+<p><strong>代理模式(<code>Proxy Pattern</code>)</strong>：给某一个对象提供一个代理，并由代理对象控制对原对象的引用。代理模式的英文叫做<code>Proxy</code>或<code>Surrogate</code>，它是一种对象结构型模式。</p>
 </blockquote>
-<p>策略模式是一种对象行为型模式。</p>
-<h2 id="三、-模式结构"><a href="#三、-模式结构" class="headerlink" title="三、 模式结构"></a>三、 模式结构</h2><p>策略模式包含如下角色：</p>
+<h2 id="三、模式结构"><a href="#三、模式结构" class="headerlink" title="三、模式结构"></a>三、模式结构</h2><h3 id="1-角色组成"><a href="#1-角色组成" class="headerlink" title="1. 角色组成"></a>1. 角色组成</h3><p>代理模式包含如下角色：</p>
 <ul>
-<li>Context: 环境类</li>
-<li>Strategy: 抽象策略类</li>
-<li>ConcreteStrategy: 具体策略类</li>
+<li><code>Subject</code>: 抽象主题角色</li>
+<li><code>RealSubject</code>: 真实主题角色</li>
+<li><code>Proxy</code>: 代理主题角色</li>
 </ul>
-<h3 id="结构图"><a href="#结构图" class="headerlink" title="结构图"></a>结构图</h3><p><img src="https://s2.ax1x.com/2019/03/19/AuabBn.jpg" alt="策略模式结构图"></p>
-<h3 id="时序图"><a href="#时序图" class="headerlink" title="时序图"></a>时序图</h3><p><img src="https://s2.ax1x.com/2019/03/19/AuaHns.jpg" alt="策略模式时序图"></p>
-<h2 id="四、示例代码"><a href="#四、示例代码" class="headerlink" title="四、示例代码"></a>四、示例代码</h2><p>首先定义一个策略接口：</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IStrategy</span> <span class="token punctuation">{</span>
+<h3 id="2-结构图"><a href="#2-结构图" class="headerlink" title="2. 结构图"></a>2. 结构图</h3><p><img src="https://s2.ax1x.com/2019/04/22/Ekacxe.jpg" alt="代理模式结构图"></p>
+<h2 id="四、示例代码"><a href="#四、示例代码" class="headerlink" title="四、示例代码"></a>四、示例代码</h2><p>首先，是抽象的主题接口和真实主题类：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>blinkfox<span class="token punctuation">.</span>patterns<span class="token punctuation">.</span>proxy<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">/**
+ * 抽象主题类
+ * Created by blinkfox on 2017/1/1.
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">ISubject</span> <span class="token punctuation">{</span>
 
     <span class="token comment" spellcheck="true">/**
-     * 策略模式的运算法则
+     * 定义一个方法
      */</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token punctuation">}</span>
 </code></pre>
-<p>然后是具体的策略实现类：</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ConcreteStrategy1</span> <span class="token keyword">implements</span> <span class="token class-name">IStrategy</span> <span class="token punctuation">{</span>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>blinkfox<span class="token punctuation">.</span>patterns<span class="token punctuation">.</span>proxy<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">/**
+ * 真实主题类
+ * Created by blinkfox on 2017/1/1.
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RealSubject</span> <span class="token keyword">implements</span> <span class="token class-name">ISubject</span> <span class="token punctuation">{</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * 实现方法
+     */</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"真实主题类请求方法..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<p>然后，是代理类：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>blinkfox<span class="token punctuation">.</span>patterns<span class="token punctuation">.</span>proxy<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">/**
+ * 代理类
+ * Created by blinkfox on 2017/1/1.
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Proxy</span> <span class="token keyword">implements</span> <span class="token class-name">ISubject</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> ISubject subject<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token function">Proxy</span><span class="token punctuation">(</span>ISubject subject<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>subject <span class="token operator">=</span> subject<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
     <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"具体策略的策略方法1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-<span class="token punctuation">}</span>
-</code></pre>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ConcreteStrategy2</span> <span class="token keyword">implements</span> <span class="token class-name">IStrategy</span> <span class="token punctuation">{</span>
-
-    <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"具体策略的策略方法2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-<span class="token punctuation">}</span>
-</code></pre>
-<p>接着是封装角色的类：</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Context</span> <span class="token punctuation">{</span>
-
-    <span class="token comment" spellcheck="true">// 抽象策略</span>
-    <span class="token keyword">private</span> IStrategy strategy<span class="token punctuation">;</span>
-
-    <span class="token comment" spellcheck="true">/**
-     * 构造函数设置具体策略
-     * @param strategy
-     */</span>
-    <span class="token keyword">public</span> <span class="token function">Context</span><span class="token punctuation">(</span>IStrategy strategy<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>strategy <span class="token operator">=</span> strategy<span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">before</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>subject<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">after</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
     <span class="token comment" spellcheck="true">/**
-     * 封装后的策略方法
+     * 预处理
      */</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">doAnything</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>strategy<span class="token punctuation">.</span><span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">before</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"执行前(before)的处理..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * 善后处理
+     */</span>
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">after</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"执行后(after)的处理..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
 <span class="token punctuation">}</span>
 </code></pre>
-<p>最后是客户端的调用策略类：</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Client</span> <span class="token punctuation">{</span>
+<p>最后，是客户端场景测试类：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>blinkfox<span class="token punctuation">.</span>patterns<span class="token punctuation">.</span>proxy<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">/**
+ * 代理模式客户端场景类
+ * Created by blinkfox on 2017/1/1.
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ProxyClient</span> <span class="token punctuation">{</span>
 
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// 声明一个具体的策略</span>
-        IStrategy strategy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ConcreteStrategy1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment" spellcheck="true">// 声明上下文对象</span>
-        Context context <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Context</span><span class="token punctuation">(</span>strategy<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment" spellcheck="true">// 执行封装后的方法</span>
-        context<span class="token punctuation">.</span><span class="token function">doAnything</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ISubject subject <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RealSubject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Proxy proxy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Proxy</span><span class="token punctuation">(</span>subject<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        proxy<span class="token punctuation">.</span><span class="token function">request</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
 <span class="token punctuation">}</span>
 </code></pre>
-<h2 id="五、模式分析"><a href="#五、模式分析" class="headerlink" title="五、模式分析"></a>五、模式分析</h2><h3 id="总体分析"><a href="#总体分析" class="headerlink" title="总体分析"></a>总体分析</h3><ul>
-<li>策略模式是一个比较容易理解和使用的设计模式，策略模式是对算法的封装，它把算法的责任和算法本身分割开，委派给不同的对象管理。策略模式通常把一个系列的算法封装到一系列的策略类里面，作为一个抽象策略类的子类。用一句话来说，就是“<strong>准备一组算法，并将每一个算法封装起来，使得它们可以互换</strong>”。</li>
-<li>在策略模式中，应当由客户端自己决定在什么情况下使用什么具体策略角色。</li>
-<li>策略模式仅仅封装算法，提供新算法插入到已有系统中，以及老算法从系统中“退休”的方便，策略模式并不决定在何时使用何种算法，算法的选择由客户端来决定。这在一定程度上提高了系统的灵活性，但是客户端需要理解所有具体策略类之间的区别，以便选择合适的算法，这也是策略模式的缺点之一，在一定程度上增加了客户端的使用难度。</li>
-</ul>
-<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>策略模式的优点：</p>
+<h2 id="五、模式分析"><a href="#五、模式分析" class="headerlink" title="五、模式分析"></a>五、模式分析</h2><h3 id="1-优点"><a href="#1-优点" class="headerlink" title="1. 优点"></a>1. 优点</h3><p>代理模式的优点：</p>
 <ul>
-<li>策略模式提供了对“开闭原则”的完美支持，用户可以在不修改原有系统的基- 础上选择算法或行为，也可以灵活地增加新的算法或行为。</li>
-<li>策略模式提供了管理相关的算法族的办法。</li>
-<li>策略模式提供了可以替换继承关系的办法。</li>
-<li>使用策略模式可以避免使用多重条件转移语句。</li>
+<li>代理模式能够协调调用者和被调用者，在一定程度上降低了系 统的耦合度。</li>
+<li>远程代理使得客户端可以访问在远程机器上的对象，远程机器可能具有更好的计算性能与处理速度，可以快速响应并处理客户端请求。</li>
+<li>虚拟代理通过使用一个小对象来代表一个大对象，可以减少系统资源的消耗，对系统进行优化并提高运行速度。</li>
+<li>保护代理可以控制对真实对象的使用权限。</li>
 </ul>
-<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>策略模式的缺点：</p>
+<h3 id="2-缺点"><a href="#2-缺点" class="headerlink" title="2. 缺点"></a>2. 缺点</h3><p>代理模式的缺点：</p>
 <ul>
-<li>客户端必须知道所有的策略类，并自行决定使用哪一个策略类。</li>
-<li>策略模式将造成产生很多策略类，可以通过使用享元模式在一定程度上减少对象的数量。</li>
+<li>由于在客户端和真实主题之间增加了代理对象，因此有些类型的代理模式可能会造成请求的处理速度变慢。</li>
+<li>实现代理模式需要额外的工作，有些代理模式的实现非常复杂。</li>
 </ul>
-<h3 id="适用环境"><a href="#适用环境" class="headerlink" title="适用环境"></a>适用环境</h3><p>在以下情况下可以使用策略模式：</p>
+<h3 id="3-适用环境"><a href="#3-适用环境" class="headerlink" title="3. 适用环境"></a>3. 适用环境</h3><p>根据代理模式的使用目的，常见的代理模式有以下几种类型：</p>
 <ul>
-<li>如果在一个系统里面有许多类，它们之间的区别仅在于它们的行为，那么使用策略模式可以动态地让一个对象在许多行为中选择一种行为。</li>
-<li>一个系统需要动态地在几种算法中选择一种。</li>
-<li>如果一个对象有很多的行为，如果不用恰当的模式，这些行为就只好使用多重的条件选择语句来实现。</li>
-<li>不希望客户端知道复杂的、与算法相关的数据结构，在具体策略类中封装算法和相关的数据结构，提高算法的保密性与安全性。</li>
+<li><strong>远程(Remote)代理</strong>：为一个位于不同的地址空间的对象提供一个本地的代理对象，这个不同的地址空间可以是在同一台主机中，也可是在另一台主机中，远程代理又叫做大使(Ambassador)。</li>
+<li><strong>虚拟(Virtual)代理</strong>：如果需要创建一个资源消耗较大的对象，先创建一个消耗相对较小的对象来表示，真实对象只在需要时才会被真正创建。</li>
+<li><strong>Copy-on-Write代理</strong>：它是虚拟代理的一种，把复制（克隆）操作延迟 到只有在客户端真正需要时才执行。一般来说，对象的深克隆是一个开销较大的操作，Copy-on-Write代理可以让这个操作延迟，只有对象被用到的时候才被克隆。</li>
+<li><strong>保护(Protect or Access)代理</strong>：控制对一个对象的访问，可以给不同的用户提供不同级别的使用权限。</li>
+<li><strong>缓冲(Cache)代理</strong>：为某一个目标操作的结果提供临时的存储空间，以便多个客户端可以共享这些结果。</li>
+<li><strong>防火墙(Firewall)代理</strong>：保护目标不让恶意用户接近。</li>
+<li><strong>同步化(Synchronization)代理</strong>：使几个用户能够同时使用一个对象而没有冲突。</li>
+<li><strong>智能引用(Smart Reference)代理</strong>：当一个对象被引用时，提供一些额外的操作，如将此对象被调用的次数记录下来等。</li>
 </ul>
-<h3 id="模式扩展"><a href="#模式扩展" class="headerlink" title="模式扩展"></a>模式扩展</h3><p>策略模式与状态模式：</p>
-<ul>
-<li>可以通过环境类状态的个数来决定是使用策略模式还是状态模式。</li>
-<li>策略模式的环境类自己选择一个具体策略类，具体策略类无须关心环境类；而状态模式的环境类由于外在因素需要放进一个具体状态中，以便通过其方法实现状态的切换，因此环境类和状态类之间存在一种双向的关联关系。</li>
-<li>使用策略模式时，客户端需要知道所选的具体策略是哪一个，而使用状态模式时，客户端无须关心具体状态，环境类的状态会根据用户的操作自动转换。</li>
-<li>如果系统中某个类的对象存在多种状态，不同状态下行为有差异，而且这些状态之间可以发生转换时使用状态模式；如果系统中某个类的某一行为存在多种实现方式，而且这些实现方式可以互换时使用策略模式。</li>
-</ul>
-<h2 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h2><ul>
-<li>在策略模式中定义了一系列算法，将每一个算法封装起来，并让它们可以相互替换。策略模式让算法独立于使用它的客户而变化，也称为政策模式。策略模式是一种对象行为型模式。</li>
-<li>策略模式包含三个角色：环境类在解决某个问题时可以采用多种策略，在环境类中维护一个对抽象策略类的引用实例；抽象策略类为所支持的算法声明了抽象方法，是所有策略类的父类；具体策略类实现了在抽象策略类中定义的算法。</li>
-<li>策略模式是对算法的封装，它把算法的责任和算法本身分割开，委派给不同的对象管理。策略模式通常把一个系列的算法封装到一系列的策略类里面，作为一个抽象策略类的子类。</li>
-<li>策略模式主要优点在于对“开闭原则”的完美支持，在不修改原有系统的基础上可以更换算法或者增加新的算法，它很好地管理算法族，提高了代码的复用性，是一种替换继承，避免多重条件转移语句的实现方式；其缺点在于客户端必须知道所有的策略类，并理解其区别，同时在一定程度上增加了系统中类的个数，可能会存在很多策略类。</li>
-<li>策略模式适用情况包括：在一个系统里面有许多类，它们之间的区别仅在于它们的行为，使用策略模式可以动态地让一个对象在许多行为中选择一种行为；一个系统需要动态地在几种算法中选择一种；避免使用难以维护的多重条件选择语句；希望在具体策略类中封装算法和与相关的数据结构。</li>
+<h2 id="模式总结"><a href="#模式总结" class="headerlink" title="模式总结"></a>模式总结</h2><ul>
+<li>在代理模式中，要求给某一个对象提供一个代理，并由代理对象控制对原对象的引用。代理模式的英文叫做Proxy或Surrogate，它是一种对象结构型模式。</li>
+<li>代理模式包含三个角色：抽象主题角色声明了真实主题和代理主题的共同接口；代理主题角色内部包含对真实主题的引用，从而可以在任何时候操作真实主题对象；真实主题角色定义了代理角色所代表的真实对象，在真实主题角色中实现了真实的业务操作，客户端可以通过代理主题角色间接调用真实主题角色中定义的方法。</li>
+<li>代理模式的优点在于能够协调调用者和被调用者，在一定程度上降低了系统的耦合度；其缺点在于由于在客户端和真实主题之间增加了代理对象，因此有些类型的代理模式可能会造成请求的处理速度变慢，并且实现代理模式需要额外的工作，有些代理模式的实现非常复杂。远程代理为一个位于不同的地址空间的对象提供一个本地的代表对象，它使得客户端可以访问在远程机器上的对象，远程机器可能具有更好的计算性能与处理速度，可以快速响应并处理客户端请求。</li>
+<li>如果需要创建一个资源消耗较大的对象，先创建一个消耗相对较小的对象来表示，真实对象只在需要时才会被真正创建，这个小对象称为虚拟代理。虚拟代理通过使用一个小对象来代表一个大对象，可以减少系统资源的消耗，对系统进行优化并提高运行速度。</li>
+<li>保护代理可以控制对一个对象的访问，可以给不同的用户提供不同级别的使用权限。</li>
 </ul>
 
             </div>
@@ -714,7 +723,7 @@
                     </span>
                     <a href="https://chihiro.org.cn" class="b-link-green">千与千寻</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/blogs/2812777186.html" class="b-link-green">Java设计模式之策略模式</a>
+                    <a href="/blogs/2920622723.html" class="b-link-green">Java设计模式之代理模式</a>
                 </p>
             </div>
         </div>
@@ -998,23 +1007,23 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/blogs/1603223013.html">
+                <a href="/blogs/486801453.html">
                     <div class="card-image">
                         
-                        <img src="https://s2.ax1x.com/2019/03/20/Alhmrj.png" class="responsive-img" alt="Java设计模式之状态模式">
+                        <img src="https://s2.ax1x.com/2019/04/22/Eka2KH.jpg" class="responsive-img" alt="Java设计模式之责任链模式">
                         
-                        <span class="card-title">Java设计模式之状态模式</span>
+                        <span class="card-title">Java设计模式之责任链模式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
 		    <div class="summary">
 			
-			状态模式介绍及使用。
+			责任链模式介绍及使用。
 			
 		    </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-20
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-22
                         </span>
                         <span class="publish-author">
                             
@@ -1050,22 +1059,22 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/blogs/2369825694.html">
+                <a href="/blogs/859121656.html">
                     <div class="card-image">
                         
-                        <img src="https://s2.ax1x.com/2019/03/18/AnC62R.png" class="responsive-img" alt="面向对象编程的理解">
+                        <img src="https://s2.ax1x.com/2019/04/11/A701mt.jpg" class="responsive-img" alt="Java设计模式之装饰模式">
                         
-                        <span class="card-title">面向对象编程的理解</span>
+                        <span class="card-title">Java设计模式之装饰模式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary">
 			
-			面向对象编程的理解。
+			装饰模式介绍及使用。
 			
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-18
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-11
                             </span>
                         <span class="publish-author">
                             
@@ -1086,8 +1095,8 @@
                         <span class="chip bg-color">Java</span>
                     </a>
                     
-                    <a href="/tags/面向对象编程/" target="_blank">
-                        <span class="chip bg-color">面向对象编程</span>
+                    <a href="/tags/设计模式/" target="_blank">
+                        <span class="chip bg-color">设计模式</span>
                     </a>
                     
                 </div>

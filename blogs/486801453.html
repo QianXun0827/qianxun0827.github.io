@@ -6,8 +6,8 @@
     <meta charset="utf-8">
     <meta name="baidu-site-verification" content="ZeyYBV52u1">
     <meta name="google-site-verification" content=" Mozilla/5.0 (compatible; Google-Site-Verification/1.0)">
-    <meta name="keywords" content="Java设计模式之策略模式, chihiro">
-    <meta name="description" content="一、模式动机完成一项任务，往往可以有多种不同的方式，每一种方式称为一个策略，我们可以根据环境或者条件的不同选择不同的策略来完成该项任务。在软件开发中也常常遇到类似的情况，实现某一个功能有多个途径，此时可以使用一种设计模式来使得系统可以灵活地">
+    <meta name="keywords" content="Java设计模式之责任链模式, chihiro">
+    <meta name="description" content="模式动机很多情况下，在一个软件系统中可以处理某个请求的对象不止一个。例如审批工作流等，他们可以构成一条处理采购单的链式结构，采购单(可以看作是要处理的信息)沿着这条链进行传递，这条链就称为责任链。责任链可以是一条直线、一个环或者一个树形结构">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +19,7 @@
     <meta name="keywords" content="{% for tag in page.tags %}{{ tag.name }},{% endfor %}">
     <meta name="keywords" content="{{ theme.keywords }}">
 
-    <title>Java设计模式之策略模式 | 千与千寻</title>
+    <title>Java设计模式之责任链模式 | 千与千寻</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -282,13 +282,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s2.ax1x.com/2019/03/19/Auaq7q.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s2.ax1x.com/2019/04/22/Eka2KH.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Java设计模式之策略模式
+                        Java设计模式之责任链模式
                     </div>
                 </div>
             </div>
@@ -408,7 +408,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-03-19
+                    2019-04-22
                 </div>
 
 		
@@ -422,7 +422,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2,340
+                        2,294
                     </div>
                     
 
@@ -445,127 +445,169 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一、模式动机"><a href="#一、模式动机" class="headerlink" title="一、模式动机"></a>一、模式动机</h2><p>完成一项任务，往往可以有多种不同的方式，每一种方式称为一个策略，我们可以根据环境或者条件的不同选择不同的策略来完成该项任务。在软件开发中也常常遇到类似的情况，实现某一个功能有多个途径，此时可以使用一种设计模式来使得系统可以灵活地选择解决途径，也能够方便地增加新的解决途径。</p>
-<p>在软件系统中，有许多算法可以实现某一功能，如查找、排序等，一种常用的方法是硬编码(<code>Hard Coding</code>)在一个类中，如需要提供多种查找算法，可以将这些算法写到一个类中，在该类中提供多个方法，每一个方法对应一个具体的查找算法；当然也可以将这些查找算法封装在一个统一的方法中，通过if…else…等条件判断语句来进行选择。这两种实现方法我们都可以称之为硬编码，如果需要增加一种新的查找算法，需要修改封装算法类的源代码；更换查找算法，也需要修改客户端调用代码。在这个算法类中封装了大量查找算法，该类代码将较复杂，维护较为困难。</p>
-<p>除了提供专门的查找算法类之外，还可以在客户端程序中直接包含算法代码，这种做法更不可取，将导致客户端程序庞大而且难以维护，如果存在大量可供选择的算法时问题将变得更加严重。</p>
-<p>为了解决这些问题，可以<strong>定义一些独立的类来封装不同的算法，每一个类封装一个具体的算法，在这里，每一个封装算法的类我们都可以称之为策略(Strategy)，为了保证这些策略的一致性，一般会用一个抽象的策略类来做算法的定义，而具体每种算法则对应于一个具体策略类</strong>。</p>
-<h2 id="二、模式定义"><a href="#二、模式定义" class="headerlink" title="二、模式定义"></a>二、模式定义</h2><blockquote>
-<p><strong>策略模式(Strategy Pattern)：定义一系列算法，将每一个算法封装起来，并让它们可以相互替换。策略模式让算法独立于使用它的客户而变化，也称为政策模式(Policy)</strong>。</p>
+                <h2 id="模式动机"><a href="#模式动机" class="headerlink" title="模式动机"></a>模式动机</h2><p>很多情况下，在一个软件系统中可以处理某个请求的对象不止一个。例如审批工作流等，他们可以构成一条处理采购单的链式结构，采购单(可以看作是要处理的信息)沿着这条链进行传递，这条链就称为责任链。责任链可以是一条直线、一个环或者一个树形结构，最常见的职责链是直线型，即沿着一条单向的链来传递请求。链上的每一个对象都是请求处理者，责任链模式可以将请求的处理者组织成一条链，并让请求沿着链传递，由链上的处理者对请求进行相应的处理。在此过程中，客户端实际上无须关心请求的处理细节以及请求的传递，只需将请求发送到链上即可，从而实现请求发送者和请求处理者解耦。</p>
+<h2 id="模式定义"><a href="#模式定义" class="headerlink" title="模式定义"></a>模式定义</h2><blockquote>
+<p><strong>定义</strong>：责任链模式(<code>Chain of Responsibility Pattern</code>)是使多个对象都有机会处理请求，从而避免请求的发送者与请求处理者耦合在一起。将这些对象连接成一条链，并且沿着这条链传递请求，直到有对象处理它为止。它是一种对象行为型模式。</p>
 </blockquote>
-<p>策略模式是一种对象行为型模式。</p>
-<h2 id="三、-模式结构"><a href="#三、-模式结构" class="headerlink" title="三、 模式结构"></a>三、 模式结构</h2><p>策略模式包含如下角色：</p>
-<ul>
-<li>Context: 环境类</li>
-<li>Strategy: 抽象策略类</li>
-<li>ConcreteStrategy: 具体策略类</li>
+<p><strong>实质</strong>：责任链上的处理者负责处理请求，客户只需要将请求发送到职责链上即可，无须关心请求的处理细节和请求的传递，从而实现请求发送者与请求处理者的解耦。</p>
+<h2 id="模式结构"><a href="#模式结构" class="headerlink" title="模式结构"></a>模式结构</h2><h3 id="参与角色"><a href="#参与角色" class="headerlink" title="参与角色"></a>参与角色</h3><ul>
+<li><code>Handler</code>（抽象处理者）：处理请求的接口，一般设计为具有抽象请求处理方法的抽象类，以便于不同的具体处理者进行继承，从而实现具体的请求处理方法。此外，由于每一个请求处理者的下家还是一个处理者，因此抽象处理者本身还包含了一个本身的引用(<code>nextHandler</code>)作为其对下家的引用，以便将处理者链成一条链；</li>
+<li><code>ConcreteHandler</code>（具体处理者）：抽象处理者的子类，可以处理用户请求，其实现了抽象处理者中定义的请求处理方法。在具体处理请求时需要进行判断，若其具有相应的处理权限，那么就处理它；否则，其将请求转发给后继者，以便让后面的处理者进行处理。</li>
 </ul>
-<h3 id="结构图"><a href="#结构图" class="headerlink" title="结构图"></a>结构图</h3><p><img src="https://s2.ax1x.com/2019/03/19/AuabBn.jpg" alt="策略模式结构图"></p>
-<h3 id="时序图"><a href="#时序图" class="headerlink" title="时序图"></a>时序图</h3><p><img src="https://s2.ax1x.com/2019/03/19/AuaHns.jpg" alt="策略模式时序图"></p>
-<h2 id="四、示例代码"><a href="#四、示例代码" class="headerlink" title="四、示例代码"></a>四、示例代码</h2><p>首先定义一个策略接口：</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IStrategy</span> <span class="token punctuation">{</span>
+<p>在责任链模式里，由每一个请求处理者对象对其下家的引用而连接起来形成一条请求处理链。请求将在这条链上一直传递，直到链上的某一个请求处理者能够处理此请求。<strong>发出这个请求的客户端并不知道链上的哪一个请求处理者将处理这个请求，这使得系统可以在不影响客户端的情况下动态地重新组织链和分配责任</strong>。</p>
+<h3 id="UML类图"><a href="#UML类图" class="headerlink" title="UML类图"></a>UML类图</h3><p><img src="http://static.blinkfox.com/chain_of_responsibility.png" alt="责任链模式UML类图"></p>
+<h2 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h2><p>首先，责任链模式的核心在于对请求处理者的抽象。在实现过程中，抽象处理者一般会被设定为<strong>抽象类</strong>，其典型实现代码如下所示：</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
+ * 责任连模式的抽象处理者角色.
+ *
+ * Created by blinkfox on 16/7/11.
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Handler</span> <span class="token punctuation">{</span>
+
+    <span class="token comment" spellcheck="true">/** 后继处理者角色. */</span>
+    <span class="token keyword">protected</span> Handler nextHandler<span class="token punctuation">;</span>
 
     <span class="token comment" spellcheck="true">/**
-     * 策略模式的运算法则
+     * 处理请求的抽象方法.
+     *
+     * @param condition 条件
      */</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">void</span> <span class="token function">handle</span><span class="token punctuation">(</span>String condition<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">/**
+     * nextHandler的Setter方法.
+     *
+     * @param nextHandler 后继处理器
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setNextHandler</span><span class="token punctuation">(</span>Handler nextHandler<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>nextHandler <span class="token operator">=</span> nextHandler<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
 <span class="token punctuation">}</span>
 </code></pre>
-<p>然后是具体的策略实现类：</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ConcreteStrategy1</span> <span class="token keyword">implements</span> <span class="token class-name">IStrategy</span> <span class="token punctuation">{</span>
+<p>其次，是若干个具体的处理角色类。</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
+ * 具体处理角色1.
+ *
+ * Created by blinkfox on 16/7/11.
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ConcreteHandler1</span> <span class="token keyword">extends</span> <span class="token class-name">Handler</span> <span class="token punctuation">{</span>
 
+    <span class="token comment" spellcheck="true">/**
+     * 具体处理角色1的处理方法.
+     *
+     * @param condition 条件
+     */</span>
     <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"具体策略的策略方法1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">handle</span><span class="token punctuation">(</span>String condition<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 如果是自己的责任，就自己处理，负责传给下家处理</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token string">"ConcreteHandler1"</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>condition<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span> <span class="token string">"具体处理角色1的处理方法handled1..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span> <span class="token string">"具体处理角色1 通过..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            nextHandler<span class="token punctuation">.</span><span class="token function">handle</span><span class="token punctuation">(</span>condition<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 
 <span class="token punctuation">}</span>
 </code></pre>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ConcreteStrategy2</span> <span class="token keyword">implements</span> <span class="token class-name">IStrategy</span> <span class="token punctuation">{</span>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
+ * 具体处理角色2.
+ *
+ * Created by blinkfox on 16/7/11.
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ConcreteHandler2</span> <span class="token keyword">extends</span> <span class="token class-name">Handler</span> <span class="token punctuation">{</span>
 
+    <span class="token comment" spellcheck="true">/**
+     * 具体处理角色2的处理方法.
+     *
+     * @param condition 条件
+     */</span>
     <span class="token annotation punctuation">@Override</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"具体策略的策略方法2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">handle</span><span class="token punctuation">(</span>String condition<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 如果是自己的责任，就自己处理，负责传给下家处理</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token string">"ConcreteHandler2"</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>condition<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span> <span class="token string">"具体处理角色2的处理方法handled1..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span> <span class="token string">"具体处理角色2 通过..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            nextHandler<span class="token punctuation">.</span><span class="token function">handle</span><span class="token punctuation">(</span>condition<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 
 <span class="token punctuation">}</span>
 </code></pre>
-<p>接着是封装角色的类：</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Context</span> <span class="token punctuation">{</span>
-
-    <span class="token comment" spellcheck="true">// 抽象策略</span>
-    <span class="token keyword">private</span> IStrategy strategy<span class="token punctuation">;</span>
-
-    <span class="token comment" spellcheck="true">/**
-     * 构造函数设置具体策略
-     * @param strategy
-     */</span>
-    <span class="token keyword">public</span> <span class="token function">Context</span><span class="token punctuation">(</span>IStrategy strategy<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>strategy <span class="token operator">=</span> strategy<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
+ * 具体处理角色n.
+ *
+ * Created by blinkfox on 16/7/11.
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ConcreteHandlerN</span> <span class="token keyword">extends</span> <span class="token class-name">Handler</span> <span class="token punctuation">{</span>
 
     <span class="token comment" spellcheck="true">/**
-     * 封装后的策略方法
+     * 这里假设n是链的最后一个节点必须处理掉.
+     * 在实际情况下，可能出现环，或者是树形，这里并不一定是最后一个节点.
+     *
+     * @param condition 参数条件
      */</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">doAnything</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>strategy<span class="token punctuation">.</span><span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">handle</span><span class="token punctuation">(</span>String condition<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span> <span class="token string">"具体处理角色n的处理方法 结束..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
 <span class="token punctuation">}</span>
 </code></pre>
-<p>最后是客户端的调用策略类：</p>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Client</span> <span class="token punctuation">{</span>
+<p>最后，是客户端场景类，代码调用示例如下：</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
+ * 责任连模式的客户端场景类.
+ *
+ * Created by blinkfox on 16/7/11.
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ChainClient</span> <span class="token punctuation">{</span>
 
+    <span class="token comment" spellcheck="true">/**
+     * 主入口方法.
+     *
+     * @param args 数组参数
+     */</span>
     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// 声明一个具体的策略</span>
-        IStrategy strategy <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ConcreteStrategy1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Handler handler1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ConcreteHandler1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Handler handler2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ConcreteHandler2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Handler handlern <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ConcreteHandlerN</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        <span class="token comment" spellcheck="true">// 声明上下文对象</span>
-        Context context <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Context</span><span class="token punctuation">(</span>strategy<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        handler1<span class="token punctuation">.</span><span class="token function">setNextHandler</span><span class="token punctuation">(</span>handler2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        handler2<span class="token punctuation">.</span><span class="token function">setNextHandler</span><span class="token punctuation">(</span>handlern<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        <span class="token comment" spellcheck="true">// 执行封装后的方法</span>
-        context<span class="token punctuation">.</span><span class="token function">doAnything</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//假设这个请求是ConcreteHandler2的责任</span>
+        handler1<span class="token punctuation">.</span><span class="token function">handle</span><span class="token punctuation">(</span><span class="token string">"ConcreteHandler2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
 <span class="token punctuation">}</span>
 </code></pre>
-<h2 id="五、模式分析"><a href="#五、模式分析" class="headerlink" title="五、模式分析"></a>五、模式分析</h2><h3 id="总体分析"><a href="#总体分析" class="headerlink" title="总体分析"></a>总体分析</h3><ul>
-<li>策略模式是一个比较容易理解和使用的设计模式，策略模式是对算法的封装，它把算法的责任和算法本身分割开，委派给不同的对象管理。策略模式通常把一个系列的算法封装到一系列的策略类里面，作为一个抽象策略类的子类。用一句话来说，就是“<strong>准备一组算法，并将每一个算法封装起来，使得它们可以互换</strong>”。</li>
-<li>在策略模式中，应当由客户端自己决定在什么情况下使用什么具体策略角色。</li>
-<li>策略模式仅仅封装算法，提供新算法插入到已有系统中，以及老算法从系统中“退休”的方便，策略模式并不决定在何时使用何种算法，算法的选择由客户端来决定。这在一定程度上提高了系统的灵活性，但是客户端需要理解所有具体策略类之间的区别，以便选择合适的算法，这也是策略模式的缺点之一，在一定程度上增加了客户端的使用难度。</li>
+<blockquote>
+<p><strong>注</strong>：责任链模式并不创建职责链，职责链的创建工作必须由系统的其他部分来完成，一般由使用该责任链的客户端创建。职责链模式降低了请求的发送者和请求处理者之间的耦合，从而使得多个请求处理者都有机会处理这个请求。</p>
+</blockquote>
+<h2 id="模式分析"><a href="#模式分析" class="headerlink" title="模式分析"></a>模式分析</h2><h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p>在实际软件开发中，如果遇到有多个对象可以处理同一请求时可以考虑使用职责链模式，最常见的例子包括在 Java Web 应用开发中创建一个过滤器（Filter）链来对请求数据进行过滤（中文字符乱码的处理）、在工作流系统中实现公文的分级审批、在Struts应用中添加不同的拦截器(常用的有类型转化、异常处理，数据校验…)以增强Struts2的功能等。</p>
+<h3 id="纯与不纯的责任链模式"><a href="#纯与不纯的责任链模式" class="headerlink" title="纯与不纯的责任链模式"></a>纯与不纯的责任链模式</h3><ul>
+<li><strong>纯的责任链模式</strong>要求一个具体的处理者对象只能在两个行为中选择一个：一是承担责任，而是把责任推给下家。不允许出现某一个具体处理者对象在承担了一部分责任后又把责任向下传的情况；</li>
+<li>在纯责任链模式里面，一个请求必须被某一个处理者对象所接收；</li>
+<li>在不纯的责任链模式里面，一个请求可以最终不被任何接收端对象所接收。</li>
 </ul>
-<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>策略模式的优点：</p>
-<ul>
-<li>策略模式提供了对“开闭原则”的完美支持，用户可以在不修改原有系统的基- 础上选择算法或行为，也可以灵活地增加新的算法或行为。</li>
-<li>策略模式提供了管理相关的算法族的办法。</li>
-<li>策略模式提供了可以替换继承关系的办法。</li>
-<li>使用策略模式可以避免使用多重条件转移语句。</li>
+<p>纯的责任链模式的实际例子很难找到，一般看到的例子均是不纯的责任链模式的实现。</p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>降低耦合度，使请求的发送者和接收者解耦，便于灵活的、可插拔的定义请求处理过程；</li>
+<li>简化、封装了请求的处理过程，并且这个过程对客户端而言是透明的，以便于动态地重新组织链以及分配责任，增强请求处理的灵活性；</li>
+<li>可以从职责链任何一个节点开始，也可以随时改变内部的请求处理规则，每个请求处理者都可以去动态地指定他的继任者；</li>
+<li>职责链可简化对象间的相互连接。它们仅需保持一个指向其后继者的引用，而不需保持它所有的候选接受者的引用；</li>
+<li>增加新的请求处理类很方便。</li>
 </ul>
-<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>策略模式的缺点：</p>
-<ul>
-<li>客户端必须知道所有的策略类，并自行决定使用哪一个策略类。</li>
-<li>策略模式将造成产生很多策略类，可以通过使用享元模式在一定程度上减少对象的数量。</li>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>不能保证请求一定被接收。既然一个请求没有明确的接收者，那么就不能保证它一定会被处理；</li>
+<li>该请求可能一直到链的末端都得不到处理。一个请求也可能因该链没有被正确配置而得不到处理；</li>
+<li>系统性能将受到一定影响，而且在进行代码调试时不太方便；可能会造成循环调用。</li>
 </ul>
-<h3 id="适用环境"><a href="#适用环境" class="headerlink" title="适用环境"></a>适用环境</h3><p>在以下情况下可以使用策略模式：</p>
-<ul>
-<li>如果在一个系统里面有许多类，它们之间的区别仅在于它们的行为，那么使用策略模式可以动态地让一个对象在许多行为中选择一种行为。</li>
-<li>一个系统需要动态地在几种算法中选择一种。</li>
-<li>如果一个对象有很多的行为，如果不用恰当的模式，这些行为就只好使用多重的条件选择语句来实现。</li>
-<li>不希望客户端知道复杂的、与算法相关的数据结构，在具体策略类中封装算法和相关的数据结构，提高算法的保密性与安全性。</li>
-</ul>
-<h3 id="模式扩展"><a href="#模式扩展" class="headerlink" title="模式扩展"></a>模式扩展</h3><p>策略模式与状态模式：</p>
-<ul>
-<li>可以通过环境类状态的个数来决定是使用策略模式还是状态模式。</li>
-<li>策略模式的环境类自己选择一个具体策略类，具体策略类无须关心环境类；而状态模式的环境类由于外在因素需要放进一个具体状态中，以便通过其方法实现状态的切换，因此环境类和状态类之间存在一种双向的关联关系。</li>
-<li>使用策略模式时，客户端需要知道所选的具体策略是哪一个，而使用状态模式时，客户端无须关心具体状态，环境类的状态会根据用户的操作自动转换。</li>
-<li>如果系统中某个类的对象存在多种状态，不同状态下行为有差异，而且这些状态之间可以发生转换时使用状态模式；如果系统中某个类的某一行为存在多种实现方式，而且这些实现方式可以互换时使用策略模式。</li>
-</ul>
-<h2 id="六、总结"><a href="#六、总结" class="headerlink" title="六、总结"></a>六、总结</h2><ul>
-<li>在策略模式中定义了一系列算法，将每一个算法封装起来，并让它们可以相互替换。策略模式让算法独立于使用它的客户而变化，也称为政策模式。策略模式是一种对象行为型模式。</li>
-<li>策略模式包含三个角色：环境类在解决某个问题时可以采用多种策略，在环境类中维护一个对抽象策略类的引用实例；抽象策略类为所支持的算法声明了抽象方法，是所有策略类的父类；具体策略类实现了在抽象策略类中定义的算法。</li>
-<li>策略模式是对算法的封装，它把算法的责任和算法本身分割开，委派给不同的对象管理。策略模式通常把一个系列的算法封装到一系列的策略类里面，作为一个抽象策略类的子类。</li>
-<li>策略模式主要优点在于对“开闭原则”的完美支持，在不修改原有系统的基础上可以更换算法或者增加新的算法，它很好地管理算法族，提高了代码的复用性，是一种替换继承，避免多重条件转移语句的实现方式；其缺点在于客户端必须知道所有的策略类，并理解其区别，同时在一定程度上增加了系统中类的个数，可能会存在很多策略类。</li>
-<li>策略模式适用情况包括：在一个系统里面有许多类，它们之间的区别仅在于它们的行为，使用策略模式可以动态地让一个对象在许多行为中选择一种行为；一个系统需要动态地在几种算法中选择一种；避免使用难以维护的多重条件选择语句；希望在具体策略类中封装算法和与相关的数据结构。</li>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>在职责链模式里，很多对象由每一个对象对其下家的引用而连接起来形成一条链。请求在这个链上传递，直到链上的某一个对象决定处理此请求。发出这个请求的客户端并不知道链上的哪一个对象最终处理这个请求，这使得系统可以在不影响客户端的情况下动态地重新组织链和分配责任。</li>
+<li>职责链模式的主要优点在于可以降低系统的耦合度，简化对象的相互连接，同时增强给对象指派职责的灵活性，增加新的请求处理类也很方便；其主要缺点在于不能保证请求一定被接收，且对于比较长的职责链，请求的处理可能涉及到多个处理对象，系统性能将受到一定影响，而且在进行代码调试时不太方便。</li>
 </ul>
 
             </div>
@@ -714,7 +756,7 @@
                     </span>
                     <a href="https://chihiro.org.cn" class="b-link-green">千与千寻</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/blogs/2812777186.html" class="b-link-green">Java设计模式之策略模式</a>
+                    <a href="/blogs/486801453.html" class="b-link-green">Java设计模式之责任链模式</a>
                 </p>
             </div>
         </div>
@@ -996,26 +1038,27 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/blogs/1603223013.html">
+                <a href="/blogs/486801453.html">
                     <div class="card-image">
                         
-                        <img src="https://s2.ax1x.com/2019/03/20/Alhmrj.png" class="responsive-img" alt="Java设计模式之状态模式">
+                        <img src="https://s2.ax1x.com/2019/04/22/Eka2KH.jpg" class="responsive-img" alt="Java设计模式之责任链模式">
                         
-                        <span class="card-title">Java设计模式之状态模式</span>
+                        <span class="card-title">Java设计模式之责任链模式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-		    <div class="summary">
+                    <div class="summary">
 			
-			状态模式介绍及使用。
+			责任链模式介绍及使用。
 			
 		    </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-20
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1028,6 +1071,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1050,22 +1094,22 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/blogs/2369825694.html">
+                <a href="/blogs/2920622723.html">
                     <div class="card-image">
                         
-                        <img src="https://s2.ax1x.com/2019/03/18/AnC62R.png" class="responsive-img" alt="面向对象编程的理解">
+                        <img src="https://s2.ax1x.com/2019/04/22/Eka62D.jpg" class="responsive-img" alt="Java设计模式之代理模式">
                         
-                        <span class="card-title">面向对象编程的理解</span>
+                        <span class="card-title">Java设计模式之代理模式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary">
 			
-			面向对象编程的理解。
+			代理模式介绍及使用。
 			
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-18
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-22
                             </span>
                         <span class="publish-author">
                             
@@ -1086,8 +1130,8 @@
                         <span class="chip bg-color">Java</span>
                     </a>
                     
-                    <a href="/tags/面向对象编程/" target="_blank">
-                        <span class="chip bg-color">面向对象编程</span>
+                    <a href="/tags/设计模式/" target="_blank">
+                        <span class="chip bg-color">设计模式</span>
                     </a>
                     
                 </div>
