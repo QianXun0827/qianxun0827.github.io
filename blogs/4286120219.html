@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="google-site-verification" content="I-NYDDDjiAX8GQEQ_lE0inL4AJtjz4z-HyL122q_swc">
     <meta name="baidu-site-verification" content="ZeyYBV52u1">
-    <meta name="google-site-verification" content=" Mozilla/5.0 (compatible; Google-Site-Verification/1.0)">
     <meta name="keywords" content="FastDFS-Nginx分布式文件系统搭建, chihiro">
     <meta name="description" content="因为不想把博客的图片放在别人的图床上，所以自己研究了个图片服务器。本人搭建的为单机方案，当然此服务器自带集群方案，只是博主没有配置。有需要集群配置方案的也很简单，改几个配置就可以了。具体集群步骤可以问问度娘。首先感谢牧佑大佬的试错总结，没有">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -426,7 +426,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        4,139
+                        4,141
                     </div>
                     
 
@@ -469,19 +469,19 @@
 <li><strong>fastdfs-client-java-master</strong> 点击如下图即可，完成下载。</li>
 </ul>
 <p><a href="https://github.com/happyfish100/fastdfs-client-java" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/happyfish100/fastdfs-client-java</a>  </p>
-<p><img src="https://s2.ax1x.com/2019/04/04/A28Khj.png" alt="">  </p>
+<p><img src="https://s2.ax1x.com/2019/04/04/A28Bg1.png" alt="">  </p>
 <hr>
 <ul>
 <li><strong>fastdfs-nginx-module-master</strong> 点击如下图即可，完成下载。  </li>
 </ul>
 <p><a href="https://github.com/happyfish100/fastdfs-nginx-module" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/happyfish100/fastdfs-nginx-module</a>  </p>
-<p><img src="https://s2.ax1x.com/2019/04/04/A28Bg1.png" alt="">  </p>
+<p><img src="https://s2.ax1x.com/2019/04/04/A28gED.png" alt="">  </p>
 <hr>
 <ul>
 <li><strong>libfastcommon-master</strong> 点击如下图即可，完成下载。    </li>
 </ul>
 <p><a href="https://github.com/happyfish100/libfastcommon" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/happyfish100/libfastcommon  </a>  </p>
-<p><img src="https://s2.ax1x.com/2019/04/04/A28gED.png" alt="">  </p>
+<p><img src="https://s2.ax1x.com/2019/06/24/ZAUlwQ.png" alt="">  </p>
 <hr>
 <ul>
 <li><strong>nginx-1.12.0.tar</strong> 点击如下图即可，完成下载。  </li>
@@ -586,7 +586,7 @@ service fdfs_trackerd start
 <pre><code>[root@izwz9hx50rbasf6sqasl7vz fastdfs_tracker]# netstat -unltp|grep fdfs
 tcp        0      0 0.0.0.0:22122           0.0.0.0:*               LISTEN      2233/fdfs_trackerd
 </code></pre><p>到此22122端口监听成功。</p>
-<h3 id="安装storage"><a href="#安装storage" class="headerlink" title="安装storage"></a>安装storage</h3><p>为storage配置工作目录，由于storage还需要一个目录用来存储数据，所以我另外多建了一个fasdfs_storage_data </p>
+<h3 id="安装storage"><a href="#安装storage" class="headerlink" title="安装storage"></a>安装storage</h3><p>为storage配置工作目录，由于storage还需要一个目录用来存储数据，所以我另外多建了一个fastdfs_storage_data </p>
 <pre><code>[root@izwz9hx50rbasf6sqasl7vz fastdfs]# ls
 fastdfs_storage  fastdfs_storage_data  fastdfs_tracker
 </code></pre><p>修改storage配置文件</p>
@@ -756,19 +756,21 @@ koi-utf                 nginx.conf.default  win-utf
             root /var/fastdfs/fastdfs_storage_data/data;
             ngx_fastdfs_module;
         }
-</code></pre><p>然后进入FastDFS安装时的解压过的目录，将http.conf和mime.types拷贝到/etc/fdfs目录下：</p>
+    }
+</code></pre><p>然后进入FastDFS安装时的解压过的目录</p>
 <pre><code>[root@izwz9hx50rbasf6sqasl7vz fastdfs-5.11]# cd /var/fdfs/fastdfs-5.11/conf
 [root@izwz9hx50rbasf6sqasl7vz conf]# ls
 anti-steal.jpg  http.conf   storage.conf      tracker.conf
 client.conf     mime.types  storage_ids.conf
-cp http.conf /etc/fdfs/
+</code></pre><p>将http.conf和mime.types拷贝到/etc/fdfs目录下</p>
+<pre><code>cp http.conf /etc/fdfs/
 cp mime.types /etc/fdfs/
 </code></pre><p>另外还需要把fastdfs-nginx-module安装目录中src目录下的mod_fastdfs.conf也拷贝到/etc/fdfs目录下：</p>
 <pre><code>cp /var/fdfs/fastdfs-nginx-module-master/src/mod_fastdfs.conf /etc/fdfs/
 </code></pre><p>对刚刚拷贝的mod_fastdfs.conf文件进行修改：</p>
 <pre><code>vim /etc/fdfs/mod_fastdfs.conf
 
-base_path=/usr/muyou/dev/fastdfs/fastdfs_storage  #保存日志目录
+base_path=/var/fastdfs/fastdfs_storage  #保存日志目录
 tracker_server=120.\*\*.\*\*\*.165:22122 #tracker服务器的IP地址以及端口号
 storage_server_port=23000 #storage服务器的端口号
 url_have_group_name = true #文件 url 中是否有 group 名
@@ -795,7 +797,7 @@ store_path0=/var/fastdfs/fastdfs_storage_data
 group_name=group3
 storage_server_port=23000
 store_path_count=1
-store_path0=/var/fastdfs/fastdfs_storage_data
+store_path0=/var/fastdfs/fastdfs_storage_dat
 </code></pre><p>创建M00至storage存储目录的符号连接：  </p>
 <pre><code>ln  -s  /var/fastdfs/fastdfs_storage_data/data/ /var/fastdfs/fastdfs_storage_data/data/M00
 </code></pre><p>启动nginx:  </p>
@@ -822,8 +824,9 @@ ngx_http_fastdfs_set pid=1231
         location /group1/M00 {
             proxy_pass http://fdfs_group1;
         }
+    }
 </code></pre><p>重新加载nginx的配置文件:</p>
-<pre><code>[root@localhost conf]# nginx -s reload
+<pre><code>[root@localhost conf]# /usr/local/nginx/sbin/nginx -s reload
 </code></pre><p><img src="https://s2.ax1x.com/2019/04/04/A2Deb9.png" alt=""></p>
 <p>如果 访问不了 那就修改防火墙吧(阿里服务器上请不要随意关闭防火墙，可能是安全组没有打开！)</p>
 <p>firewall-cmd –zone=public –add-port=23000/tcp –permanent #开户端口号  </p>
@@ -1467,13 +1470,14 @@ ngx_http_fastdfs_set pid=1231
         <div class="col s12 m8 l8 copy-right">
             本站由&copy;<a href="https://chihiro.org.cn/" target="_blank" rel="external nofollow">Chihiro</a>基于
             <a href="https://blinkfox.github.io/" target="_blank" rel="external nofollow noopener noreferrer">Blinkfox</a> 的
-            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-matery</a>主题搭建.
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-matery</a>主题搭建.&nbsp;
             
-                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">54.1k</span><br>
+                <i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">60.6k</span>&nbsp;
             
-	    <a href="https://996.icu" rel="external nofollow noopener noreferrer" target="_blank"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu"></a>&nbsp;
-	    <span class="white-color"><a href="http://www.beian.miit.gov.cn" target="_blank" style="color: white;font-size: 15px;" rel="external nofollow noopener noreferrer">粤ICP备19022950号</a></span>
+	    <span class="white-color"><a href="https://996.icu" target="_blank" style="color: white;font-size: 15px;" rel="external nofollow noopener noreferrer"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu" border="0"></a></span><br>
+	    <span class="white-color"><a href="http://www.beian.miit.gov.cn" target="_blank" style="color: white;font-size: 15px;" rel="external nofollow noopener noreferrer">粤ICP备19022950号</a></span>&nbsp;&nbsp;
+	    <span class="white-color"><img src="https://s2.ax1x.com/2019/08/06/ef5scn.png" alt="ef5scn.png" border="0"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030902001616" target="_blank" style="color: white;font-size: 15px;" rel="external nofollow noopener noreferrer">粤公网安备 44030902001616号</a></span>&nbsp;&nbsp;
 	    
 		<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1276506987'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s96.cnzz.com/z_stat.php%3Fid%3D1276506987%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 	    

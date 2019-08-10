@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chihiro.org.cn/"/>
-  <updated>2019-05-23T02:23:47.438Z</updated>
+  <updated>2019-08-10T10:35:35.792Z</updated>
   <id>https://chihiro.org.cn/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Java设计模式之代理模式</title>
-    <link href="https://chihiro.org.cn/blogs/2920622723.html"/>
-    <id>https://chihiro.org.cn/blogs/2920622723.html</id>
-    <published>2019-04-22T11:30:00.000Z</published>
-    <updated>2019-05-23T02:23:47.438Z</updated>
+    <title>Apache Archiva 私服搭建</title>
+    <link href="https://chihiro.org.cn/blogs/1040711240.html"/>
+    <id>https://chihiro.org.cn/blogs/1040711240.html</id>
+    <published>2019-08-10T12:30:00.000Z</published>
+    <updated>2019-08-10T10:35:35.792Z</updated>
     
     <summary type="html">
     
@@ -29,18 +29,182 @@
       
         
         
-          &lt;h2 id=&quot;一、模式动机&quot;&gt;&lt;a href=&quot;#一、模式动机&quot; class=&quot;headerlink&quot;
+          &lt;h2 id=&quot;下载安装程序&quot;&gt;&lt;a href=&quot;#下载安装程序&quot; class=&quot;headerlink&quot; title=&quot;下载安装程序&quot;&gt;&lt;/a&gt;下载安装程序&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;进入 Archiva 的项目的下载页面中，请&lt;a
         
       
     
     </summary>
     
-      <category term="软件编程" scheme="https://chihiro.org.cn/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/"/>
+      <category term="服务器" scheme="https://chihiro.org.cn/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    
+      <category term="Archiva" scheme="https://chihiro.org.cn/tags/Archiva/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RBAC用户权限管理数据库设计</title>
+    <link href="https://chihiro.org.cn/blogs/2455283662.html"/>
+    <id>https://chihiro.org.cn/blogs/2455283662.html</id>
+    <published>2019-08-07T15:30:00.000Z</published>
+    <updated>2019-08-08T07:37:31.927Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;设计过程&quot;&gt;&lt;a href=&quot;#设计过程&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="数据库" scheme="https://chihiro.org.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="RBAC" scheme="https://chihiro.org.cn/tags/RBAC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux下haproxy安装</title>
+    <link href="https://chihiro.org.cn/blogs/4248711648.html"/>
+    <id>https://chihiro.org.cn/blogs/4248711648.html</id>
+    <published>2019-08-01T12:30:00.000Z</published>
+    <updated>2019-08-01T12:09:49.829Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;安装依赖包&quot;&gt;&lt;a href=&quot;#安装依赖包&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="服务器" scheme="https://chihiro.org.cn/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    
+      <category term="haproxy" scheme="https://chihiro.org.cn/tags/haproxy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux下nginx安装</title>
+    <link href="https://chihiro.org.cn/blogs/2970943405.html"/>
+    <id>https://chihiro.org.cn/blogs/2970943405.html</id>
+    <published>2019-07-25T12:30:00.000Z</published>
+    <updated>2019-08-01T12:09:49.890Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;安装依赖包&quot;&gt;&lt;a href=&quot;#安装依赖包&quot; class=&quot;headerlink&quot; title=&quot;安装依赖包&quot;&gt;&lt;/a&gt;安装依赖包&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;nginx部署安装对环境有要求，一键安装以下依赖即可。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;yum
+        
+      
+    
+    </summary>
+    
+      <category term="服务器" scheme="https://chihiro.org.cn/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    
+      <category term="nginx" scheme="https://chihiro.org.cn/tags/nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用Alibaba Cloud Toolkit插件一键部署项目</title>
+    <link href="https://chihiro.org.cn/blogs/593089678.html"/>
+    <id>https://chihiro.org.cn/blogs/593089678.html</id>
+    <published>2019-07-17T12:30:00.000Z</published>
+    <updated>2019-08-10T09:52:23.401Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Cloud Toolkit是一个IDE 插件，帮助开发者更高效地开发、测试、诊断并部署应用。&lt;br&gt;使用本插件，开发者能够方便地将本地应用一键部署到任意机器，或 ECS、EDAS、Kubernetes；&lt;br&gt;并支持高效执行终端命令和 SQL
+        
+      
+    
+    </summary>
+    
+      <category term="工具" scheme="https://chihiro.org.cn/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="Alibaba Cloud Toolkit" scheme="https://chihiro.org.cn/tags/Alibaba-Cloud-Toolkit/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Netty的WebSocket客户端通过SSL连接服务器</title>
+    <link href="https://chihiro.org.cn/blogs/784033432.html"/>
+    <id>https://chihiro.org.cn/blogs/784033432.html</id>
+    <published>2019-06-15T02:00:00.000Z</published>
+    <updated>2019-06-17T11:33:20.610Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;生成SSL证书&quot;&gt;&lt;a href=&quot;#生成SSL证书&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="https://chihiro.org.cn/categories/%E5%90%8E%E7%AB%AF/"/>
     
     
       <category term="Java" scheme="https://chihiro.org.cn/tags/Java/"/>
     
-      <category term="设计模式" scheme="https://chihiro.org.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+      <category term="Netty" scheme="https://chihiro.org.cn/tags/Netty/"/>
+    
+      <category term="SSL" scheme="https://chihiro.org.cn/tags/SSL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>srs流媒体服务器集群搭建</title>
+    <link href="https://chihiro.org.cn/blogs/1651636328.html"/>
+    <id>https://chihiro.org.cn/blogs/1651636328.html</id>
+    <published>2019-06-11T12:30:00.000Z</published>
+    <updated>2019-08-10T09:53:11.805Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;单台服务器做直播，总归有单点风险，利用SRS的&lt;a href=&quot;https://github.com/ossrs/srs/wiki/v1_CN_SampleForward&quot; rel=&quot;external nofollow noopener noreferrer&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="服务器" scheme="https://chihiro.org.cn/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    
+      <category term="srs" scheme="https://chihiro.org.cn/tags/srs/"/>
+    
+      <category term="流媒体服务器" scheme="https://chihiro.org.cn/tags/%E6%B5%81%E5%AA%92%E4%BD%93%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
@@ -49,7 +213,7 @@
     <link href="https://chihiro.org.cn/blogs/486801453.html"/>
     <id>https://chihiro.org.cn/blogs/486801453.html</id>
     <published>2019-04-22T11:30:00.000Z</published>
-    <updated>2019-05-23T02:23:47.439Z</updated>
+    <updated>2019-05-23T02:23:47.000Z</updated>
     
     <summary type="html">
     
@@ -73,11 +237,39 @@
   </entry>
   
   <entry>
+    <title>Java设计模式之代理模式</title>
+    <link href="https://chihiro.org.cn/blogs/2920622723.html"/>
+    <id>https://chihiro.org.cn/blogs/2920622723.html</id>
+    <published>2019-04-22T11:30:00.000Z</published>
+    <updated>2019-05-23T02:23:47.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、模式动机&quot;&gt;&lt;a href=&quot;#一、模式动机&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="软件编程" scheme="https://chihiro.org.cn/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="Java" scheme="https://chihiro.org.cn/tags/Java/"/>
+    
+      <category term="设计模式" scheme="https://chihiro.org.cn/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java设计模式之装饰模式</title>
     <link href="https://chihiro.org.cn/blogs/859121656.html"/>
     <id>https://chihiro.org.cn/blogs/859121656.html</id>
     <published>2019-04-11T10:30:00.000Z</published>
-    <updated>2019-04-11T03:56:29.036Z</updated>
+    <updated>2019-04-11T03:56:29.000Z</updated>
     
     <summary type="html">
     
@@ -105,7 +297,7 @@
     <link href="https://chihiro.org.cn/blogs/504695146.html"/>
     <id>https://chihiro.org.cn/blogs/504695146.html</id>
     <published>2019-04-08T10:30:00.000Z</published>
-    <updated>2019-04-08T07:29:41.525Z</updated>
+    <updated>2019-08-01T11:41:44.166Z</updated>
     
     <summary type="html">
     
@@ -133,7 +325,7 @@
     <link href="https://chihiro.org.cn/blogs/4286120219.html"/>
     <id>https://chihiro.org.cn/blogs/4286120219.html</id>
     <published>2019-04-04T10:30:00.000Z</published>
-    <updated>2019-04-08T07:31:40.410Z</updated>
+    <updated>2019-08-10T08:10:24.137Z</updated>
     
     <summary type="html">
     
@@ -163,7 +355,7 @@
     <link href="https://chihiro.org.cn/blogs/157566173.html"/>
     <id>https://chihiro.org.cn/blogs/157566173.html</id>
     <published>2019-03-31T02:10:00.000Z</published>
-    <updated>2019-04-08T06:59:18.876Z</updated>
+    <updated>2019-04-08T06:59:18.000Z</updated>
     
     <summary type="html">
     
@@ -191,7 +383,7 @@
     <link href="https://chihiro.org.cn/blogs/2173505135.html"/>
     <id>https://chihiro.org.cn/blogs/2173505135.html</id>
     <published>2019-03-26T05:30:00.000Z</published>
-    <updated>2019-04-04T09:08:58.718Z</updated>
+    <updated>2019-04-04T09:08:58.000Z</updated>
     
     <summary type="html">
     
@@ -219,7 +411,7 @@
     <link href="https://chihiro.org.cn/blogs/606353581.html"/>
     <id>https://chihiro.org.cn/blogs/606353581.html</id>
     <published>2019-03-22T11:30:00.000Z</published>
-    <updated>2019-04-04T09:08:53.719Z</updated>
+    <updated>2019-04-04T09:08:53.000Z</updated>
     
     <summary type="html">
     
@@ -247,7 +439,7 @@
     <link href="https://chihiro.org.cn/blogs/2168237024.html"/>
     <id>https://chihiro.org.cn/blogs/2168237024.html</id>
     <published>2019-03-21T13:00:00.000Z</published>
-    <updated>2019-04-08T06:59:21.562Z</updated>
+    <updated>2019-04-08T06:59:21.000Z</updated>
     
     <summary type="html">
     
@@ -275,7 +467,7 @@
     <link href="https://chihiro.org.cn/blogs/1603223013.html"/>
     <id>https://chihiro.org.cn/blogs/1603223013.html</id>
     <published>2019-03-20T12:00:00.000Z</published>
-    <updated>2019-03-26T05:58:43.170Z</updated>
+    <updated>2019-03-26T05:58:43.000Z</updated>
     
     <summary type="html">
     
@@ -303,7 +495,7 @@
     <link href="https://chihiro.org.cn/blogs/2812777186.html"/>
     <id>https://chihiro.org.cn/blogs/2812777186.html</id>
     <published>2019-03-19T13:00:00.000Z</published>
-    <updated>2019-03-26T05:58:48.854Z</updated>
+    <updated>2019-03-26T05:58:48.000Z</updated>
     
     <summary type="html">
     
@@ -331,7 +523,7 @@
     <link href="https://chihiro.org.cn/blogs/2369825694.html"/>
     <id>https://chihiro.org.cn/blogs/2369825694.html</id>
     <published>2019-03-18T12:40:00.000Z</published>
-    <updated>2019-03-20T11:55:49.685Z</updated>
+    <updated>2019-03-20T11:55:49.000Z</updated>
     
     <summary type="html">
     
@@ -359,7 +551,7 @@
     <link href="https://chihiro.org.cn/blogs/793584201.html"/>
     <id>https://chihiro.org.cn/blogs/793584201.html</id>
     <published>2019-03-18T12:35:00.000Z</published>
-    <updated>2019-03-20T11:55:47.062Z</updated>
+    <updated>2019-03-20T11:55:47.000Z</updated>
     
     <summary type="html">
     
@@ -382,169 +574,6 @@
       <category term="重构" scheme="https://chihiro.org.cn/tags/%E9%87%8D%E6%9E%84/"/>
     
       <category term="测试" scheme="https://chihiro.org.cn/tags/%E6%B5%8B%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Google Java编程风格指南</title>
-    <link href="https://chihiro.org.cn/blogs/3366701135.html"/>
-    <id>https://chihiro.org.cn/blogs/3366701135.html</id>
-    <published>2019-03-18T12:30:00.000Z</published>
-    <updated>2019-03-20T11:55:44.809Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;1-前言&quot;&gt;&lt;a href=&quot;#1-前言&quot; class=&quot;headerlink&quot; title=&quot;1 前言&quot;&gt;&lt;/a&gt;1 前言&lt;/h2&gt;&lt;p&gt;这份文档是&lt;code&gt;Google
-        
-      
-    
-    </summary>
-    
-      <category term="软件编程" scheme="https://chihiro.org.cn/categories/%E8%BD%AF%E4%BB%B6%E7%BC%96%E7%A8%8B/"/>
-    
-    
-      <category term="Java" scheme="https://chihiro.org.cn/tags/Java/"/>
-    
-      <category term="Google" scheme="https://chihiro.org.cn/tags/Google/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 常用命令</title>
-    <link href="https://chihiro.org.cn/blogs/2172419459.html"/>
-    <id>https://chihiro.org.cn/blogs/2172419459.html</id>
-    <published>2019-03-15T10:30:00.000Z</published>
-    <updated>2019-04-04T07:38:27.759Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;Linux连接工具&quot;&gt;&lt;a href=&quot;#Linux连接工具&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="服务器" scheme="https://chihiro.org.cn/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
-    
-      <category term="Linux" scheme="https://chihiro.org.cn/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>String字符串转Date日期</title>
-    <link href="https://chihiro.org.cn/blogs/451064031.html"/>
-    <id>https://chihiro.org.cn/blogs/451064031.html</id>
-    <published>2019-03-12T12:00:00.000Z</published>
-    <updated>2019-03-16T07:59:11.938Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;日期转换&quot;&gt;&lt;a href=&quot;#日期转换&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="后端" scheme="https://chihiro.org.cn/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-      <category term="Java" scheme="https://chihiro.org.cn/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用阿里云搭配git搭建博客</title>
-    <link href="https://chihiro.org.cn/blogs/166738594.html"/>
-    <id>https://chihiro.org.cn/blogs/166738594.html</id>
-    <published>2019-03-11T11:30:00.000Z</published>
-    <updated>2019-03-18T12:29:57.407Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;近期在阿里云买了个学生服务器，就想着把github上的博客迁移过来。整个过程陆陆续续花了一个多星期的时间，也踩了不少坑，在此做个记录备忘。&lt;/p&gt;
-&lt;h2 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="工具" scheme="https://chihiro.org.cn/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="阿里云" scheme="https://chihiro.org.cn/tags/%E9%98%BF%E9%87%8C%E4%BA%91/"/>
-    
-      <category term="hexo" scheme="https://chihiro.org.cn/tags/hexo/"/>
-    
-      <category term="git" scheme="https://chihiro.org.cn/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java 多级菜单树工具</title>
-    <link href="https://chihiro.org.cn/blogs/1705435210.html"/>
-    <id>https://chihiro.org.cn/blogs/1705435210.html</id>
-    <published>2019-03-06T12:12:00.000Z</published>
-    <updated>2019-03-16T07:59:06.510Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;关于Java中多级菜单树的处理&quot;&gt;&lt;a href=&quot;#关于Java中多级菜单树的处理&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="后端" scheme="https://chihiro.org.cn/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-      <category term="Java" scheme="https://chihiro.org.cn/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>博客说明</title>
-    <link href="https://chihiro.org.cn/blogs/1523215152.html"/>
-    <id>https://chihiro.org.cn/blogs/1523215152.html</id>
-    <published>2019-03-06T04:00:00.000Z</published>
-    <updated>2019-03-19T04:12:46.566Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;重点说明&quot;&gt;&lt;a href=&quot;#重点说明&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="其他" scheme="https://chihiro.org.cn/categories/%E5%85%B6%E4%BB%96/"/>
-    
-    
-      <category term="Markdown" scheme="https://chihiro.org.cn/tags/Markdown/"/>
     
   </entry>
   
