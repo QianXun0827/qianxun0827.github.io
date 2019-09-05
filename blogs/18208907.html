@@ -6,9 +6,16 @@
     <meta charset="utf-8">
     <meta name="google-site-verification" content="I-NYDDDjiAX8GQEQ_lE0inL4AJtjz4z-HyL122q_swc">
     <meta name="baidu-site-verification" content="ZeyYBV52u1">
-    <meta name="keywords" content="Java 多级菜单树工具, chihiro">
-    <meta name="description" content="关于Java中多级菜单树的处理
-今天被一个菜单列表的展现折磨得不轻，自己写代码发现实在是费时费力，而且代码量太大，逻辑亟待优化，后续找到了这个代码十分简洁的工具类，说实话我只能看得懂，写不出来这种东西。在此分享给大家，避免重复造轮子的工作~">
+    <meta name="keywords" content="Linux下rabbitMQ安装, chihiro">
+    <meta name="description" content="安装依赖
+RabbitMQ依赖Erlang，需要先安装Erlang。
+
+#启动EPEL源
+sudo yum install epel-release
+安装erlang
+sudo yum install erlang
+下载并解压安装包
+先新建">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +27,7 @@
     <meta name="keywords" content="{% for tag in page.tags %}{{ tag.name }},{% endfor %}">
     <meta name="keywords" content="{{ theme.keywords }}">
 
-    <title>Java 多级菜单树工具 | 千与千寻</title>
+    <title>Linux下rabbitMQ安装 | 千与千寻</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -283,13 +290,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s2.ax1x.com/2019/03/11/ACXKDU.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s2.ax1x.com/2019/09/05/nmOttx.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Java 多级菜单树工具
+                        Linux下rabbitMQ安装
                     </div>
                 </div>
             </div>
@@ -381,8 +388,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Java/" target="_blank">
-                                <span class="chip bg-color">Java</span>
+                            <a href="/tags/rabbitMQ/" target="_blank">
+                                <span class="chip bg-color">rabbitMQ</span>
                             </a>
                         
                     </div>
@@ -393,8 +400,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/后端/" class="post-category" target="_blank">
-                                后端
+                            <a href="/categories/服务器/" class="post-category" target="_blank">
+                                服务器
                             </a>
                         
                     </div>
@@ -405,7 +412,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-03-06
+                    2019-09-05
                 </div>
 
 		
@@ -419,14 +426,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        419
+                        699
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        3 分
                     </div>
                     
                 
@@ -442,91 +449,114 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="关于Java中多级菜单树的处理"><a href="#关于Java中多级菜单树的处理" class="headerlink" title="关于Java中多级菜单树的处理"></a>关于Java中多级菜单树的处理</h2><ul>
-<li>今天被一个菜单列表的展现折磨得不轻，自己写代码发现实在是费时费力，而且代码量太大，逻辑亟待优化，后续找到了这个代码十分简洁的工具类，说实话我只能看得懂，写不出来这种东西。在此分享给大家，避免重复造轮子的工作~</li>
+                <h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><ul>
+<li>RabbitMQ依赖Erlang，需要先安装Erlang。</li>
 </ul>
-<h3 id="多级树Bean"><a href="#多级树Bean" class="headerlink" title="多级树Bean"></a>多级树Bean</h3><p>这是一个基础bean：</p>
-<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
- * 功能描述：
- * 【分组信息bean】
- * 注意，下面的bean每个属性都为必要属性，不可缺一
- * 继承此bean再添加多个属性，不会影响树结构
- * 类上的三个注解为lombok插件
- *
- * @author chihiro
- * @version V1.0
- * @date 2019/03/06 17:35
- */</span>
-<span class="token annotation punctuation">@Data</span>
-<span class="token annotation punctuation">@NoArgsConstructor</span>
-<span class="token annotation punctuation">@AllArgsConstructor</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BaseTree</span> <span class="token keyword">implements</span> <span class="token class-name">Serializable</span> <span class="token punctuation">{</span>
-
-    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">long</span> serialVersionUID <span class="token operator">=</span> 8L<span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">/**
-     * 树主键
-     */</span>
-    <span class="token keyword">private</span> String treeId<span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">/**
-     * 父节点id
-     */</span>
-    <span class="token keyword">private</span> String parentId<span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">/**
-     * 子节点集合
-     */</span>
-    <span class="token keyword">private</span> List<span class="token operator">&lt;</span><span class="token operator">?</span> <span class="token keyword">extends</span> <span class="token class-name">BaseTree</span><span class="token operator">></span> childrens<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h3 id="树工具类"><a href="#树工具类" class="headerlink" title="树工具类"></a>树工具类</h3><p>核心工具类：</p>
-<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
- * 功能描述：
- * 【多级树util】
- * 核心是使用递归
- *
- * @author chihiro
- * @version V1.0
- * @date 2019/03/06 18:45
- */</span>
-<span class="token annotation punctuation">@AllArgsConstructor</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TreeToolUtil</span><span class="token operator">&lt;</span>T <span class="token keyword">extends</span> <span class="token class-name">BaseTree</span><span class="token operator">></span> <span class="token punctuation">{</span>
-
-    <span class="token comment" spellcheck="true">/**
-     * 根节点
-     */</span>
-    <span class="token keyword">private</span> List<span class="token operator">&lt;</span>T<span class="token operator">></span> rootList<span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">/**
-     * 叶子节点
-     */</span>
-    <span class="token keyword">private</span> List<span class="token operator">&lt;</span>T<span class="token operator">></span> bodyList<span class="token punctuation">;</span>
-
-    <span class="token keyword">public</span> List<span class="token operator">&lt;</span>T<span class="token operator">></span> <span class="token function">getTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>CollUtil<span class="token punctuation">.</span><span class="token function">isNotEmpty</span><span class="token punctuation">(</span>bodyList<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">//声明一个map，用来过滤已操作过的数据</span>
-            Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> String<span class="token operator">></span> map <span class="token operator">=</span> MapUtil<span class="token punctuation">.</span><span class="token function">newHashMap</span><span class="token punctuation">(</span>bodyList<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            rootList<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>beanTree <span class="token operator">-</span><span class="token operator">></span> <span class="token function">getChild</span><span class="token punctuation">(</span>beanTree<span class="token punctuation">,</span> map<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> rootList<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> null<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">getChild</span><span class="token punctuation">(</span>T beanTree<span class="token punctuation">,</span> Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> String<span class="token operator">></span> map<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        List<span class="token operator">&lt;</span>BaseTree<span class="token operator">></span> childList <span class="token operator">=</span> CollUtil<span class="token punctuation">.</span><span class="token function">newArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        bodyList<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>group <span class="token operator">-</span><span class="token operator">></span> <span class="token operator">!</span>map<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>group<span class="token punctuation">.</span><span class="token function">getTreeId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>group <span class="token operator">-</span><span class="token operator">></span> group<span class="token punctuation">.</span><span class="token function">getParentId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>beanTree<span class="token punctuation">.</span><span class="token function">getTreeId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>group <span class="token operator">-</span><span class="token operator">></span> <span class="token punctuation">{</span>
-                    map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>group<span class="token punctuation">.</span><span class="token function">getTreeId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> group<span class="token punctuation">.</span><span class="token function">getParentId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token function">getChild</span><span class="token punctuation">(</span>group<span class="token punctuation">,</span> map<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    childList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>group<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        beanTree<span class="token punctuation">.</span><span class="token function">setChildrens</span><span class="token punctuation">(</span>childList<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><ul>
-<li>这套代码是博主从网上找来调整为自己使用的，非博主独立构建。</li>
-<li>若遇到其他Bug，请通过博客内联系方式找博主修复。</li>
+<pre><code>#启动EPEL源
+sudo yum install epel-release
+安装erlang
+sudo yum install erlang
+</code></pre><h2 id="下载并解压安装包"><a href="#下载并解压安装包" class="headerlink" title="下载并解压安装包"></a>下载并解压安装包</h2><ul>
+<li>先新建一个文件夹，博主喜欢在<code>/var</code>下面安装服务器软件</li>
 </ul>
+<pre><code>cd /var
+mkdir rabbitmq
+cd rabbitmq
+</code></pre><ul>
+<li>下载rpm</li>
+</ul>
+<pre><code>wget https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.15/rabbitmq-server-3.6.15-1.el6.noarch.rpm
+</code></pre><ul>
+<li>下载完成后安装</li>
+</ul>
+<pre><code>yum install rabbitmq-server-3.6.15-1.el6.noarch.rpm
+</code></pre><h2 id="RabbitMQ的一些基本操作"><a href="#RabbitMQ的一些基本操作" class="headerlink" title="RabbitMQ的一些基本操作"></a>RabbitMQ的一些基本操作</h2><pre><code># 添加开机启动RabbitMQ服务
+sudo chkconfig rabbitmq-server on
+
+# 启动服务
+sudo /sbin/service rabbitmq-server start
+
+# 查看服务状态
+sudo /sbin/service rabbitmq-server status
+
+# 停止服务
+sudo /sbin/service rabbitmq-server stop
+
+# 查看当前所有用户
+sudo rabbitmqctl list_users
+
+# 查看默认guest用户的权限
+sudo rabbitmqctl list_user_permissions guest
+
+# 由于RabbitMQ默认的账号用户名和密码都是guest。为了安全起见, 先删掉默认用户
+sudo rabbitmqctl delete_user guest
+
+# 添加新用户
+sudo rabbitmqctl add_user username password
+
+# 设置用户tag
+sudo rabbitmqctl set_user_tags username administrator
+
+# 赋予用户默认vhost的全部操作权限
+sudo rabbitmqctl set_permissions -p / username &quot;.*&quot; &quot;.*&quot; &quot;.*&quot;
+
+# 查看用户的权限
+sudo rabbitmqctl list_user_permissions username
+</code></pre><blockquote>
+<p>更多关于<code>rabbitmqctl</code>的使用，可以参考<a href="https://link.jianshu.com/?t=https://www.rabbitmq.com/man/rabbitmqctl.1.man.html" rel="external nofollow noopener noreferrer" target="_blank">帮助手册</a>。</p>
+</blockquote>
+<h2 id="开启web管理接口"><a href="#开启web管理接口" class="headerlink" title="开启web管理接口"></a>开启web管理接口</h2><ul>
+<li>RabbitMQ自带了web管理界面，只需要启动插件便可以使用。</li>
+</ul>
+<pre><code>sudo rabbitmq-plugins enable rabbitmq_management
+</code></pre><ul>
+<li>然后通过浏览器访问</li>
+</ul>
+<pre><code>http://yourhost:15672
+</code></pre><h2 id="配置RabbitMQ"><a href="#配置RabbitMQ" class="headerlink" title="配置RabbitMQ"></a>配置RabbitMQ</h2><ul>
+<li>关于每个配置项的具体作用，可以参考<a href="https://link.jianshu.com/?t=https://www.rabbitmq.com/configure.html" rel="external nofollow noopener noreferrer" target="_blank">官方文档</a>。<br>更新配置后，别忘了重启服务哦！</li>
+</ul>
+<h2 id="开启用户远程访问"><a href="#开启用户远程访问" class="headerlink" title="开启用户远程访问"></a>开启用户远程访问</h2><ul>
+<li>默认情况下，RabbitMQ的默认的<code>guest</code>用户只允许本机访问， 如果想让<code>guest</code>用户能够远程访问的话，只需要将配置文件中的<code>loopback_users</code>列表置为空即可，如下：</li>
+</ul>
+<pre><code>{loopback_users, []}
+</code></pre><ul>
+<li>另外关于新添加的用户，直接就可以从远程访问的，如果想让新添加的用户只能本地访问，可以将用户名添加到上面的列表, 如只允许<code>admin</code>用户本机访问。</li>
+</ul>
+<pre><code>{loopback_users, [&quot;admin&quot;]}
+</code></pre><ul>
+<li>更新配置后，需要重启服务</li>
+</ul>
+<pre><code>sudo /sbin/service rabbitmq-server status  # 查看服务状态
+</code></pre><ul>
+<li>进入log文件夹内查看日志</li>
+</ul>
+<p><img src="https://s2.ax1x.com/2019/09/05/nmLiZR.png" alt="image-1"></p>
+<pre><code>cd /var/log/rabbitmq
+</code></pre><p><img src="https://s2.ax1x.com/2019/09/05/nmLFd1.png" alt="image-2"></p>
+<ul>
+<li>这里显示的是没有找到配置文件，我们可以自己创建这个文件</li>
+</ul>
+<pre><code>cd /etc/rabbitmq/
+vim rabbitmq.config
+</code></pre><ul>
+<li>编辑内容如下：</li>
+</ul>
+<pre><code>[{rabbit, [{loopback_users, []}]}].
+</code></pre><blockquote>
+<p>这里的意思是开放使用，rabbitmq默认创建的用户guest，密码也是guest，这个用户默认只能是本机访问，localhost或者127.0.0.1，从外部访问需要添加上面的配置。</p>
+</blockquote>
+<ul>
+<li>保存配置后重启服务：</li>
+</ul>
+<pre><code>service rabbitmq-server stop
+service rabbitmq-server start
+</code></pre><p>此时就可以从外部访问了，至此rabbitmq已经搭建完成，去做测试吧WwW</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>记得要开放5672和15672端口</p>
+<blockquote>
+<p>5672表示客户端访问端口</p>
+<p>15672表示web界面展示接口</p>
+</blockquote>
 
             </div>
             <hr>
@@ -674,7 +704,7 @@
                     </span>
                     <a href="https://chihiro.org.cn" class="b-link-green">千与千寻</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/blogs/1705435210.html" class="b-link-green">Java 多级菜单树工具</a>
+                    <a href="/blogs/18208907.html" class="b-link-green">Linux下rabbitMQ安装</a>
                 </p>
             </div>
         </div>
@@ -958,24 +988,79 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/blogs/166738594.html">
+                <a href="/blogs/1451877531.html">
                     <div class="card-image">
                         
-                        <img src="https://s2.ax1x.com/2019/03/11/ACXtv6.jpg" class="responsive-img" alt="使用阿里云搭配git搭建博客">
+                        <img src="https://s2.ax1x.com/2019/09/05/nni8kF.jpg" class="responsive-img" alt="Java操作rabbitmq示例">
                         
-                        <span class="card-title">使用阿里云搭配git搭建博客</span>
+                        <span class="card-title">Java操作rabbitmq示例</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
 		    <div class="summary">
 			
-			使用git、hexo、nodejs、nginx搭建一个远程部署的博客。
+			springboot2.1.4整合rabbitmq
 			
 		    </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-11
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-10
                         </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/后端/" class="post-category" target="_blank">
+                                    后端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/" target="_blank">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/rabbitmq/" target="_blank">
+                        <span class="chip bg-color">rabbitmq</span>
+                    </a>
+                    
+                    <a href="/tags/springboot/" target="_blank">
+                        <span class="chip bg-color">springboot</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/blogs/1040711240.html">
+                    <div class="card-image">
+                        
+                        <img src="https://s2.ax1x.com/2019/08/10/eOhwsf.png" class="responsive-img" alt="Apache Archiva 私服搭建">
+                        
+                        <span class="card-title">Apache Archiva 私服搭建</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">
+			
+			使用Archiva搭建内网maven私服。
+			
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -991,63 +1076,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/阿里云/" target="_blank">
-                        <span class="chip bg-color">阿里云</span>
-                    </a>
-                    
-                    <a href="/tags/hexo/" target="_blank">
-                        <span class="chip bg-color">hexo</span>
-                    </a>
-                    
-                    <a href="/tags/git/" target="_blank">
-                        <span class="chip bg-color">git</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/blogs/1523215152.html">
-                    <div class="card-image">
-                        
-                        <img src="https://s2.ax1x.com/2019/03/11/ACXMbF.jpg" class="responsive-img" alt="博客说明">
-                        
-                        <span class="card-title">博客说明</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">
-			
-			欢迎来到我的博客，博客说明。
-			
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-06
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/其他/" class="post-category" target="_blank">
-                                    其他
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Markdown/" target="_blank">
-                        <span class="chip bg-color">Markdown</span>
+                    <a href="/tags/Archiva/" target="_blank">
+                        <span class="chip bg-color">Archiva</span>
                     </a>
                     
                 </div>
