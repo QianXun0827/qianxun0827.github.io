@@ -425,7 +425,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1,060
+                        1,051
                     </div>
                     
 
@@ -453,35 +453,36 @@
 </ul>
 <h3 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h3><p>新建SpringBoot工程，这里命名为：JavaFastDFSClient </p>
 <h3 id="编辑pom文件"><a href="#编辑pom文件" class="headerlink" title="编辑pom文件"></a>编辑pom文件</h3><p>在pom文件中引入如下jar包：</p>
-<pre><code>&lt;dependency&gt;
-   &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-   &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
-   &lt;scope&gt;test&lt;/scope&gt;
-&lt;/dependency&gt;
-&lt;!--引入FastDFS工具类--&gt;
-&lt;dependency&gt;
-   &lt;groupId&gt;cn.bestwu&lt;/groupId&gt;
-   &lt;artifactId&gt;fastdfs-client-java&lt;/artifactId&gt;
-   &lt;version&gt;1.27&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;!--引入IO工具类库--&gt;
-&lt;dependency&gt;
-   &lt;groupId&gt;commons-io&lt;/groupId&gt;
-   &lt;artifactId&gt;commons-io&lt;/artifactId&gt;
-   &lt;version&gt;2.6&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre><h3 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h3><p>在resources目录下新建一个名为<code>fdfs_client.conf</code>的文件</p>
-<pre class=" language-conf"><code class="language-conf">connect_timeout = 60
-network_timeout = 60
-charset = UTF-8
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>scope</span><span class="token punctuation">></span></span>test<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>scope</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+<span class="token comment" spellcheck="true">&lt;!--引入FastDFS工具类--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>cn.bestwu<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>fastdfs-client-java<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>1.27<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+<span class="token comment" spellcheck="true">&lt;!--引入IO工具类库--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>commons-io<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>commons-io<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.6<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+</code></pre>
+<h3 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h3><p>在resources目录下新建一个名为<code>fdfs_client.conf</code>的文件</p>
+<pre class=" language-bash"><code class="language-bash">connect_timeout <span class="token operator">=</span> 60
+network_timeout <span class="token operator">=</span> 60
+charset <span class="token operator">=</span> UTF-8
 
-# Tracker配置文件中配置的http端口
-http.tracker_http_port = 9989
-http.anti_steal_token = no
-http.secret_key = FastDFS1234567890
+<span class="token comment" spellcheck="true"># Tracker配置文件中配置的http端口</span>
+http.tracker_http_port <span class="token operator">=</span> 9989
+http.anti_steal_token <span class="token operator">=</span> no
+http.secret_key <span class="token operator">=</span> FastDFS1234567890
 
-# Tracker服务器地址
-tracker_server = 你自己的IP:22122
+<span class="token comment" spellcheck="true"># Tracker服务器地址</span>
+tracker_server <span class="token operator">=</span> 你自己的IP:22122
 
 </code></pre>
 <blockquote>
@@ -1129,30 +1130,30 @@ tracker_server = 你自己的IP:22122
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/blogs/1651636328.html">
+                <a href="/blogs/784033432.html">
                     <div class="card-image">
                         
-                        <img src="https://s2.ax1x.com/2019/06/11/VgHugf.jpg" class="responsive-img" alt="srs流媒体服务器集群搭建">
+                        <img src="https://s2.ax1x.com/2019/06/15/VI8vgx.jpg" class="responsive-img" alt="Netty的WebSocket客户端通过SSL连接服务器">
                         
-                        <span class="card-title">srs流媒体服务器集群搭建</span>
+                        <span class="card-title">Netty的WebSocket客户端通过SSL连接服务器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-		    <div class="summary">
-			
-			高可用srs流媒体服务器集群的搭建，并依赖于haproxy、nginx作代理。
-			
-		    </div>
+                    <div class="summary block-with-text">
+                        
+                            将ssl证书整合至netty中。
+                        
+                    </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-11
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-15
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/服务器/" class="post-category" target="_blank">
-                                    服务器
+                            <a href="/categories/后端/" class="post-category" target="_blank">
+                                    后端
                                 </a>
                             
                             
@@ -1162,12 +1163,16 @@ tracker_server = 你自己的IP:22122
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/srs/" target="_blank">
-                        <span class="chip bg-color">srs</span>
+                    <a href="/tags/Java/" target="_blank">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
-                    <a href="/tags/流媒体服务器/" target="_blank">
-                        <span class="chip bg-color">流媒体服务器</span>
+                    <a href="/tags/Netty/" target="_blank">
+                        <span class="chip bg-color">Netty</span>
+                    </a>
+                    
+                    <a href="/tags/SSL/" target="_blank">
+                        <span class="chip bg-color">SSL</span>
                     </a>
                     
                 </div>
@@ -1190,10 +1195,11 @@ tracker_server = 你自己的IP:22122
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">
-			
-			分布式文件系统FastDFS的搭建，并依赖于nginx作代理。
-			
+                    <div class="summary block-with-text">
+                        
+                            分布式文件系统FastDFS的搭建，并依赖于nginx作代理。
+                        
+                    </div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-04
@@ -1231,46 +1237,9 @@ tracker_server = 你自己的IP:22122
         </div>
         
     </div>
-</div></article>
+</article>
 </div>
 
-
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('120')) {
-            return;
-        }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
-        }
-
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + '来源: 千与千寻<br />'
-            + '作者: Chihiro<br />'
-            + '链接: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
-
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
 
     </div>
     <div class="col l3 hide-on-med-and-down">
@@ -1332,7 +1301,7 @@ tracker_server = 你自己的IP:22122
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-matery</a>主题搭建.&nbsp;
             
                 <i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">40.3k</span>&nbsp;
+                <span class="white-color">42.3k</span>&nbsp;
             
 	    <span class="white-color"><a href="https://996.icu" target="_blank" style="color: white;font-size: 15px;" rel="external nofollow noopener noreferrer"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu" border="0"></a></span><br>
 	    <span class="white-color"><a href="http://www.beian.miit.gov.cn" target="_blank" style="color: white;font-size: 15px;" rel="external nofollow noopener noreferrer">粤ICP备19022950号</a></span>&nbsp;&nbsp;

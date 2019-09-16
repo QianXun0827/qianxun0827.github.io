@@ -6,9 +6,10 @@
     <meta charset="utf-8">
     <meta name="google-site-verification" content="I-NYDDDjiAX8GQEQ_lE0inL4AJtjz4z-HyL122q_swc">
     <meta name="baidu-site-verification" content="ZeyYBV52u1">
-    <meta name="keywords" content="面向对象编程的理解, chihiro">
-    <meta name="description" content="面向过程和面向对象面向过程思想概述面向着具体的每一个步骤和过程，把每一个步骤和过程完成，然后由这些功能方法相互调用，完成需求。
-面向对象思想概述当需求单一，或者简单时，我们一步一步去操作没问题，并且效率也挺高。可随着需求的更改，功能的增多，">
+    <meta name="keywords" content="使用SpringAop记录日志, chihiro">
+    <meta name="description" content="日志打印
+日志作为项目运行中出错的第一手资料，打印的详细与否直接决定了bug解决的快慢。
+新建一个注解值记录的bean`javaimport lombok.AllArgsConstructor;import lombok.Data;impo">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +21,7 @@
     <meta name="keywords" content="{% for tag in page.tags %}{{ tag.name }},{% endfor %}">
     <meta name="keywords" content="{{ theme.keywords }}">
 
-    <title>面向对象编程的理解 | 千与千寻</title>
+    <title>使用SpringAop记录日志 | 千与千寻</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -283,13 +284,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s2.ax1x.com/2019/03/18/AnC62R.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://www.chihiro.org.cn/upload/2019/9/log-390495f17c85438695326d55ee6ead4f.jpeg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        面向对象编程的理解
+                        使用SpringAop记录日志
                     </div>
                 </div>
             </div>
@@ -385,8 +386,12 @@
                                 <span class="chip bg-color">Java</span>
                             </a>
                         
-                            <a href="/tags/面向对象编程/" target="_blank">
-                                <span class="chip bg-color">面向对象编程</span>
+                            <a href="/tags/aop/" target="_blank">
+                                <span class="chip bg-color">aop</span>
+                            </a>
+                        
+                            <a href="/tags/spring/" target="_blank">
+                                <span class="chip bg-color">spring</span>
                             </a>
                         
                     </div>
@@ -397,8 +402,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/软件编程/" class="post-category" target="_blank">
-                                软件编程
+                            <a href="/categories/后端/" class="post-category" target="_blank">
+                                后端
                             </a>
                         
                     </div>
@@ -409,7 +414,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-03-18
+                    2019-09-10
                 </div>
 
 		
@@ -423,14 +428,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1,189
+                        1,948
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        4 分
+                        10 分
                     </div>
                     
                 
@@ -446,42 +451,513 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="面向过程和面向对象"><a href="#面向过程和面向对象" class="headerlink" title="面向过程和面向对象"></a>面向过程和面向对象</h2><h3 id="面向过程思想概述"><a href="#面向过程思想概述" class="headerlink" title="面向过程思想概述"></a>面向过程思想概述</h3><p>面向着具体的每一个步骤和过程，把每一个步骤和过程完成，然后由这些功能方法相互调用，完成需求。</p>
-<h3 id="面向对象思想概述"><a href="#面向对象思想概述" class="headerlink" title="面向对象思想概述"></a>面向对象思想概述</h3><p>当需求单一，或者简单时，我们一步一步去操作没问题，并且效率也挺高。可随着需求的更改，功能的增多，发现需要面对每一个步骤很麻烦了，这时就开始思索，能不能把这些步骤和功能在进行封装，封装时根据不同的功能，进行不同的封装，功能类似的封装在一起。这样结构就清晰了很多。用的时候，找到对应的类就可以了。这就是面向对象的思想。面向对象是基于面向过程的编程思想。</p>
-<h2 id="面向对象特征"><a href="#面向对象特征" class="headerlink" title="面向对象特征"></a>面向对象特征</h2><ul>
-<li>抽象</li>
-<li>封装</li>
-<li>继承</li>
-<li>多态</li>
+                <h2 id="日志打印"><a href="#日志打印" class="headerlink" title="日志打印"></a>日志打印</h2><ul>
+<li>日志作为项目运行中出错的第一手资料，打印的详细与否直接决定了bug解决的快慢。</li>
+<li>新建一个注解值记录的bean<br><code>`</code>java<br>import lombok.AllArgsConstructor;<br>import lombok.Data;<br>import lombok.NoArgsConstructor;</li>
 </ul>
-<h3 id="抽象"><a href="#抽象" class="headerlink" title="抽象"></a>抽象</h3><p>把现实世界中的某一类东西，提取出来，用程序代码表示，抽象出来的一般叫做类或者接口。抽象并不打算了解全部问题，而是选择其中的一部分，暂时不用部分细节。抽象包括两个方面：</p>
+<p>/**</p>
 <ul>
-<li>数据抽象：表示世界中一类事物的特征,就是对象的属性.比如鸟有翅膀,羽毛等(类的属性)</li>
-<li>过程抽象：表示世界中一类事物的行为,就是对象的行为.比如鸟会飞,会叫(类的方法)</li>
+<li>功能描述：</li>
+<li>【注解值bean】<br>*</li>
+<li>@author chihiro</li>
+<li>@version V1.0</li>
+<li><p>@date 2019/08/18 14:23<br>*/<br>@Data<br>@NoArgsConstructor<br>@AllArgsConstructor<br>public class WebLogValue {</p>
+<p> public String value;<br> public String name;</p>
+</li>
 </ul>
-<h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>封装，即隐藏对象的属性和实现细节，仅对外公开接口，控制在程序中属性的读和修改的访问级别；将抽象得到的数据和行为（或功能）相结合，形成一个有机的整体，也就是将数据与操作数据的源代码进行有机的结合，形成“类”，其中数据和函数都是类的成员。封装的目的是增强安全性和简化编程，使用者不必了解具体的实现细节，而只是要通过外部接口，以特定的访问权限来使用类的成员。隐藏之后，外部程序就不能接触和改变那些细节，所以不用担心自己的类会受到非法修改，可确保它们不会对其他程序造成影响。</p>
-<h4 id="封装的原则"><a href="#封装的原则" class="headerlink" title="封装的原则"></a>封装的原则</h4><ul>
-<li>将不需要对外提供的内容都隐藏起来</li>
-<li>把属性都隐藏，提供公共方法对其访问</li>
+<p>}</p>
+<pre><code>- 输出日志
+```java
+/**
+ * 功能描述：
+ * 【接口入出参日志打印】
+ *
+ * @author chihiro
+ * @version V1.0
+ * @date 2019/08/18 01:06
+ */
+@Aspect
+@Order(99)
+@Component
+@Slf4j
+public class WebLogAspect {
+
+    /**
+     * Controller层切点 使用到了spring原生的RequestMapping 作为切点表达式。
+     */
+    @Pointcut(&quot;@annotation(org.springframework.web.bind.annotation.RequestMapping)&quot;)
+    public void webLog() {
+    }
+
+    @Before(&quot;webLog()&quot;)
+    public void doBefore(JoinPoint joinPoint) {
+        try {
+            StringBuilder params = new StringBuilder();
+
+            Object[] args = joinPoint.getArgs();
+            for (int i = 0; i &lt; args.length; i++) {
+                Object object = args[i];
+                // 此处过滤掉一些无需打印的参数
+                if (object instanceof MultipartFile || object instanceof HttpServletRequest || object instanceof HttpServletResponse) {
+                    continue;
+                }
+                params.append(JSON.toJSONString(object));
+                if (i &lt; args.length - 1) {
+                    params.append(&quot;,&quot;);
+                }
+            }
+            log.info(&quot;类信息[{}],请求参数[{}]&quot;, getRequestMappingAnnotationValue(joinPoint), params.toString());
+        } catch (Exception e) {
+            //记录本地异常日志
+            log.error(&quot;===前置Controller通知异常===&quot;);
+            log.error(&quot;异常信息:{}&quot;, e.getMessage());
+        }
+
+    }
+
+    @AfterReturning(returning = &quot;response&quot;, pointcut = &quot;webLog()&quot;)
+    public void doAfterReturning(JoinPoint joinPoint, Object response) throws Throwable {
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        if (response != null) {
+            try {
+                log.info(&quot;类信息[{}],请求地址[{}],返回参数[{}]&quot;, getRequestMappingAnnotationValue(joinPoint), request.getRemoteAddr(), JSON.toJSONString(response));
+            } catch (Exception e) {
+                //记录本地异常日志
+                log.error(&quot;===后置Controller通知异常===&quot;);
+                log.error(&quot;异常信息:{}&quot;, e.getMessage());
+            }
+        }
+    }
+
+    /**
+     * 获取RequestMapping中注解值
+     */
+    private static WebLogValue getRequestMappingAnnotationValue(JoinPoint joinPoint) throws Exception {
+        String targetName = joinPoint.getTarget().getClass().getName();
+        String methodName = joinPoint.getSignature().getName();
+        Object[] arguments = joinPoint.getArgs();
+        Class targetClass = Class.forName(targetName);
+        Method[] methods = targetClass.getMethods();
+        WebLogValue webLogValue = new WebLogValue();
+        for (Method method : methods) {
+            if (method.getName().equals(methodName)) {
+                Class[] parameterTypes = method.getParameterTypes();
+                if (parameterTypes.length == arguments.length) {
+                    String[] value = method.getAnnotation(RequestMapping.class).value();
+                    String name = method.getAnnotation(RequestMapping.class).name();
+                    webLogValue.setValue(Arrays.toString(value));
+                    webLogValue.setName(name);
+                    break;
+                }
+            }
+        }
+        return webLogValue;
+    }
+</code></pre><h2 id="日志入库"><a href="#日志入库" class="headerlink" title="日志入库"></a>日志入库</h2><ul>
+<li>日志表的DDL信息<pre class=" language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token punctuation">`</span>pm_log<span class="token punctuation">`</span> <span class="token punctuation">(</span>
+<span class="token punctuation">`</span>log_id<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'主键id'</span><span class="token punctuation">,</span>
+<span class="token punctuation">`</span>user_name<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'用户名'</span><span class="token punctuation">,</span>
+<span class="token punctuation">`</span>ip<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'ip信息'</span><span class="token punctuation">,</span>
+<span class="token punctuation">`</span>params<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'请求参数'</span><span class="token punctuation">,</span>
+<span class="token punctuation">`</span>result<span class="token punctuation">`</span> <span class="token keyword">longtext</span> <span class="token keyword">COMMENT</span> <span class="token string">'返回结果'</span><span class="token punctuation">,</span>
+<span class="token punctuation">`</span>method<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">150</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'方法名'</span><span class="token punctuation">,</span>
+<span class="token punctuation">`</span>operation<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'操作'</span><span class="token punctuation">,</span>
+<span class="token punctuation">`</span>unique_code<span class="token punctuation">`</span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'唯一标识'</span><span class="token punctuation">,</span>
+<span class="token punctuation">`</span>error<span class="token punctuation">`</span> char<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'是否异常00：异常，01：正常'</span><span class="token punctuation">,</span>
+<span class="token punctuation">`</span>stack<span class="token punctuation">`</span> <span class="token keyword">longtext</span> <span class="token keyword">COMMENT</span> <span class="token string">'异常堆栈'</span><span class="token punctuation">,</span>
+<span class="token punctuation">`</span>take_time<span class="token punctuation">`</span> <span class="token keyword">bigint</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token keyword">DEFAULT</span> <span class="token boolean">NULL</span> <span class="token keyword">COMMENT</span> <span class="token string">'请求耗时'</span><span class="token punctuation">,</span>
+<span class="token punctuation">`</span>create_time<span class="token punctuation">`</span> <span class="token keyword">datetime</span> <span class="token keyword">DEFAULT</span> <span class="token keyword">CURRENT_TIMESTAMP</span> <span class="token keyword">COMMENT</span> <span class="token string">'创建时间'</span><span class="token punctuation">,</span>
+<span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token punctuation">`</span>log_id<span class="token punctuation">`</span><span class="token punctuation">)</span> <span class="token keyword">USING</span> <span class="token keyword">BTREE</span><span class="token punctuation">,</span>
+<span class="token keyword">KEY</span> <span class="token punctuation">`</span>unique_code<span class="token punctuation">`</span> <span class="token punctuation">(</span><span class="token punctuation">`</span>unique_code<span class="token punctuation">`</span><span class="token punctuation">)</span> <span class="token keyword">USING</span> <span class="token keyword">BTREE</span>
+<span class="token punctuation">)</span> <span class="token keyword">ENGINE</span><span class="token operator">=</span><span class="token keyword">InnoDB</span> <span class="token keyword">DEFAULT</span> <span class="token keyword">CHARSET</span><span class="token operator">=</span>utf8 ROW_FORMAT<span class="token operator">=</span>DYNAMIC<span class="token punctuation">;</span>
+</code></pre>
+<blockquote>
+<p>此处数据库设计未经详细考虑，有更好想法的朋友欢迎留言讨论。</p>
+</blockquote>
+</li>
+<li><p>核心代码<br><code>`</code>java<br>/**</p>
+<ul>
+<li>功能描述：</li>
+<li>【操作日志记录切面】<br>*</li>
+<li>@author chihiro</li>
+<li>@version V1.0</li>
+<li><p>@date 2019/08/18 01:06<br>*/<br>@Aspect<br>@Order(100)<br>@Component<br>@Slf4j<br>public class SysLoggerAspect {</p>
+<p>@Autowired<br>private LogRecordHandler logRecordHandler;</p>
+<p>@Pointcut(“@annotation(org.springframework.web.bind.annotation.RequestMapping)”)<br>public void sysLogger() {<br>}</p>
+<p>@Before(“sysLogger()”)<br>public void doBeforeController(JoinPoint joinPoint) {</p>
+<pre><code>// 开始时间
+long startTime = System.currentTimeMillis();
+ThreadLocalUtil.setValue(KeyConstants.START_TIME.getKey(), String.valueOf(startTime));
+
+MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+Method method = signature.getMethod();
+SysLog sysLog = new SysLog();
+RequestMapping requestMapping = method.getAnnotation(RequestMapping.class);
+if (requestMapping != null) {
+    //注解上的描述
+    sysLog.setOperation(requestMapping.name());
+}
+//请求的方法名
+String className = joinPoint.getTarget().getClass().getName();
+String methodName = signature.getName();
+sysLog.setMethod(className + &quot;.&quot; + methodName + &quot;()&quot;);
+//请求的参数
+Object[] args = joinPoint.getArgs();
+StringBuilder sbParams = new StringBuilder();
+for (int i = 0; i &lt; args.length; i++) {
+    Object object = args[i];
+    if (object instanceof MultipartFile || object instanceof HttpServletRequest || object instanceof HttpServletResponse) {
+        continue;
+    }
+    sbParams.append(JSON.toJSONString(object));
+    if (i &lt; args.length - 1) {
+        sbParams.append(&quot;,&quot;);
+    }
+}
+String params = sbParams.toString();
+if (StrUtil.isNotBlank(params)) {
+    sysLog.setParams(params);
+}
+//请求的用户
+String userName = ThreadLocalUtil.getValue(KeyConstants.USER_NAME.getKey());
+if (StrUtil.isNotBlank(userName)) {
+    sysLog.setUserName(userName);
+}
+//用户的IP
+sysLog.setIp(WebUtil.getIpAddress());
+// 设置唯一标识
+sysLog.setUniqueCode(ThreadLocalUtil.getValue(KeyConstants.UNIQUE_CODE.getKey()));
+ThreadLocalUtil.setValue(KeyConstants.SYS_LOG.getKey(), JSON.toJSONString(sysLog));
+</code></pre><p>//        logRecordHandler.recordLog(sysLog);<br>}</p>
+<p>@AfterReturning(value = “sysLogger()”, returning = “res”)<br>public void doAfterReturning(JoinPoint joinPoint, Object res) {</p>
+<pre><code>long takeTime = System.currentTimeMillis() - Long.valueOf(ThreadLocalUtil.getValue(KeyConstants.START_TIME.getKey()));
+SysLog sysLog = new SysLog();
+SysLog sys = JSON.parseObject(ThreadLocalUtil.getValue(KeyConstants.SYS_LOG.getKey()), SysLog.class);
+BeanUtil.copyProperties(sys, sysLog);
+// 设置返回结果
+sysLog.setResult(JSON.toJSONString(res));
+// 设置请求耗时
+sysLog.setTakeTime(takeTime);
+sysLog.setError(&quot;01&quot;);
+ThreadLocalUtil.removeValue(KeyConstants.START_TIME.getKey());
+ThreadLocalUtil.removeValue(KeyConstants.SYS_LOG.getKey());
+// 发送MQ消息
+logRecordHandler.recordLog(sysLog);
+</code></pre><p>}</p>
+<p>@AfterThrowing(value = “sysLogger()”, throwing = “throwable”)<br>public void doAfterThrowing(JoinPoint joinPoint, Throwable throwable) {</p>
+<pre><code>long takeTime = System.currentTimeMillis() - Long.valueOf(ThreadLocalUtil.getValue(KeyConstants.START_TIME.getKey()));
+SysLog sysLog = new SysLog();
+SysLog sys = JSON.parseObject(ThreadLocalUtil.getValue(KeyConstants.SYS_LOG.getKey()), SysLog.class);
+BeanUtil.copyProperties(sys, sysLog);
+// 设置请求耗时
+sysLog.setTakeTime(takeTime);
+// 设置堆栈信息
+sysLog.setStack(Arrays.toString(throwable.getStackTrace()));
+sysLog.setError(&quot;00&quot;);
+ThreadLocalUtil.removeValue(KeyConstants.START_TIME.getKey());
+ThreadLocalUtil.removeValue(KeyConstants.SYS_LOG.getKey());
+// 发送MQ消息
+logRecordHandler.recordLog(sysLog);
+</code></pre><p>}</p>
+</li>
 </ul>
-<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>一种联结类的层次模型，并且允许和鼓励类的重用，提供一种明确表达共性的方法。对象的一个新类可以从现有的类中派生，这个过程称为类继承。新类继承了原始类的特性，新类称为原始类的派生类(子类)，原始类称为新类的基类(父类)。派生类可以从它的父类哪里继承方法和实例变量，并且类可以修改或增加新的方法使之更适合特殊的需要。因此可以说，继承为了重用父类代码，同时为实现多态性作准备。</p>
-<h4 id="继承概念的实现方式"><a href="#继承概念的实现方式" class="headerlink" title="继承概念的实现方式"></a>继承概念的实现方式</h4><ul>
-<li>类继承：类继承是指直接使用基类的属性和方法而无需额外编码。</li>
-<li>接口继承：接口继承是指仅使用属性和方法的名称、但是子类必须提供实现。</li>
+</li>
 </ul>
-<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>多态就是指一个类实例的相同方法在不同情形有不同表现形式。多态机制使具有不同内部结构的对象可以共享相同的外部接口。这意味着，虽然针对不同对象的具体操作不同，但通过一个公共的类，它们（那些操作）可以通过相同的方式予以调用。</p>
-<h4 id="实现多态的方式"><a href="#实现多态的方式" class="headerlink" title="实现多态的方式"></a>实现多态的方式</h4><ul>
-<li>重载</li>
-<li>重写</li>
-<li>实现接口</li>
+<p>}</p>
+<pre><code>- 日志实体
+```java
+/**
+ * 功能描述：
+ * 【日志实体】
+ *
+ * @author chihiro
+ * @version V1.0
+ * @date 2019/08/18 01:59
+ */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class SysLog implements Serializable {
+    private static final long serialVersionUID = 5L;
+
+    /**
+     * 主键id
+     */
+    private String logId;
+    /**
+     * 用户名
+     */
+    private String userName;
+    /**
+     * 用户操作
+     */
+    private String operation;
+    /**
+     * 请求方法
+     */
+    private String method;
+    /**
+     * 请求参数
+     */
+    private String params;
+    /**
+     * 请求结果
+     */
+    private String result;
+    /**
+     * IP地址
+     */
+    private String ip;
+    /**
+     * 唯一标识
+     */
+    private String uniqueCode;
+    /**
+     * 是否异常
+     * 00：异常
+     * 01：正常
+     */
+    private String error;
+    /**
+     * 异常堆栈
+     */
+    private String stack;
+    /**
+     * 请求耗时
+     */
+    private Long takeTime;
+
+    /**
+     * 创建时间
+     */
+    @JsonFormat(pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;, timezone = &quot;GMT+8&quot;)
+    private LocalDateTime createTime;
+
+}
+</code></pre><ul>
+<li><p>key枚举</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
+* 功能描述：
+* 【项目key枚举】
+*
+* @author chihiro
+* @version V1.0
+* @date 2019/09/04 11:33
+*/</span>
+<span class="token keyword">public</span> <span class="token keyword">enum</span> KeyConstants <span class="token punctuation">{</span>
+
+  <span class="token comment" spellcheck="true">// 用户编号记录</span>
+  <span class="token function">USER_ID</span><span class="token punctuation">(</span><span class="token string">"userId"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token comment" spellcheck="true">// 用户名记录</span>
+  <span class="token function">USER_NAME</span><span class="token punctuation">(</span><span class="token string">"username"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token comment" spellcheck="true">// 用户所属唯一标识</span>
+  <span class="token function">UNIQUE_CODE</span><span class="token punctuation">(</span><span class="token string">"uniqueCode"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token comment" spellcheck="true">// 请求开始时间</span>
+  <span class="token function">START_TIME</span><span class="token punctuation">(</span><span class="token string">"startTime"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token comment" spellcheck="true">// 日志对象</span>
+  <span class="token function">SYS_LOG</span><span class="token punctuation">(</span><span class="token string">"sysLog"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">private</span> String key<span class="token punctuation">;</span>
+
+  <span class="token keyword">public</span> String <span class="token function">getKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> key<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">KeyConstants</span><span class="token punctuation">(</span>String key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>key <span class="token operator">=</span> key<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+<li><p>MQ处理器<br><code>`</code>java<br>/**</p>
+<ul>
+<li>功能描述：</li>
+<li>【日志记录处理器】<br>*</li>
+<li>@author chihiro</li>
+<li>@version V1.0</li>
+<li><p>@date 2019/09/04 11:07<br>*/<br>@Component<br>@Slf4j<br>public class LogRecordHandler {</p>
+<p>@Autowired<br>private AmqpTemplate rabbitTemplate;</p>
+<p>/**</p>
+<ul>
+<li>将操作日记发往MQ处理<br>*</li>
+<li>@param sysLog 日志实体<br>*/<br>public void recordLog(SysLog sysLog) {<br> rabbitTemplate.convertAndSend(MqConstants.QUEUE_LOG_RECODE.getTopic(), JSON.toJSONString(sysLog));<br>}</li>
 </ul>
-<h2 id="面向对象总结"><a href="#面向对象总结" class="headerlink" title="面向对象总结"></a>面向对象总结</h2><p>封装可以隐藏实现细节，使得代码模块化；继承可以扩展已存在的代码模块（类）；它们的目的都是为了<strong>代码重用</strong>。而多态则是为了实现另一个目的：<strong>接口重用</strong>！多态的作用，就是为了类在继承和派生的时候，保证使用“家谱”中任一类的实例的某一属性时的正确调用。</p>
-<h3 id="面向对象开发"><a href="#面向对象开发" class="headerlink" title="面向对象开发"></a>面向对象开发</h3><p>就是不断的创建对象，使用对象，指挥对象做事情。</p>
-<h3 id="面向对象设计"><a href="#面向对象设计" class="headerlink" title="面向对象设计"></a>面向对象设计</h3><p>更好的管理和维护对象之间的关系。</p>
-<h3 id="面向对象优点"><a href="#面向对象优点" class="headerlink" title="面向对象优点"></a>面向对象优点</h3><ul>
-<li>更符合我们思想习惯的思想</li>
-<li>将复杂的事情简单化</li>
-<li>将我们从执行者变成了指挥者</li>
+</li>
+</ul>
+</li>
+</ul>
+<p>}</p>
+<pre><code>- 本地线程工具类
+```java
+/**
+ * 本地线程工具类
+ *
+ * @author chihiro
+ * @version V1.0
+ * @date 2019/09/04 11:10
+ */
+public final class ThreadLocalUtil {
+
+    private static final ThreadLocal&lt;Map&lt;String, String&gt;&gt; THREAD_CONTEXT = ThreadLocal.withInitial(HashMap::new);
+
+    /**
+     * 根据key获取值
+     *
+     * @param key 键值
+     * @return value
+     */
+    public static String getValue(String key) {
+        if (THREAD_CONTEXT.get() == null) {
+            return null;
+        }
+        return THREAD_CONTEXT.get().get(key);
+    }
+
+    /**
+     * 存储
+     *
+     * @param key   键值
+     * @param value 值
+     */
+    public static String setValue(String key, String value) {
+        Map&lt;String, String&gt; cacheMap = THREAD_CONTEXT.get();
+        if (cacheMap == null) {
+            cacheMap = new HashMap&lt;&gt;();
+            THREAD_CONTEXT.set(cacheMap);
+        }
+        return cacheMap.put(key, value);
+    }
+
+    /**
+     * 根据key移除值
+     *
+     * @param key 键值
+     */
+    public static void removeValue(String key) {
+        Map&lt;String, String&gt; cacheMap = THREAD_CONTEXT.get();
+        if (cacheMap != null) {
+            cacheMap.remove(key);
+        }
+    }
+
+    /**
+     * 重置
+     */
+    public static void reset() {
+        if (THREAD_CONTEXT.get() != null) {
+            THREAD_CONTEXT.get().clear();
+        }
+    }
+
+}
+</code></pre><ul>
+<li><p>http工具类<br><code>`</code>java<br>/**</p>
+<ul>
+<li>功能描述：</li>
+<li>【Http工具类】<br>*</li>
+<li>@author chihiro</li>
+<li>@version V1.0</li>
+<li><p>@date 2019/09/04 11:58<br>*/<br>public class WebUtil {</p>
+<p>public static Map&lt;String, String&gt; queryStringToMap(String queryString, String charset) {</p>
+<pre><code>try {
+    Map&lt;String, String&gt; map = new HashMap&lt;&gt;();
+
+    String[] decode = URLDecoder.decode(queryString, charset).split(&quot;&amp;&quot;);
+    for (String keyValue : decode) {
+        String[] kv = keyValue.split(&quot;[=]&quot;, 2);
+        map.put(kv[0], kv.length &gt; 1 ? kv[1] : &quot;&quot;);
+    }
+    return map;
+} catch (UnsupportedEncodingException e) {
+    throw new UnsupportedOperationException(e);
+}
+</code></pre><p>}</p>
+<p>/**</p>
+<ul>
+<li>尝试获取当前请求的HttpServletRequest实例<br>*</li>
+<li>@return HttpServletRequest<br>*/<br>public static HttpServletRequest getHttpServletRequest() {<br> try {<pre><code> return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+</code></pre> } catch (Exception e) {<pre><code> return null;
+</code></pre> }<br>}</li>
+</ul>
+<p>public static Map&lt;String, String&gt; getParameters(HttpServletRequest request) {</p>
+<pre><code>Map&lt;String, String&gt; parameters = new HashMap&lt;&gt;();
+Enumeration enumeration = request.getParameterNames();
+while (enumeration.hasMoreElements()) {
+    String name = String.valueOf(enumeration.nextElement());
+    parameters.put(name, request.getParameter(name));
+}
+return parameters;
+</code></pre><p>}</p>
+<p>public static Map&lt;String, String&gt; getHeaders(HttpServletRequest request) {</p>
+<pre><code>Map&lt;String, String&gt; map = new LinkedHashMap&lt;&gt;();
+Enumeration&lt;String&gt; enumeration = request.getHeaderNames();
+while (enumeration.hasMoreElements()) {
+    String key = enumeration.nextElement();
+    String value = request.getHeader(key);
+    map.put(key, value);
+}
+return map;
+</code></pre><p>}</p>
+<p>private static final String[] IP_HEADERS = {</p>
+<pre><code>    &quot;X-Forwarded-For&quot;,
+    &quot;X-Real-IP&quot;,
+    &quot;Proxy-Client-IP&quot;,
+    &quot;WL-Proxy-Client-IP&quot;
+</code></pre><p>};</p>
+<p>/**</p>
+<ul>
+<li>获取请求客户端的真实ip地址<br>*</li>
+<li>@param request 请求对象</li>
+<li><p>@return ip地址<br>*/<br>public static String getIpAddress(HttpServletRequest request) {</p>
+<p> // 获取请求主机IP地址,如果通过代理进来，则透过防火墙获取真实IP地址<br> String ip = request.getHeader(IP_HEADERS[0]);</p>
+<p> if (ip == null || ip.length() == 0 || “unknown”.equalsIgnoreCase(ip)) {</p>
+<pre><code> if (ip == null || ip.length() == 0 || &quot;unknown&quot;.equalsIgnoreCase(ip)) {
+     ip = request.getHeader(&quot;Proxy-Client-IP&quot;);
+ }
+ if (ip == null || ip.length() == 0 || &quot;unknown&quot;.equalsIgnoreCase(ip)) {
+     ip = request.getHeader(&quot;WL-Proxy-Client-IP&quot;);
+ }
+ if (ip == null || ip.length() == 0 || &quot;unknown&quot;.equalsIgnoreCase(ip)) {
+     ip = request.getHeader(&quot;HTTP_CLIENT_IP&quot;);
+ }
+ if (ip == null || ip.length() == 0 || &quot;unknown&quot;.equalsIgnoreCase(ip)) {
+     ip = request.getHeader(&quot;HTTP_X_FORWARDED_FOR&quot;);
+ }
+ if (ip == null || ip.length() == 0 || &quot;unknown&quot;.equalsIgnoreCase(ip)) {
+     ip = request.getRemoteAddr();
+ }
+</code></pre><p> } else if (ip.length() &gt; 15) {</p>
+<pre><code> String[] ips = ip.split(&quot;,&quot;);
+ for (int index = 0; index &lt; ips.length; index++) {
+     String strIp = (String) ips[index];
+     if (!(&quot;unknown&quot;.equalsIgnoreCase(strIp))) {
+         ip = strIp;
+         break;
+     }
+ }
+</code></pre><p> }<br> return ip;<br>}</p>
+</li>
+</ul>
+<p>/**</p>
+<ul>
+<li>获取请求客户端的真实ip地址<br>*</li>
+<li>@return ip地址<br>*/<br>public static String getIpAddress() {<br> // 获取请求主机IP地址,如果通过代理进来，则透过防火墙获取真实IP地址<br> return getIpAddress(getHttpServletRequest());<br>}</li>
+</ul>
+<p>/**</p>
+<ul>
+<li>web应用绝对路径<br>*</li>
+<li>@param request 请求对象</li>
+<li>@return 绝对路径<br>*/<br>public static String getBasePath(HttpServletRequest request) {<br> String path = request.getContextPath();<br> return request.getScheme() + “://“ + request.getServerName() + “:” + request.getServerPort() + path + “/“;<br>}</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>}<br><code>`</code></p>
+<ul>
+<li>以上，代码展示完毕，日志的入库使用MQ进行异步。经测试，功能无误，尚未上线测试，未知性能问题。<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2></li>
+<li>MQ的使用可参考<a href="https://www.chihiro.org.cn/archives/2019090802475185749" rel="external nofollow noopener noreferrer" target="_blank">这篇文章</a></li>
+<li>欢迎指正博客内不足之处</li>
 </ul>
 
             </div>
@@ -630,7 +1106,7 @@
                     </span>
                     <a href="https://chihiro.org.cn" class="b-link-green">千与千寻</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/blogs/2369825694.html" class="b-link-green">面向对象编程的理解</a>
+                    <a href="/blogs/104139301.html" class="b-link-green">使用SpringAop记录日志</a>
                 </p>
             </div>
         </div>
@@ -914,30 +1390,69 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/blogs/2812777186.html">
+                <a href="/blogs/0.html">
                     <div class="card-image">
                         
-                        <img src="https://s2.ax1x.com/2019/03/19/Auaq7q.jpg" class="responsive-img" alt="Java设计模式之策略模式">
                         
-                        <span class="card-title">Java设计模式之策略模式</span>
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="">
+                        
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-		    <div class="summary">
-			
-			策略模式介绍及使用。
-			
-		    </div>
+                    <div class="summary block-with-text">
+                        
+                            —title: srs流媒体服务器集群搭建author: chihirotop: falsecover: falseimg: ‘https://s2.ax1x.com/2019/06/11/VgHugf.jpg’keywords:
+
+srs
+                        
+                    </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-19
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-16
                         </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Chihiro
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/blogs/1451877531.html">
+                    <div class="card-image">
+                        
+                        <img src="https://s2.ax1x.com/2019/09/05/nni8kF.jpg" class="responsive-img" alt="Java操作rabbitmq示例">
+                        
+                        <span class="card-title">Java操作rabbitmq示例</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            springboot2.1.4整合rabbitmq
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/软件编程/" class="post-category" target="_blank">
-                                    软件编程
+                            <a href="/categories/后端/" class="post-category" target="_blank">
+                                    后端
                                 </a>
                             
                             
@@ -951,63 +1466,12 @@
                         <span class="chip bg-color">Java</span>
                     </a>
                     
-                    <a href="/tags/设计模式/" target="_blank">
-                        <span class="chip bg-color">设计模式</span>
+                    <a href="/tags/rabbitmq/" target="_blank">
+                        <span class="chip bg-color">rabbitmq</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/blogs/793584201.html">
-                    <div class="card-image">
-                        
-                        <img src="https://s2.ax1x.com/2019/03/18/An9n7F.jpg" class="responsive-img" alt="代码整洁之道">
-                        
-                        <span class="card-title">代码整洁之道</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">
-			
-			代码整洁之道内容概要。
-			
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-18
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/软件编程/" class="post-category" target="_blank">
-                                    软件编程
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/整洁代码/" target="_blank">
-                        <span class="chip bg-color">整洁代码</span>
-                    </a>
-                    
-                    <a href="/tags/重构/" target="_blank">
-                        <span class="chip bg-color">重构</span>
-                    </a>
-                    
-                    <a href="/tags/测试/" target="_blank">
-                        <span class="chip bg-color">测试</span>
+                    <a href="/tags/springboot/" target="_blank">
+                        <span class="chip bg-color">springboot</span>
                     </a>
                     
                 </div>
@@ -1016,46 +1480,9 @@
         </div>
         
     </div>
-</div></article>
+</article>
 </div>
 
-
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('120')) {
-            return;
-        }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
-        }
-
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + '来源: 千与千寻<br />'
-            + '作者: Chihiro<br />'
-            + '链接: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
-
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
 
     </div>
     <div class="col l3 hide-on-med-and-down">
@@ -1117,7 +1544,7 @@
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-matery</a>主题搭建.&nbsp;
             
                 <i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">60.6k</span>&nbsp;
+                <span class="white-color">42.3k</span>&nbsp;
             
 	    <span class="white-color"><a href="https://996.icu" target="_blank" style="color: white;font-size: 15px;" rel="external nofollow noopener noreferrer"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu" border="0"></a></span><br>
 	    <span class="white-color"><a href="http://www.beian.miit.gov.cn" target="_blank" style="color: white;font-size: 15px;" rel="external nofollow noopener noreferrer">粤ICP备19022950号</a></span>&nbsp;&nbsp;

@@ -4,12 +4,36 @@
     .container {
         width: 95%;
     }
+
+	header .brand-logo .logo-span {
+        font-size: 1rem;
+    }
+
+    .bg-cover .title {
+        font-size: 3rem;
+        font-weight: 700;
+        line-height: 1.85em;
+        margin-bottom: 20px;
+        position: relative;
+    }
 }
 
 /*中等屏幕下(平板类)的样式*/
 @media only screen and (min-width: 600px) and (max-width: 992px) {
     .container {
         width: 90%;
+    }
+
+    header .brand-logo .logo-span {
+        font-size: 2rem;
+    }
+
+    .bg-cover .title {
+        font-size: 4rem;
+        font-weight: 700;
+        line-height: 1.85em;
+        margin-bottom: 20px;
+        position: relative;
     }
 }
 
@@ -24,6 +48,18 @@
         width: 90%;
         margin: 0 auto;
         max-width: 1250px;
+    }
+
+    header .brand-logo .logo-span {
+        font-size: 2rem;
+    }
+
+    .bg-cover .title {
+        font-size: 4rem;
+        font-weight: 700;
+        line-height: 1.85em;
+        margin-bottom: 20px;
+        position: relative;
     }
 }
 
@@ -356,7 +392,7 @@ header .go-back i {
 }
 
 .index-cover {
-    height: 100vh;
+    height: 80vh;
 }
 
 .post-cover {

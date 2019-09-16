@@ -6,10 +6,10 @@
     <meta charset="utf-8">
     <meta name="google-site-verification" content="I-NYDDDjiAX8GQEQ_lE0inL4AJtjz4z-HyL122q_swc">
     <meta name="baidu-site-verification" content="ZeyYBV52u1">
-    <meta name="keywords" content="srs流媒体服务器集群搭建, chihiro">
-    <meta name="description" content="单台服务器做直播，总归有单点风险，利用SRS的Forward机制 + Edge Server设计，可以很容易搭建一个大规模的高可用集群，示意图如下
+    <meta name="keywords" content="chihiro">
+    <meta name="description" content="—title: srs流媒体服务器集群搭建author: chihirotop: falsecover: falseimg: ‘https://s2.ax1x.com/2019/06/11/VgHugf.jpg’keywords:
 
-源站服务器集群：origin server cluster，可以借助forward机制，仅">
+srs">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +21,7 @@
     <meta name="keywords" content="{% for tag in page.tags %}{{ tag.name }},{% endfor %}">
     <meta name="keywords" content="{{ theme.keywords }}">
 
-    <title>srs流媒体服务器集群搭建 | 千与千寻</title>
+    <title>千与千寻</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -284,13 +284,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s2.ax1x.com/2019/06/11/VgHugf.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        srs流媒体服务器集群搭建
+                        
                     </div>
                 </div>
             </div>
@@ -380,29 +380,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/srs/" target="_blank">
-                                <span class="chip bg-color">srs</span>
-                            </a>
-                        
-                            <a href="/tags/流媒体服务器/" target="_blank">
-                                <span class="chip bg-color">流媒体服务器</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/服务器/" class="post-category" target="_blank">
-                                服务器
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -410,28 +393,23 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-06-11
+                    2019-09-16
                 </div>
 
 		
-                    <div class="info-break-policy">
-                        <i class="fa fa-user-o fa-fw"></i>作者:&nbsp;&nbsp;
-                        chihiro
-                    </div>
-                    
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1,988
+                        2,071
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        9 分
+                        10 分
                     </div>
                     
                 
@@ -447,7 +425,14 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>单台服务器做直播，总归有单点风险，利用SRS的<a href="https://github.com/ossrs/srs/wiki/v1_CN_SampleForward" rel="external nofollow noopener noreferrer" target="_blank">Forward机制</a> + <a href="https://github.com/ossrs/srs/wiki/v1_CN_SampleRTMPCluster" rel="external nofollow noopener noreferrer" target="_blank">Edge Server</a>设计，可以很容易搭建一个大规模的高可用集群，示意图如下</p>
+                <p>—<br>title: srs流媒体服务器集群搭建<br>author: chihiro<br>top: false<br>cover: false<br>img: ‘<a href="https://s2.ax1x.com/2019/06/11/VgHugf.jpg’" rel="external nofollow noopener noreferrer" target="_blank">https://s2.ax1x.com/2019/06/11/VgHugf.jpg’</a><br>keywords:</p>
+<ul>
+<li>srs</li>
+<li>流媒体服务器<br>summary: 高可用srs流媒体服务器集群的搭建，并依赖于haproxy、nginx作代理。<br>categories: 服务器<br>tags:</li>
+<li>srs</li>
+<li>流媒体服务器<br>abbrlink: 1651636328<br>toc: true<br>mathjax: false<br>date: 2019-06-11 20:30:00<br>—</li>
+</ul>
+<p>单台服务器做直播，总归有单点风险，利用SRS的<a href="https://github.com/ossrs/srs/wiki/v1_CN_SampleForward" rel="external nofollow noopener noreferrer" target="_blank">Forward机制</a> + <a href="https://github.com/ossrs/srs/wiki/v1_CN_SampleRTMPCluster" rel="external nofollow noopener noreferrer" target="_blank">Edge Server</a>设计，可以很容易搭建一个大规模的高可用集群，示意图如下</p>
 <p><img src="https://s2.ax1x.com/2019/06/11/Vg7quF.png" alt=""></p>
 <p>源站服务器集群：origin server cluster，可以借助forward机制，仅用少量的服务器，专用于处理推流请求。</p>
 <p>边缘服务器集群：edge server cluster，可以用N台机器，从源站拉流，用于较大规模的实时播放。</p>
@@ -472,183 +457,189 @@
 </ul>
 <p><img src="https://s2.ax1x.com/2019/06/11/Vg7hAs.png" alt=""></p>
 <h2 id="master配置"><a href="#master配置" class="headerlink" title="master配置"></a>master配置</h2><p>配置：/usr/local/srs/conf/pm/master.conf</p>
-<pre><code>listen              1945;
-max_connections     1000;
+<pre class=" language-bash"><code class="language-bash">listen              1945<span class="token punctuation">;</span>
+max_connections     1000<span class="token punctuation">;</span>
 pid                 ./objs/pids/srs.master.pid
-srs_log_tank        file;
-srs_log_file        ./objs/logs/master/srs.master.log;
+srs_log_tank        <span class="token function">file</span><span class="token punctuation">;</span>
+srs_log_file        ./objs/logs/master/srs.master.log<span class="token punctuation">;</span>
 
-http_api {
-    enabled         on;
-    listen          1995;
-}
+http_api <span class="token punctuation">{</span>
+    enabled         on<span class="token punctuation">;</span>
+    listen          1995<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-http_server {
-    enabled         on;
-    listen          8180;
-    dir             ./objs/nginx/html;
-}
+http_server <span class="token punctuation">{</span>
+    enabled         on<span class="token punctuation">;</span>
+    listen          8180<span class="token punctuation">;</span>
+    <span class="token function">dir</span>             ./objs/nginx/html<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-stats {
-    network         0;
-    disk            sda sdb xvda xvdb;
-}
+stats <span class="token punctuation">{</span>
+    network         0<span class="token punctuation">;</span>
+    disk            sda sdb xvda xvdb<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-vhost __defaultVhost__ {
-        forward        172.**.***.71:1946 172.**.***.71:1947 172.**.***.73:1946 172.**.***.73:1947;
-}
-</code></pre><p>注：最后一段的forward，表示将视频流转发到4台slave服务器</p>
+vhost __defaultVhost__ <span class="token punctuation">{</span>
+        forward        172.**.***.71:1946 172.**.***.71:1947 172.**.***.73:1946 172.**.***.73:1947<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>注：最后一段的forward，表示将视频流转发到4台slave服务器</p>
 <h2 id="slave配置"><a href="#slave配置" class="headerlink" title="slave配置"></a>slave配置</h2><p>配置：/usr/local/srs/conf/pm/slave1.conf、/usr/local/srs/conf/pm/slave2.conf</p>
 <blockquote>
 <p>slave1:</p>
 </blockquote>
-<pre><code>listen              1946;
-max_connections     1000;
+<pre class=" language-bash"><code class="language-bash">listen              1946<span class="token punctuation">;</span>
+max_connections     1000<span class="token punctuation">;</span>
 pid                 ./objs/pids/srs.slave1.pid
-srs_log_tank        file;
-srs_log_file        ./objs/logs/slave/srs.slave1.log;
+srs_log_tank        <span class="token function">file</span><span class="token punctuation">;</span>
+srs_log_file        ./objs/logs/slave/srs.slave1.log<span class="token punctuation">;</span>
 
-http_api {
-    enabled         on;
-    listen          1996;
-}
+http_api <span class="token punctuation">{</span>
+    enabled         on<span class="token punctuation">;</span>
+    listen          1996<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-http_server {
-    enabled         on;
-    listen          8181;
-    dir             ./objs/nginx/html;
-}
+http_server <span class="token punctuation">{</span>
+    enabled         on<span class="token punctuation">;</span>
+    listen          8181<span class="token punctuation">;</span>
+    <span class="token function">dir</span>             ./objs/nginx/html<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-stats {
-    network         0;
-    disk            sda sdb xvda xvdb;
-}
+stats <span class="token punctuation">{</span>
+    network         0<span class="token punctuation">;</span>
+    disk            sda sdb xvda xvdb<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-vhost __defaultVhost__ {
-}
-</code></pre><blockquote>
+vhost __defaultVhost__ <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
 <p>slave2:</p>
 </blockquote>
-<pre><code>listen              1947;
-max_connections     1000;
+<pre class=" language-bash"><code class="language-bash">listen              1947<span class="token punctuation">;</span>
+max_connections     1000<span class="token punctuation">;</span>
 pid                 ./objs/pids/srs.slave2.pid
-srs_log_tank        file;
-srs_log_file        ./objs/logs/slave/srs.slave2.log;
+srs_log_tank        <span class="token function">file</span><span class="token punctuation">;</span>
+srs_log_file        ./objs/logs/slave/srs.slave2.log<span class="token punctuation">;</span>
 
-http_api {
-    enabled         on;
-    listen          1997;
-}
+http_api <span class="token punctuation">{</span>
+    enabled         on<span class="token punctuation">;</span>
+    listen          1997<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-http_server {
-    enabled         on;
-    listen          8182;
-    dir             ./objs/nginx/html;
-}
+http_server <span class="token punctuation">{</span>
+    enabled         on<span class="token punctuation">;</span>
+    listen          8182<span class="token punctuation">;</span>
+    <span class="token function">dir</span>             ./objs/nginx/html<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-stats {
-    network         0;
-    disk            sda sdb xvda xvdb;
-}
+stats <span class="token punctuation">{</span>
+    network         0<span class="token punctuation">;</span>
+    disk            sda sdb xvda xvdb<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-vhost __defaultVhost__ {
-}
-</code></pre><h2 id="edge配置"><a href="#edge配置" class="headerlink" title="edge配置"></a>edge配置</h2><p>配置：/usr/local/srs/conf/pm/edge1.conf、/usr/local/srs/conf/pm/edge2.conf</p>
+vhost __defaultVhost__ <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="edge配置"><a href="#edge配置" class="headerlink" title="edge配置"></a>edge配置</h2><p>配置：/usr/local/srs/conf/pm/edge1.conf、/usr/local/srs/conf/pm/edge2.conf</p>
 <blockquote>
 <p>edge1:</p>
 </blockquote>
-<pre><code>listen              1948;
-max_connections     1000;
+<pre class=" language-bash"><code class="language-bash">listen              1948<span class="token punctuation">;</span>
+max_connections     1000<span class="token punctuation">;</span>
 pid                 ./objs/pids/srs.edge1.pid
-srs_log_tank        file;
-srs_log_file        ./objs/logs/edge/srs.edge1.log;
+srs_log_tank        <span class="token function">file</span><span class="token punctuation">;</span>
+srs_log_file        ./objs/logs/edge/srs.edge1.log<span class="token punctuation">;</span>
 
-http_api {
-    enabled         on;
-    listen          1998;
-}
+http_api <span class="token punctuation">{</span>
+    enabled         on<span class="token punctuation">;</span>
+    listen          1998<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-http_server {
-    enabled         on;
-    listen          8183;
-    dir             ./objs/nginx/html;
-}
+http_server <span class="token punctuation">{</span>
+    enabled         on<span class="token punctuation">;</span>
+    listen          8183<span class="token punctuation">;</span>
+    <span class="token function">dir</span>             ./objs/nginx/html<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-stats {
-    network         0;
-    disk            sda sdb xvda xvdb;
-}
+stats <span class="token punctuation">{</span>
+    network         0<span class="token punctuation">;</span>
+    disk            sda sdb xvda xvdb<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-vhost __defaultVhost__ {
+vhost __defaultVhost__ <span class="token punctuation">{</span>
 
-    http_remux{
-        enabled     on;
-        mount       [vhost]/[app]/[stream].flv;
-        hstrs       on;
-    }
+    http_remux<span class="token punctuation">{</span>
+        enabled     on<span class="token punctuation">;</span>
+        <span class="token function">mount</span>       <span class="token punctuation">[</span>vhost<span class="token punctuation">]</span>/<span class="token punctuation">[</span>app<span class="token punctuation">]</span>/<span class="token punctuation">[</span>stream<span class="token punctuation">]</span>.flv<span class="token punctuation">;</span>
+        hstrs       on<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    hls{
-        enabled         on;
-        hls_path        ./objs/nginx/html;
-        hls_fragment    3;
-        hls_window      60;
-    }
+    hls<span class="token punctuation">{</span>
+        enabled         on<span class="token punctuation">;</span>
+        hls_path        ./objs/nginx/html<span class="token punctuation">;</span>
+        hls_fragment    3<span class="token punctuation">;</span>
+        hls_window      60<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    mode            remote;
-    origin          172.**.***.71:1945 172.**.***.71:1946 172.**.***.71:1947 172.**.***.73:1945 172.**.***.73:1946 172.**.***.73:1947;
-}
-</code></pre><blockquote>
+    mode            remote<span class="token punctuation">;</span>
+    origin          172.**.***.71:1945 172.**.***.71:1946 172.**.***.71:1947 172.**.***.73:1945 172.**.***.73:1946 172.**.***.73:1947<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
 <p>edge2:</p>
 </blockquote>
-<pre><code>listen              1949;
-max_connections     1000;
+<pre class=" language-bash"><code class="language-bash">listen              1949<span class="token punctuation">;</span>
+max_connections     1000<span class="token punctuation">;</span>
 pid                 ./objs/pids/srs.edge2.pid
-srs_log_tank        file;
-srs_log_file        ./objs/logs/edge/srs.edge2.log;
+srs_log_tank        <span class="token function">file</span><span class="token punctuation">;</span>
+srs_log_file        ./objs/logs/edge/srs.edge2.log<span class="token punctuation">;</span>
 
-http_api {
-    enabled         on;
-    listen          1999;
-}
+http_api <span class="token punctuation">{</span>
+    enabled         on<span class="token punctuation">;</span>
+    listen          1999<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-http_server {
-    enabled         on;
-    listen          8184;
-    dir             ./objs/nginx/html;
-}
+http_server <span class="token punctuation">{</span>
+    enabled         on<span class="token punctuation">;</span>
+    listen          8184<span class="token punctuation">;</span>
+    <span class="token function">dir</span>             ./objs/nginx/html<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-stats {
-    network         0;
-    disk            sda sdb xvda xvdb;
-}
+stats <span class="token punctuation">{</span>
+    network         0<span class="token punctuation">;</span>
+    disk            sda sdb xvda xvdb<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-vhost __defaultVhost__ {
+vhost __defaultVhost__ <span class="token punctuation">{</span>
 
-    http_remux{
-        enabled     on;
-        mount       [vhost]/[app]/[stream].flv;
-        hstrs       on;
-    }
+    http_remux<span class="token punctuation">{</span>
+        enabled     on<span class="token punctuation">;</span>
+        <span class="token function">mount</span>       <span class="token punctuation">[</span>vhost<span class="token punctuation">]</span>/<span class="token punctuation">[</span>app<span class="token punctuation">]</span>/<span class="token punctuation">[</span>stream<span class="token punctuation">]</span>.flv<span class="token punctuation">;</span>
+        hstrs       on<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    hls{
-        enabled         on;
-        hls_path        ./objs/nginx/html;
-        hls_fragment    3;
-        hls_window      60;
-    }
+    hls<span class="token punctuation">{</span>
+        enabled         on<span class="token punctuation">;</span>
+        hls_path        ./objs/nginx/html<span class="token punctuation">;</span>
+        hls_fragment    3<span class="token punctuation">;</span>
+        hls_window      60<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    mode            remote;
-    origin          172.**.***.71:1945 172.**.***.71:1946 172.**.***.71:1947 172.**.***.73:1945 172.**.***.73:1946 172.**.***.73:1947;
-}
-</code></pre><p>注：最后一段的origin 将所有master、slave均做为视频源(origin server)，如果播放时，edge发现自己机器上没有数据，会从origin配置的这些源站上去拉视频流。</p>
+    mode            remote<span class="token punctuation">;</span>
+    origin          172.**.***.71:1945 172.**.***.71:1946 172.**.***.71:1947 172.**.***.73:1945 172.**.***.73:1946 172.**.***.73:1947<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>注：最后一段的origin 将所有master、slave均做为视频源(origin server)，如果播放时，edge发现自己机器上没有数据，会从origin配置的这些源站上去拉视频流。</p>
 <p>每台虚拟机上，依次启动：slave1、slave2、master、edge1、edge2</p>
-<pre><code>cd /usr/local/srs
-sudo ./objs/srs -c ./conf/pm/slave1.conf
-sudo ./objs/srs -c ./conf/pm/slave2.conf
-sudo ./objs/srs -c ./conf/pm/master.conf
-sudo ./objs/srs -c ./conf/pm/edge1.conf
-sudo ./objs/srs -c ./conf/pm/edge2.conf
-</code></pre><p>启动成功后，建议先验证下是否工作正常：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /usr/local/srs
+<span class="token function">sudo</span> ./objs/srs -c ./conf/pm/slave1.conf
+<span class="token function">sudo</span> ./objs/srs -c ./conf/pm/slave2.conf
+<span class="token function">sudo</span> ./objs/srs -c ./conf/pm/master.conf
+<span class="token function">sudo</span> ./objs/srs -c ./conf/pm/edge1.conf
+<span class="token function">sudo</span> ./objs/srs -c ./conf/pm/edge2.conf
+</code></pre>
+<p>启动成功后，建议先验证下是否工作正常：</p>
 <ol>
 <li>测试前先打开阿里云安全组上述端口，并打开防火墙端口。<ul>
 <li>阿里云开启安全组端口在此不做说明，具体方法请自行百度。</li>
@@ -673,71 +664,76 @@ sudo ./objs/srs -c ./conf/pm/edge2.conf
 <p>这里说一下日志切割：在<code>/etc/logrotate.d/</code>目录下新建如下5个文件：</p>
 </blockquote>
 <p><strong><code>srs_edge1</code>:</strong></p>
-<pre><code>/usr/local/srs/objs/logs/edge/srs.edge1.log{
+<pre class=" language-bash"><code class="language-bash">/usr/local/srs/objs/logs/edge/srs.edge1.log<span class="token punctuation">{</span>
     copytruncate
     daily
     rotate 7
     missingok
     compress
     size 16M
-}
-</code></pre><p><strong><code>srs_edge2</code>:</strong></p>
-<pre><code>/usr/local/srs/objs/logs/edge/srs.edge2.log{
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong><code>srs_edge2</code>:</strong></p>
+<pre class=" language-bash"><code class="language-bash">/usr/local/srs/objs/logs/edge/srs.edge2.log<span class="token punctuation">{</span>
     copytruncate
     daily
     rotate 7
     missingok
     compress
     size 16M
-}
-</code></pre><p><strong><code>srs_master</code>:</strong></p>
-<pre><code>/usr/local/srs/objs/logs/master/srs.master.log{
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong><code>srs_master</code>:</strong></p>
+<pre class=" language-bash"><code class="language-bash">/usr/local/srs/objs/logs/master/srs.master.log<span class="token punctuation">{</span>
     copytruncate
     daily
     rotate 7
     missingok
     compress
     size 16M
-}
-</code></pre><p><strong><code>srs_slave1</code>:</strong></p>
-<pre><code>/usr/local/srs/objs/logs/slave/srs.slave1.log{
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong><code>srs_slave1</code>:</strong></p>
+<pre class=" language-bash"><code class="language-bash">/usr/local/srs/objs/logs/slave/srs.slave1.log<span class="token punctuation">{</span>
     copytruncate
     daily
     rotate 7
     missingok
     compress
     size 16M
-}
-</code></pre><p><strong><code>srs_slave2</code>:</strong></p>
-<pre><code>/usr/local/srs/objs/logs/slave/srs.slave2.log{
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong><code>srs_slave2</code>:</strong></p>
+<pre class=" language-bash"><code class="language-bash">/usr/local/srs/objs/logs/slave/srs.slave2.log<span class="token punctuation">{</span>
     copytruncate
     daily
     rotate 7
     missingok
     compress
     size 16M
-}
-</code></pre><p>之后重启日志切割脚本：<code>/usr/sbin/logrotate /etc/logrotate.conf</code></p>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>之后重启日志切割脚本：<code>/usr/sbin/logrotate /etc/logrotate.conf</code></p>
 <h2 id="haproxy配置启动"><a href="#haproxy配置启动" class="headerlink" title="haproxy配置启动"></a>haproxy配置启动</h2><p>如果上述2个步骤均验证ok，接下来就是如何配置haproxy</p>
 <p>haproxy可做高性能负载均衡服务器，在其中一台机器上安装haproxy，这里我们使用<code>47.**.***.38</code>：</p>
 <ol>
 <li>yum install haproxy (非常简单)</li>
 <li><p>vim /etc/haproxy/haproxy.cfg (修改配置文件)</p>
-<pre><code> \#---------------------------------------------------------------------  
- \# Example configuration for a possible web application.  See the  
- \# full configuration options online.  
- \#
- \#   http://haproxy.1wt.eu/download/1.4/doc/configuration.txt
- \#
- \#---------------------------------------------------------------------
+<pre class=" language-bash"><code class="language-bash"> <span class="token comment" spellcheck="true">#---------------------------------------------------------------------  </span>
+ <span class="token comment" spellcheck="true"># Example configuration for a possible web application.  See the  </span>
+ <span class="token comment" spellcheck="true"># full configuration options online.  </span>
+ <span class="token comment" spellcheck="true">#</span>
+ <span class="token comment" spellcheck="true">#   http://haproxy.1wt.eu/download/1.4/doc/configuration.txt</span>
+ <span class="token comment" spellcheck="true">#</span>
+ <span class="token comment" spellcheck="true">#---------------------------------------------------------------------</span>
 
- \#---------------------------------------------------------------------  
- \# Global settings  
- \#---------------------------------------------------------------------  
+ <span class="token comment" spellcheck="true">#---------------------------------------------------------------------  </span>
+ <span class="token comment" spellcheck="true"># Global settings  </span>
+ <span class="token comment" spellcheck="true">#---------------------------------------------------------------------  </span>
  global
      log         127.0.0.1 local2
 
-     chroot      /var/lib/haproxy
+     <span class="token function">chroot</span>      /var/lib/haproxy
      pidfile     /var/run/haproxy.pid
      maxconn     4000
      user        haproxy
@@ -753,13 +749,13 @@ sudo ./objs/srs -c ./conf/pm/edge2.conf
      option          dontlognull
      option          redispatch
      retries         3
-     timeout http-request    10s
-     timeout queue       1m
-     timeout connect     10s
-     timeout client      1m
-     timeout server      1m
-     timeout http-keep-alive 10s
-     timeout check       10s
+     <span class="token function">timeout</span> http-request    10s
+     <span class="token function">timeout</span> queue       1m
+     <span class="token function">timeout</span> connect     10s
+     <span class="token function">timeout</span> client      1m
+     <span class="token function">timeout</span> server      1m
+     <span class="token function">timeout</span> http-keep-alive 10s
+     <span class="token function">timeout</span> check       10s
      maxconn         3000
 
  listen srs-cluster
@@ -768,7 +764,8 @@ sudo ./objs/srs -c ./conf/pm/edge2.conf
      balance roundrobin
      server master1 172.**.***.71:1945
      server master2 172.**.***.73:1945
-</code></pre></li>
+</code></pre>
+</li>
 </ol>
 <p>注：关键是最后一段，把本机1935端口，转发到后端2台master服务器的1945端口。</p>
 <ol start="3">
@@ -777,69 +774,23 @@ sudo ./objs/srs -c ./conf/pm/edge2.conf
 <p>重启haproxy成功后，可以用obs推流到 rtmp://haproxy_server_ip:1935/live/test 试下推流是否正常，如果ok，可以尝试把其中一台master停掉，看看是否有影响。</p>
 <h2 id="nginx配置启动"><a href="#nginx配置启动" class="headerlink" title="nginx配置启动"></a>nginx配置启动</h2><p>最后是nginx出场了，ngnix的安装类似haproxy，yum install nginx 即可，关键是配置：</p>
 <ul>
-<li><p>新建配置文件<code>nginx_srs.conf</code></p>
-<pre><code>\#user  nobody;
-worker\_processes  1;
-\#error\_log  logs/error.log;
-\#error\_log  logs/error.log  notice;
-\#error\_log  logs/error.log  info;
-\#pid        logs/nginx.pid;
-</code></pre></li>
+<li>新建配置文件<code>nginx_srs.conf</code><br><code>`</code>bash<br>#user  nobody;<br>worker_processes  1;<br>#error_log  logs/error.log;<br>#error_log  logs/error.log  notice;<br>#error_log  logs/error.log  info;<br>#pid        logs/nginx.pid;</li>
 </ul>
-<pre><code>  events {
-  worker_connections  1024;
-  }
-  http {
-  include       mime.types;
-  default_type  application/octet-stream;
-
-  #log_format  main  &#39;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#39;
-  #                  &#39;$status $body_bytes_sent &quot;$http_referer&quot; &#39;
-  #                  &#39;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#39;;
-
-  #access_log  logs/access.log  main;
-
-  sendfile        on;
-  #tcp_nopush     on;
-
-  #keepalive_timeout  0;
-  keepalive_timeout  65;
-
-  #gzip  on;
-
-  upstream srs {
-      ip_hash;
-      server 172.**.***.71:8183;
-      server 172.**.***.71:8184;
-      server 172.**.***.73:8183;
-      server 172.**.***.73:8184;
-  }
-
-  server {
-      listen       80;
-      server_name  localhost;
-
-      location ~ /* {
-          proxy_pass http://srs;
-          add_header Cache-Control no-cache;
-          add_header Access-Control-Allow-Origin *;
-      }
-
-      location / {
-          root   html;
-          index  index.html index.htm;
-      }
-
-      error_page   500 502 503 504  /50x.html;
-      location = /50x.html {
-          root   html;
-      }
-
-  }
-
-  include servers/*;
-  }
-</code></pre><ul>
+<p>  events {<br>  worker_connections  1024;<br>  }<br>  http {<br>  include       mime.types;<br>  default_type  application/octet-stream;</p>
+<p>  #log_format  main  ‘$remote_addr - $remote_user [$time_local] “$request” ‘</p>
+<h1 id="‘-status-body-bytes-sent-“-http-referer”-‘"><a href="#‘-status-body-bytes-sent-“-http-referer”-‘" class="headerlink" title="‘$status $body_bytes_sent “$http_referer” ‘"></a>‘$status $body_bytes_sent “$http_referer” ‘</h1><h1 id="‘“-http-user-agent”-“-http-x-forwarded-for”‘"><a href="#‘“-http-user-agent”-“-http-x-forwarded-for”‘" class="headerlink" title="‘“$http_user_agent” “$http_x_forwarded_for”‘;"></a>‘“$http_user_agent” “$http_x_forwarded_for”‘;</h1><p>  #access_log  logs/access.log  main;</p>
+<p>  sendfile        on;</p>
+<p>  #tcp_nopush     on;</p>
+<p>  #keepalive_timeout  0;<br>  keepalive_timeout  65;</p>
+<p>  #gzip  on;</p>
+<p>  upstream srs {<br>  ip_hash;<br>  server 172.<strong>.*</strong>.71:8183;<br>  server 172.<strong>.*</strong>.71:8184;<br>  server 172.<strong>.*</strong>.73:8183;<br>  server 172.<strong>.*</strong>.73:8184;<br>  }</p>
+<p>  server {<br>  listen       80;<br>  server_name  localhost;</p>
+<p>  location ~ /<em> {<br>      proxy_pass <a href="http://srs" rel="external nofollow noopener noreferrer" target="_blank">http://srs</a>;<br>      add_header Cache-Control no-cache;<br>      add_header Access-Control-Allow-Origin </em>;<br>  }</p>
+<p>  location / {<br>      root   html;<br>      index  index.html index.htm;<br>  }</p>
+<p>  error_page   500 502 503 504  /50x.html;<br>  location = /50x.html {<br>      root   html;<br>  }</p>
+<p>  }</p>
+<p>  include servers /*;<br>  }<br><code>`</code></p>
+<ul>
 <li>nginx启动：<code>/usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx_srs.conf</code></li>
 <li>nginx重启：<code>/usr/local/nginx/sbin/nginx -s reload</code></li>
 </ul>
@@ -996,7 +947,7 @@ worker\_processes  1;
                     </span>
                     <a href="https://chihiro.org.cn" class="b-link-green">千与千寻</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/blogs/1651636328.html" class="b-link-green">srs流媒体服务器集群搭建</a>
+                    <a href="/blogs/0.html" class="b-link-green"></a>
                 </p>
             </div>
         </div>
@@ -1278,54 +1229,39 @@ worker\_processes  1;
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/blogs/784033432.html">
+                <a href="/blogs/0.html">
                     <div class="card-image">
                         
-                        <img src="https://s2.ax1x.com/2019/06/15/VI8vgx.jpg" class="responsive-img" alt="Netty的WebSocket客户端通过SSL连接服务器">
                         
-                        <span class="card-title">Netty的WebSocket客户端通过SSL连接服务器</span>
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="">
+                        
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-		    <div class="summary">
-			
-			将ssl证书整合至netty中。
-			
-		    </div>
+                    <div class="summary block-with-text">
+                        
+                            —title: srs流媒体服务器集群搭建author: chihirotop: falsecover: falseimg: ‘https://s2.ax1x.com/2019/06/11/VgHugf.jpg’keywords:
+
+srs
+                        
+                    </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-16
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/后端/" class="post-category" target="_blank">
-                                    后端
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Chihiro
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Java/" target="_blank">
-                        <span class="chip bg-color">Java</span>
-                    </a>
-                    
-                    <a href="/tags/Netty/" target="_blank">
-                        <span class="chip bg-color">Netty</span>
-                    </a>
-                    
-                    <a href="/tags/SSL/" target="_blank">
-                        <span class="chip bg-color">SSL</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
@@ -1336,22 +1272,23 @@ worker\_processes  1;
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/blogs/504695146.html">
+                <a href="/blogs/104139301.html">
                     <div class="card-image">
                         
-                        <img src="https://s2.ax1x.com/2019/04/08/A4Hu9I.png" class="responsive-img" alt="FastDFS的Java客户端">
+                        <img src="https://www.chihiro.org.cn/upload/2019/9/log-390495f17c85438695326d55ee6ead4f.jpeg" class="responsive-img" alt="使用SpringAop记录日志">
                         
-                        <span class="card-title">FastDFS的Java客户端</span>
+                        <span class="card-title">使用SpringAop记录日志</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">
-			
-			分布式文件服务器FastDFS的Java客户端。
-			
+                    <div class="summary block-with-text">
+                        
+                            使用AOP对项目日志进行记录与打印
+                        
+                    </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-08
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-10
                             </span>
                         <span class="publish-author">
                             
@@ -1372,8 +1309,12 @@ worker\_processes  1;
                         <span class="chip bg-color">Java</span>
                     </a>
                     
-                    <a href="/tags/FastDFS/" target="_blank">
-                        <span class="chip bg-color">FastDFS</span>
+                    <a href="/tags/aop/" target="_blank">
+                        <span class="chip bg-color">aop</span>
+                    </a>
+                    
+                    <a href="/tags/spring/" target="_blank">
+                        <span class="chip bg-color">spring</span>
                     </a>
                     
                 </div>
@@ -1382,46 +1323,9 @@ worker\_processes  1;
         </div>
         
     </div>
-</div></article>
+</article>
 </div>
 
-
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('120')) {
-            return;
-        }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
-        }
-
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + '来源: 千与千寻<br />'
-            + '作者: Chihiro<br />'
-            + '链接: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
-
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
 
     </div>
     <div class="col l3 hide-on-med-and-down">
@@ -1483,7 +1387,7 @@ worker\_processes  1;
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-matery</a>主题搭建.&nbsp;
             
                 <i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">40.3k</span>&nbsp;
+                <span class="white-color">42.3k</span>&nbsp;
             
 	    <span class="white-color"><a href="https://996.icu" target="_blank" style="color: white;font-size: 15px;" rel="external nofollow noopener noreferrer"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu" border="0"></a></span><br>
 	    <span class="white-color"><a href="http://www.beian.miit.gov.cn" target="_blank" style="color: white;font-size: 15px;" rel="external nofollow noopener noreferrer">粤ICP备19022950号</a></span>&nbsp;&nbsp;

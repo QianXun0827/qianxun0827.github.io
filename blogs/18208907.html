@@ -14,8 +14,9 @@ RabbitMQ依赖Erlang，需要先安装Erlang。
 sudo yum install epel-release
 安装erlang
 sudo yum install erlang
+
 下载并解压安装包
-先新建">
+先新">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -452,106 +453,120 @@ sudo yum install erlang
                 <h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><ul>
 <li>RabbitMQ依赖Erlang，需要先安装Erlang。</li>
 </ul>
-<pre><code>#启动EPEL源
-sudo yum install epel-release
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#启动EPEL源</span>
+<span class="token function">sudo</span> yum <span class="token function">install</span> epel-release
 安装erlang
-sudo yum install erlang
-</code></pre><h2 id="下载并解压安装包"><a href="#下载并解压安装包" class="headerlink" title="下载并解压安装包"></a>下载并解压安装包</h2><ul>
+<span class="token function">sudo</span> yum <span class="token function">install</span> erlang
+</code></pre>
+<h2 id="下载并解压安装包"><a href="#下载并解压安装包" class="headerlink" title="下载并解压安装包"></a>下载并解压安装包</h2><ul>
 <li>先新建一个文件夹，博主喜欢在<code>/var</code>下面安装服务器软件</li>
 </ul>
-<pre><code>cd /var
-mkdir rabbitmq
-cd rabbitmq
-</code></pre><ul>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /var
+<span class="token function">mkdir</span> rabbitmq
+<span class="token function">cd</span> rabbitmq
+</code></pre>
+<ul>
 <li>下载rpm</li>
 </ul>
-<pre><code>wget https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.15/rabbitmq-server-3.6.15-1.el6.noarch.rpm
-</code></pre><ul>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">wget</span> https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.15/rabbitmq-server-3.6.15-1.el6.noarch.rpm
+</code></pre>
+<ul>
 <li>下载完成后安装</li>
 </ul>
-<pre><code>yum install rabbitmq-server-3.6.15-1.el6.noarch.rpm
-</code></pre><h2 id="RabbitMQ的一些基本操作"><a href="#RabbitMQ的一些基本操作" class="headerlink" title="RabbitMQ的一些基本操作"></a>RabbitMQ的一些基本操作</h2><pre><code># 添加开机启动RabbitMQ服务
-sudo chkconfig rabbitmq-server on
+<pre class=" language-bash"><code class="language-bash">yum <span class="token function">install</span> rabbitmq-server-3.6.15-1.el6.noarch.rpm
+</code></pre>
+<h2 id="RabbitMQ的一些基本操作"><a href="#RabbitMQ的一些基本操作" class="headerlink" title="RabbitMQ的一些基本操作"></a>RabbitMQ的一些基本操作</h2><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 添加开机启动RabbitMQ服务</span>
+<span class="token function">sudo</span> <span class="token function">chkconfig</span> rabbitmq-server on
 
-# 启动服务
-sudo /sbin/service rabbitmq-server start
+<span class="token comment" spellcheck="true"># 启动服务</span>
+<span class="token function">sudo</span> /sbin/service rabbitmq-server start
 
-# 查看服务状态
-sudo /sbin/service rabbitmq-server status
+<span class="token comment" spellcheck="true"># 查看服务状态</span>
+<span class="token function">sudo</span> /sbin/service rabbitmq-server status
 
-# 停止服务
-sudo /sbin/service rabbitmq-server stop
+<span class="token comment" spellcheck="true"># 停止服务</span>
+<span class="token function">sudo</span> /sbin/service rabbitmq-server stop
 
-# 查看当前所有用户
-sudo rabbitmqctl list_users
+<span class="token comment" spellcheck="true"># 查看当前所有用户</span>
+<span class="token function">sudo</span> rabbitmqctl list_users
 
-# 查看默认guest用户的权限
-sudo rabbitmqctl list_user_permissions guest
+<span class="token comment" spellcheck="true"># 查看默认guest用户的权限</span>
+<span class="token function">sudo</span> rabbitmqctl list_user_permissions guest
 
-# 由于RabbitMQ默认的账号用户名和密码都是guest。为了安全起见, 先删掉默认用户
-sudo rabbitmqctl delete_user guest
+<span class="token comment" spellcheck="true"># 由于RabbitMQ默认的账号用户名和密码都是guest。为了安全起见, 先删掉默认用户</span>
+<span class="token function">sudo</span> rabbitmqctl delete_user guest
 
-# 添加新用户
-sudo rabbitmqctl add_user username password
+<span class="token comment" spellcheck="true"># 添加新用户</span>
+<span class="token function">sudo</span> rabbitmqctl add_user username password
 
-# 设置用户tag
-sudo rabbitmqctl set_user_tags username administrator
+<span class="token comment" spellcheck="true"># 设置用户tag</span>
+<span class="token function">sudo</span> rabbitmqctl set_user_tags username administrator
 
-# 赋予用户默认vhost的全部操作权限
-sudo rabbitmqctl set_permissions -p / username &quot;.*&quot; &quot;.*&quot; &quot;.*&quot;
+<span class="token comment" spellcheck="true"># 赋予用户默认vhost的全部操作权限</span>
+<span class="token function">sudo</span> rabbitmqctl set_permissions -p / username <span class="token string">".*"</span> <span class="token string">".*"</span> <span class="token string">".*"</span>
 
-# 查看用户的权限
-sudo rabbitmqctl list_user_permissions username
-</code></pre><blockquote>
+<span class="token comment" spellcheck="true"># 查看用户的权限</span>
+<span class="token function">sudo</span> rabbitmqctl list_user_permissions username
+</code></pre>
+<blockquote>
 <p>更多关于<code>rabbitmqctl</code>的使用，可以参考<a href="https://link.jianshu.com/?t=https://www.rabbitmq.com/man/rabbitmqctl.1.man.html" rel="external nofollow noopener noreferrer" target="_blank">帮助手册</a>。</p>
 </blockquote>
 <h2 id="开启web管理接口"><a href="#开启web管理接口" class="headerlink" title="开启web管理接口"></a>开启web管理接口</h2><ul>
 <li>RabbitMQ自带了web管理界面，只需要启动插件便可以使用。</li>
 </ul>
-<pre><code>sudo rabbitmq-plugins enable rabbitmq_management
-</code></pre><ul>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> rabbitmq-plugins <span class="token function">enable</span> rabbitmq_management
+</code></pre>
+<ul>
 <li>然后通过浏览器访问</li>
 </ul>
-<pre><code>http://yourhost:15672
-</code></pre><h2 id="配置RabbitMQ"><a href="#配置RabbitMQ" class="headerlink" title="配置RabbitMQ"></a>配置RabbitMQ</h2><ul>
+<pre class=" language-bash"><code class="language-bash">http://yourhost:15672
+</code></pre>
+<h2 id="配置RabbitMQ"><a href="#配置RabbitMQ" class="headerlink" title="配置RabbitMQ"></a>配置RabbitMQ</h2><ul>
 <li>关于每个配置项的具体作用，可以参考<a href="https://link.jianshu.com/?t=https://www.rabbitmq.com/configure.html" rel="external nofollow noopener noreferrer" target="_blank">官方文档</a>。<br>更新配置后，别忘了重启服务哦！</li>
 </ul>
 <h2 id="开启用户远程访问"><a href="#开启用户远程访问" class="headerlink" title="开启用户远程访问"></a>开启用户远程访问</h2><ul>
 <li>默认情况下，RabbitMQ的默认的<code>guest</code>用户只允许本机访问， 如果想让<code>guest</code>用户能够远程访问的话，只需要将配置文件中的<code>loopback_users</code>列表置为空即可，如下：</li>
 </ul>
-<pre><code>{loopback_users, []}
-</code></pre><ul>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">{</span>loopback_users, <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+</code></pre>
+<ul>
 <li>另外关于新添加的用户，直接就可以从远程访问的，如果想让新添加的用户只能本地访问，可以将用户名添加到上面的列表, 如只允许<code>admin</code>用户本机访问。</li>
 </ul>
-<pre><code>{loopback_users, [&quot;admin&quot;]}
-</code></pre><ul>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">{</span>loopback_users, <span class="token punctuation">[</span><span class="token string">"admin"</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+</code></pre>
+<ul>
 <li>更新配置后，需要重启服务</li>
 </ul>
-<pre><code>sudo /sbin/service rabbitmq-server status  # 查看服务状态
-</code></pre><ul>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> /sbin/service rabbitmq-server status  <span class="token comment" spellcheck="true"># 查看服务状态</span>
+</code></pre>
+<ul>
 <li>进入log文件夹内查看日志</li>
 </ul>
 <p><img src="https://s2.ax1x.com/2019/09/05/nmLiZR.png" alt="image-1"></p>
-<pre><code>cd /var/log/rabbitmq
-</code></pre><p><img src="https://s2.ax1x.com/2019/09/05/nmLFd1.png" alt="image-2"></p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /var/log/rabbitmq
+</code></pre>
+<p><img src="https://s2.ax1x.com/2019/09/05/nmLFd1.png" alt="image-2"></p>
 <ul>
 <li>这里显示的是没有找到配置文件，我们可以自己创建这个文件</li>
 </ul>
-<pre><code>cd /etc/rabbitmq/
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /etc/rabbitmq/
 vim rabbitmq.config
-</code></pre><ul>
+</code></pre>
+<ul>
 <li>编辑内容如下：</li>
 </ul>
-<pre><code>[{rabbit, [{loopback_users, []}]}].
-</code></pre><blockquote>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span><span class="token punctuation">{</span>rabbit, <span class="token punctuation">[</span><span class="token punctuation">{</span>loopback_users, <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">]</span>.
+</code></pre>
+<blockquote>
 <p>这里的意思是开放使用，rabbitmq默认创建的用户guest，密码也是guest，这个用户默认只能是本机访问，localhost或者127.0.0.1，从外部访问需要添加上面的配置。</p>
 </blockquote>
 <ul>
 <li>保存配置后重启服务：</li>
 </ul>
-<pre><code>service rabbitmq-server stop
-service rabbitmq-server start
-</code></pre><p>此时就可以从外部访问了，至此rabbitmq已经搭建完成，去做测试吧WwW</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">service</span> rabbitmq-server stop
+<span class="token function">service</span> rabbitmq-server start
+</code></pre>
+<p>此时就可以从外部访问了，至此rabbitmq已经搭建完成，去做测试吧WwW</p>
 <h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>记得要开放5672和15672端口</p>
 <blockquote>
 <p>5672表示客户端访问端口</p>
@@ -997,11 +1012,11 @@ service rabbitmq-server start
                     </div>
                 </a>
                 <div class="card-content article-content">
-		    <div class="summary">
-			
-			springboot2.1.4整合rabbitmq
-			
-		    </div>
+                    <div class="summary block-with-text">
+                        
+                            springboot2.1.4整合rabbitmq
+                        
+                    </div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-10
@@ -1053,10 +1068,11 @@ service rabbitmq-server start
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">
-			
-			使用Archiva搭建内网maven私服。
-			
+                    <div class="summary block-with-text">
+                        
+                            使用Archiva搭建内网maven私服。
+                        
+                    </div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-10
@@ -1086,46 +1102,9 @@ service rabbitmq-server start
         </div>
         
     </div>
-</div></article>
+</article>
 </div>
 
-
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('120')) {
-            return;
-        }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
-        }
-
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + '来源: 千与千寻<br />'
-            + '作者: Chihiro<br />'
-            + '链接: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
-
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
 
     </div>
     <div class="col l3 hide-on-med-and-down">
@@ -1187,7 +1166,7 @@ service rabbitmq-server start
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-matery</a>主题搭建.&nbsp;
             
                 <i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">40.3k</span>&nbsp;
+                <span class="white-color">42.3k</span>&nbsp;
             
 	    <span class="white-color"><a href="https://996.icu" target="_blank" style="color: white;font-size: 15px;" rel="external nofollow noopener noreferrer"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu" border="0"></a></span><br>
 	    <span class="white-color"><a href="http://www.beian.miit.gov.cn" target="_blank" style="color: white;font-size: 15px;" rel="external nofollow noopener noreferrer">粤ICP备19022950号</a></span>&nbsp;&nbsp;

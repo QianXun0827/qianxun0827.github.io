@@ -466,17 +466,19 @@
 <ul>
 <li>对tar包进行解压缩，在 CentOS 上，你可以使用下面的命令来进行解压缩：</li>
 </ul>
-<pre><code>tar -xzvf apache-archiva-2.2.3-bin.tar.gz
-</code></pre><ul>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -xzvf apache-archiva-2.2.3-bin.tar.gz
+</code></pre>
+<ul>
 <li><p>解压缩的文件名称为 apache-archiva-2.2.3</p>
 </li>
 <li><p>在 /var下面新建一个archiva 文件夹</p>
 </li>
 <li>使用命令，将解压缩后的文件夹移动到 /var/archiva 文件夹下</li>
 </ul>
-<pre><code>mv apache-archiva-2.2.3 /var/archiva
-</code></pre><h2 id="运行-archiva"><a href="#运行-archiva" class="headerlink" title="运行 archiva"></a>运行 archiva</h2><ul>
-<li>在/var/archiva/conf目录下编辑jetty.xml </li>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">mv</span> apache-archiva-2.2.3 /var/archiva
+</code></pre>
+<h2 id="运行-archiva"><a href="#运行-archiva" class="headerlink" title="运行 archiva"></a>运行 archiva</h2><ul>
+<li>在/var/archiva/conf目录下编辑jetty.xml</li>
 </ul>
 <pre class=" language-xml"><code class="language-xml">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Call</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>addConnector<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Arg</span><span class="token punctuation">></span></span>
@@ -500,12 +502,14 @@
 <li><p>在 /var/archiva 路径下，运行命令：</p>
 </li>
 </ul>
-<pre><code>./bin/archiva start
-</code></pre><ul>
+<pre class=" language-bash"><code class="language-bash">./bin/archiva start
+</code></pre>
+<ul>
 <li>使用命令查看是否启动成功</li>
 </ul>
-<pre><code>ps -ef |grep archiva
-</code></pre><h2 id="确认是否安装成功"><a href="#确认是否安装成功" class="headerlink" title="确认是否安装成功"></a>确认是否安装成功</h2><ul>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">ps</span> -ef <span class="token operator">|</span><span class="token function">grep</span> archiva
+</code></pre>
+<h2 id="确认是否安装成功"><a href="#确认是否安装成功" class="headerlink" title="确认是否安装成功"></a>确认是否安装成功</h2><ul>
 <li>如果你能够通过给定的 UI 和端口看到管理员的 Web 界面的话，那么就表示你的安装已经成功了。</li>
 </ul>
 <p><img src="https://s2.ax1x.com/2019/08/10/eOgBlT.jpg" alt="image-3"></p>
@@ -518,15 +522,17 @@
 <li><p>针对上面的完全的安装后，创建链接的命令为：</p>
 </li>
 </ul>
-<pre><code>ln -sf /opt/archiva/bin/archiva /etc/init.d/archiva
-</code></pre><ul>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">ln</span> -sf /opt/archiva/bin/archiva /etc/init.d/archiva
+</code></pre>
+<ul>
 <li>然后你就可以通过以下命令来启动个关闭archiva服务了</li>
 </ul>
-<pre><code>#开启服务
-service archiva start
-#关闭服务
-service archiva stop
-</code></pre><h2 id="配置私服仓库"><a href="#配置私服仓库" class="headerlink" title="配置私服仓库"></a>配置私服仓库</h2><ul>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#开启服务</span>
+<span class="token function">service</span> archiva start
+<span class="token comment" spellcheck="true">#关闭服务</span>
+<span class="token function">service</span> archiva stop
+</code></pre>
+<h2 id="配置私服仓库"><a href="#配置私服仓库" class="headerlink" title="配置私服仓库"></a>配置私服仓库</h2><ul>
 <li>访问你私服的地址页面，使用用户名进行登陆。</li>
 <li>配置仓库地址</li>
 </ul>
@@ -538,13 +544,13 @@ service archiva stop
 <p>下面的【Snapshots】选项可以勾上，表示自己存储库支持快照工作</p>
 </blockquote>
 <ul>
-<li><p>在如下位置记录了你的仓库地址：</p>
-</li>
-<li><blockquote>
-<p>在这里新增一个名为<code>maven-public</code>组，将右边三个仓库全部添加进去。</p>
-</blockquote>
-</li>
+<li>在如下位置记录了你的仓库地址：</li>
 </ul>
+<blockquote>
+<ul>
+<li>在这里新增一个名为<code>maven-public</code>组，将右边三个仓库全部添加进去。</li>
+</ul>
+</blockquote>
 <p><img src="https://s2.ax1x.com/2019/08/10/eORgRx.png" alt="image-4"></p>
 <blockquote>
 <p>这里你需要几个仓库就配置几个仓库，有几个仓库这边就会显示几个仓库组。右边的仓库地址后续配置用得到。</p>
@@ -1066,11 +1072,11 @@ service archiva stop
                     </div>
                 </a>
                 <div class="card-content article-content">
-		    <div class="summary">
-			
-			简单高效的搭建出一个rabbitMQ服务。
-			
-		    </div>
+                    <div class="summary block-with-text">
+                        
+                            简单高效的搭建出一个rabbitMQ服务。
+                        
+                    </div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-05
@@ -1114,10 +1120,11 @@ service archiva stop
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">
-			
-			Role-Based Access Control，基于角色的访问控制。
-			
+                    <div class="summary block-with-text">
+                        
+                            Role-Based Access Control，基于角色的访问控制。
+                        
+                    </div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-07
@@ -1147,46 +1154,9 @@ service archiva stop
         </div>
         
     </div>
-</div></article>
+</article>
 </div>
 
-
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('120')) {
-            return;
-        }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
-        }
-
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + '来源: 千与千寻<br />'
-            + '作者: Chihiro<br />'
-            + '链接: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
-
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
 
     </div>
     <div class="col l3 hide-on-med-and-down">
@@ -1248,7 +1218,7 @@ service archiva stop
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-matery</a>主题搭建.&nbsp;
             
                 <i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">40.3k</span>&nbsp;
+                <span class="white-color">42.3k</span>&nbsp;
             
 	    <span class="white-color"><a href="https://996.icu" target="_blank" style="color: white;font-size: 15px;" rel="external nofollow noopener noreferrer"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu" border="0"></a></span><br>
 	    <span class="white-color"><a href="http://www.beian.miit.gov.cn" target="_blank" style="color: white;font-size: 15px;" rel="external nofollow noopener noreferrer">粤ICP备19022950号</a></span>&nbsp;&nbsp;

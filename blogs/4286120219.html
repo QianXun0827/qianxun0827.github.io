@@ -426,7 +426,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        4,141
+                        4,143
                     </div>
                     
 
@@ -451,208 +451,205 @@
             <div id="articleContent">
                 <p>因为不想把博客的图片放在别人的图床上，所以自己研究了个图片服务器。本人搭建的为单机方案，当然此服务器自带集群方案，只是博主没有配置。有需要集群配置方案的也很简单，改几个配置就可以了。具体集群步骤可以问问度娘。首先感谢<a href="https://blog.csdn.net/qq_34301871/article/details/80060235" rel="external nofollow noopener noreferrer" target="_blank">牧佑</a>大佬的试错总结，没有他的总结，我也写不出来这篇博客，当然我也出现了不少未知错误。话不多说，直接开始！</p>
 <blockquote>
-<p>首先声明：本文不介绍Nginx和FastDfs的来源及应用场景，文中出现的<code>120.\*\*.\*\*\*.165</code>地址为博主服务器ip地址，实际搭建时请更改为自己的ip！<br>fastdfs 5.11 版本对照：Version 5.11对应的fastdfs-nginx-module的Version 1.20<br>fastdfs 5.10 版本对照：Version 5.10对应的fastdfs-nginx-module的Version 1.19<br><strong> 如果版本不对应，后期安装会报错！！！</strong></p>
+<p>首先声明：本文不介绍Nginx和FastDfs的来源及应用场景，文中出现的<code>120.\*\*.\*\*\*.165</code>地址为博主服务器ip地址，实际搭建时请更改为自己的ip！<br>fastdfs 5.11 版本对照：Version 5.11对应的fastdfs-nginx-module的Version 1.20<br>fastdfs 5.10 版本对照：Version 5.10对应的fastdfs-nginx-module的Version 1.19<br>** 如果版本不对应，后期安装会报错！！！*\*</p>
 </blockquote>
-<h2 id="安装FastDfs"><a href="#安装FastDfs" class="headerlink" title="安装FastDfs"></a>安装FastDfs</h2><p>作者的GitHub地址：<a href="https://github.com/happyfish100" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/happyfish100</a>（本次所需的工具大部分都可以找到）</p>
-<p>首先搭建需要用到的所有工具截图</p>
-<p><img src="https://s2.ax1x.com/2019/04/04/A23d6P.png" alt=""></p>
-<p>在此直接公布下载地址，毕竟时间宝贵！</p>
+<h2 id="安装FastDfs"><a href="#安装FastDfs" class="headerlink" title="安装FastDfs"></a>安装FastDfs</h2><p>作者的GitHub地址：<a href="https://github.com/happyfish100" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/happyfish100</a>（本次所需的工具大部分都可以找到）<br>首先搭建需要用到的所有工具截图<br><img src="https://s2.ax1x.com/2019/04/04/A23d6P.png" alt=""></p>
+<h2 id="在此直接公布下载地址，毕竟时间宝贵！"><a href="#在此直接公布下载地址，毕竟时间宝贵！" class="headerlink" title="在此直接公布下载地址，毕竟时间宝贵！"></a>在此直接公布下载地址，毕竟时间宝贵！</h2><ul>
+<li><strong>fastdfs 5.11</strong>  点击如下图即可，完成下载。<br><a href="https://github.com/happyfish100/fastdfs/releases" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/happyfish100/fastdfs/releases</a><br><img src="https://s2.ax1x.com/2019/04/04/A28Khj.png" alt=""></li>
+</ul>
 <hr>
 <ul>
-<li><p><strong>fastdfs 5.11</strong>  点击如下图即可，完成下载。</p>
-<p><a href="https://github.com/happyfish100/fastdfs/releases" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/happyfish100/fastdfs/releases</a>  </p>
-</li>
+<li><strong>fastdfs-client-java-master</strong> 点击如下图即可，完成下载。<br><a href="https://github.com/happyfish100/fastdfs-client-java" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/happyfish100/fastdfs-client-java</a><br><img src="https://s2.ax1x.com/2019/04/04/A28Bg1.png" alt=""></li>
 </ul>
-<p><img src="https://s2.ax1x.com/2019/04/04/A28Khj.png" alt="">  </p>
 <hr>
 <ul>
-<li><strong>fastdfs-client-java-master</strong> 点击如下图即可，完成下载。</li>
+<li><strong>fastdfs-nginx-module-master</strong> 点击如下图即可，完成下载。<br><a href="https://github.com/happyfish100/fastdfs-nginx-module" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/happyfish100/fastdfs-nginx-module</a><br><img src="https://s2.ax1x.com/2019/04/04/A28gED.png" alt=""></li>
 </ul>
-<p><a href="https://github.com/happyfish100/fastdfs-client-java" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/happyfish100/fastdfs-client-java</a>  </p>
-<p><img src="https://s2.ax1x.com/2019/04/04/A28Bg1.png" alt="">  </p>
 <hr>
 <ul>
-<li><strong>fastdfs-nginx-module-master</strong> 点击如下图即可，完成下载。  </li>
+<li><strong>libfastcommon-master</strong> 点击如下图即可，完成下载。<br><a href="https://github.com/happyfish100/libfastcommon" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/happyfish100/libfastcommon  </a><br><img src="https://s2.ax1x.com/2019/06/24/ZAUlwQ.png" alt=""></li>
 </ul>
-<p><a href="https://github.com/happyfish100/fastdfs-nginx-module" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/happyfish100/fastdfs-nginx-module</a>  </p>
-<p><img src="https://s2.ax1x.com/2019/04/04/A28gED.png" alt="">  </p>
 <hr>
 <ul>
-<li><strong>libfastcommon-master</strong> 点击如下图即可，完成下载。    </li>
+<li><strong>nginx-1.12.0.tar</strong> 点击如下图即可，完成下载。<br><a href="http://nginx.org/download/" rel="external nofollow noopener noreferrer" target="_blank">http://nginx.org/download/</a><br><img src="https://s2.ax1x.com/2019/04/04/A282Ue.png" alt=""></li>
 </ul>
-<p><a href="https://github.com/happyfish100/libfastcommon" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/happyfish100/libfastcommon  </a>  </p>
-<p><img src="https://s2.ax1x.com/2019/06/24/ZAUlwQ.png" alt="">  </p>
 <hr>
-<ul>
-<li><strong>nginx-1.12.0.tar</strong> 点击如下图即可，完成下载。  </li>
-</ul>
-<p><a href="http://nginx.org/download/" rel="external nofollow noopener noreferrer" target="_blank">http://nginx.org/download/</a>  </p>
-<p><img src="https://s2.ax1x.com/2019/04/04/A282Ue.png" alt="">  </p>
-<hr>
-<p>到此，所需要的工具已经下载完毕。</p>
-<p>下面开始搭建，博主使用的是阿里云轻量级服务器下的linux系统，下面的工具运行命令可看情况安装，但实际安装后已存在的工具不会重复安装，所以完全可以直接复制过去执行一遍，以防万一。</p>
-<p>首先下载 所需全部工具运行命令</p>
-<pre class=" language-linux"><code class="language-linux">yum -y install zlib zlib-devel pcre pcre-devel gcc gcc-c++ openssl openssl-devel libevent libevent-devel perl unzip net-tools wget
+<p>到此，所需要的工具已经下载完毕。<br>下面开始搭建，博主使用的是阿里云轻量级服务器下的linux系统，下面的工具运行命令可看情况安装，但实际安装后已存在的工具不会重复安装，所以完全可以直接复制过去执行一遍，以防万一。<br>首先下载 所需全部工具运行命令</p>
+<pre class=" language-bash"><code class="language-bash">yum -y <span class="token function">install</span> zlib zlib-devel pcre pcre-devel gcc gcc-c++ openssl openssl-devel libevent libevent-devel perl unzip net-tools <span class="token function">wget</span>
 </code></pre>
 <p>等待下载完成 然后安装rz 命令</p>
-<pre class=" language-linux"><code class="language-linux">yum install lrzsz -y
+<pre class=" language-bash"><code class="language-bash">yum <span class="token function">install</span> lrzsz -y
 </code></pre>
-<p>通过rz命令 或者sftp上传到/home目录下自己新建一个目录（根据个人习惯）</p>
-<p><code>cd /var</code> 进入var目录<br><code>mkdir fdfs</code> 创建fdfs文件夹<br><code>cd fdfs</code> 进入fdfs文件夹<br><code>rz</code>(或直接将文件拖拽进shell窗口) 将下载好的文件传输至服务器<br><code>ls</code> 如下图所示5个压缩文件<br><img src="https://s2.ax1x.com/2019/04/04/A2GQaD.png" alt="">  </p>
-<h3 id="安装libfastcommon"><a href="#安装libfastcommon" class="headerlink" title="安装libfastcommon"></a>安装libfastcommon</h3><p>解压刚才上传的文件，然后进入解压完成的文件目录</p>
-<p><code>unzip libfastcommon-master.zip</code> 解压libfastcommon-master<br><code>cd libfastcommon-master</code>  进入libfastcommon-master<br><code>ll</code><br>我们会看到</p>
-<p><img src="https://s2.ax1x.com/2019/04/04/A2GNsP.png" alt="">  </p>
-<p>开始安装 执行</p>
-<pre><code>./make.sh
-./make.sh install
-</code></pre><p>看看有没有报错，如果没有错误就可以执行软链接了。</p>
-<pre><code>ln -s /usr/lib64/libfastcommon.so /usr/local/lib/libfastcommon.so 
-ln -s /usr/lib64/libfastcommon.so /usr/lib/libfastcommon.so 
-ln -s /usr/lib64/libfdfsclient.so /usr/local/lib/libfdfsclient.so
-ln -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
-</code></pre><h3 id="安装FastDfs-1"><a href="#安装FastDfs-1" class="headerlink" title="安装FastDfs"></a>安装FastDfs</h3><p>然后回到/var/fdfs(或者你创建的文件下)</p>
-<p>解压fastdfs</p>
-<p><code>unzip fastdfs-5.11.zip</code></p>
-<p>解压完成进入fastdfs5.11</p>
-<pre><code>cd fastdfs-5.11 
+<p>通过rz命令 或者sftp上传到/home目录下自己新建一个目录（根据个人习惯）<br><code>cd /var</code> 进入var目录<br><code>mkdir fdfs</code> 创建fdfs文件夹<br><code>cd fdfs</code> 进入fdfs文件夹<br><code>rz</code>(或直接将文件拖拽进shell窗口) 将下载好的文件传输至服务器<br><code>ls</code> 如下图所示5个压缩文件<br><img src="https://s2.ax1x.com/2019/04/04/A2GQaD.png" alt=""></p>
+<h3 id="安装libfastcommon"><a href="#安装libfastcommon" class="headerlink" title="安装libfastcommon"></a>安装libfastcommon</h3><p>解压刚才上传的文件，然后进入解压完成的文件目录<br><code>unzip libfastcommon-master.zip</code> 解压libfastcommon-master<br><code>cd libfastcommon-master</code>  进入libfastcommon-master<br><code>ll</code><br>我们会看到<br><img src="https://s2.ax1x.com/2019/04/04/A2GNsP.png" alt=""><br>开始安装 执行</p>
+<pre class=" language-bash"><code class="language-bash">./make.sh
+./make.sh <span class="token function">install</span>
+</code></pre>
+<p>看看有没有报错，如果没有错误就可以执行软链接了。</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">ln</span> -s /usr/lib64/libfastcommon.so /usr/local/lib/libfastcommon.so 
+<span class="token function">ln</span> -s /usr/lib64/libfastcommon.so /usr/lib/libfastcommon.so 
+<span class="token function">ln</span> -s /usr/lib64/libfdfsclient.so /usr/local/lib/libfdfsclient.so
+<span class="token function">ln</span> -s /usr/lib64/libfdfsclient.so /usr/lib/libfdfsclient.so
+</code></pre>
+<h3 id="安装FastDfs-1"><a href="#安装FastDfs-1" class="headerlink" title="安装FastDfs"></a>安装FastDfs</h3><p>然后回到/var/fdfs(或者你创建的文件下)<br>解压fastdfs<br><code>unzip fastdfs-5.11.zip</code><br>解压完成进入fastdfs5.11</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> fastdfs-5.11 
 ./make.sh
-./make.sh install
-</code></pre><p>如果没有报错那么，万里长征第一步已经成功，如果报错，请根据报错提示重装。</p>
-<p>成功之后查看目录</p>
-<pre><code>[root@izwz9hx50rbasf6sqasl7vz fdfs]# cd /etc/fdfs/  
-[root@izwz9hx50rbasf6sqasl7vz fdfs]# ll  
+./make.sh <span class="token function">install</span>
+</code></pre>
+<p>如果没有报错那么，万里长征第一步已经成功，如果报错，请根据报错提示重装。<br>成功之后查看目录</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@izwz9hx50rbasf6sqasl7vz fdfs<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># cd /etc/fdfs/  </span>
+<span class="token punctuation">[</span>root@izwz9hx50rbasf6sqasl7vz fdfs<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ll  </span>
 -rw-r--r-- 1 root root  1461 Jun  8 21:56 client.conf.sample  
 -rw-r--r-- 1 root root  7927 Jun  8 21:56 storage.conf.sample  
 -rw-r--r-- 1 root root  7389 Jun  8 21:56 tracker.conf.sample  
-</code></pre><p>我们需要把这三个实例文件服务一份，去掉sample</p>
-<pre><code>cp client.conf.sample client.conf
-cp storage.conf.sample storage.conf
-cp tracker.conf.sample tracker.conf
-</code></pre><p>到此~FastDFS安装结束。</p>
-<h3 id="安装tracker"><a href="#安装tracker" class="headerlink" title="安装tracker"></a>安装tracker</h3><p>创建tarcker工作目录</p>
-<p>这个目录可以自定义，用来保存tracker的data和log   </p>
-<p>根据个人习惯创建下面的目录：</p>
-<pre><code>[root@izwz9hx50rbasf6sqasl7vz ~]# cd /var/
-[root@izwz9hx50rbasf6sqasl7vz var]# mkdir fastdfs
-[root@izwz9hx50rbasf6sqasl7vz var]# cd fastdfs/
-[root@izwz9hx50rbasf6sqasl7vz fastdfs]# mkdir fastdfs_tracker
-[root@izwz9hx50rbasf6sqasl7vz fastdfs]# cd fastdfs_tracker/
-[root@izwz9hx50rbasf6sqasl7vz fastdfs_tracker]# pwd
-/var/fastdfs/fastdfs_tracker        #这个是我最终创建的目录
-[root@izwz9hx50rbasf6sqasl7vz fastdfs_tracker]#
-</code></pre><p>配置tracker</p>
-<pre><code>cd /etc/fdfs
+</code></pre>
+<p>我们需要把这三个实例文件服务一份，去掉sample</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cp</span> client.conf.sample client.conf
+<span class="token function">cp</span> storage.conf.sample storage.conf
+<span class="token function">cp</span> tracker.conf.sample tracker.conf
+</code></pre>
+<p>到此~FastDFS安装结束。</p>
+<h3 id="安装tracker"><a href="#安装tracker" class="headerlink" title="安装tracker"></a>安装tracker</h3><p>创建tarcker工作目录<br>这个目录可以自定义，用来保存tracker的data和log<br>根据个人习惯创建下面的目录：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@izwz9hx50rbasf6sqasl7vz ~<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># cd /var/</span>
+<span class="token punctuation">[</span>root@izwz9hx50rbasf6sqasl7vz var<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># mkdir fastdfs</span>
+<span class="token punctuation">[</span>root@izwz9hx50rbasf6sqasl7vz var<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># cd fastdfs/</span>
+<span class="token punctuation">[</span>root@izwz9hx50rbasf6sqasl7vz fastdfs<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># mkdir fastdfs_tracker</span>
+<span class="token punctuation">[</span>root@izwz9hx50rbasf6sqasl7vz fastdfs<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># cd fastdfs_tracker/</span>
+<span class="token punctuation">[</span>root@izwz9hx50rbasf6sqasl7vz fastdfs_tracker<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># pwd</span>
+/var/fastdfs/fastdfs_tracker        <span class="token comment" spellcheck="true">#这个是我最终创建的目录</span>
+<span class="token punctuation">[</span>root@izwz9hx50rbasf6sqasl7vz fastdfs_tracker<span class="token punctuation">]</span><span class="token comment" spellcheck="true">#</span>
+</code></pre>
+<p>配置tracker</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /etc/fdfs
 vim tracker.conf
-</code></pre><p>打开后找到下面4处然后修改即可（点点111）</p>
-<pre><code>1. disabled=false #默认开启 
-2. port=22122 #默认端口号 
-3. base_path=/var/fastdfs/fastdfs_tracker #刚刚创建的目录 
-4. http.server_port=6666 #默认端口是8080
-</code></pre><p>保存修改文件</p>
-<p>启动 tracker 命令如下。</p>
-<pre><code>service fdfs_trackerd start
-</code></pre><p>如果不能成功启动，可以通systemctl命令</p>
-<pre><code>systemctl start fdfs_trackerd
-</code></pre><p>成功之后可以看见</p>
-<pre><code>[root@izwz9hx50rbasf6sqasl7vz fdfs]# service fdfs_trackerd start
-Starting fdfs_trackerd (via systemctl):                    [  OK  ]
-</code></pre><p>进入 （点点111） 创建的tracker目录。发现目录多了data和log两个目录</p>
-<pre><code>[root@izwz9hx50rbasf6sqasl7vz fdfs]# cd /var/fastdfs/fastdfs_tracker/
-[root@izwz9hx50rbasf6sqasl7vz fastdfs_tracker]# ll
+</code></pre>
+<p>打开后找到下面4处然后修改即可（点点111）</p>
+<pre class=" language-bash"><code class="language-bash">1. disabled<span class="token operator">=</span>false <span class="token comment" spellcheck="true">#默认开启 </span>
+2. port<span class="token operator">=</span>22122 <span class="token comment" spellcheck="true">#默认端口号 </span>
+3. base_path<span class="token operator">=</span>/var/fastdfs/fastdfs_tracker <span class="token comment" spellcheck="true">#刚刚创建的目录 </span>
+4. http.server_port<span class="token operator">=</span>6666 <span class="token comment" spellcheck="true">#默认端口是8080</span>
+</code></pre>
+<p>保存修改文件<br>启动 tracker 命令如下。</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">service</span> fdfs_trackerd start
+</code></pre>
+<p>如果不能成功启动，可以通systemctl命令</p>
+<pre class=" language-bash"><code class="language-bash">systemctl start fdfs_trackerd
+</code></pre>
+<p>成功之后可以看见</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@izwz9hx50rbasf6sqasl7vz fdfs<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># service fdfs_trackerd start</span>
+Starting fdfs_trackerd <span class="token punctuation">(</span>via systemctl<span class="token punctuation">)</span>:                    <span class="token punctuation">[</span>  OK  <span class="token punctuation">]</span>
+</code></pre>
+<p>进入 （点点111） 创建的tracker目录。发现目录多了data和log两个目录</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@izwz9hx50rbasf6sqasl7vz fdfs<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># cd /var/fastdfs/fastdfs_tracker/</span>
+<span class="token punctuation">[</span>root@izwz9hx50rbasf6sqasl7vz fastdfs_tracker<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ll</span>
 total 0
 drwxr-xr-x 2 root root 178 Jun 16 21:19 data
 drwxr-xr-x 2 root root  26 Jun 13 22:01 logs
-</code></pre><p>然后 我们不能每次都这么启动tracker，我们需要给tracker加入开机启动</p>
-<p>首先需要给执行权限，</p>
-<pre><code>chmod +x /etc/rc.d/rc.local
-</code></pre><p>然后开始修改rc.local</p>
-<pre><code>vim /etc/rc.d/rc.local
-</code></pre><p>在配置文件最后加下最后一句话即可</p>
-<pre><code>#!/bin/bash
-# THIS FILE IS ADDED FOR COMPATIBILITY PURPOSES
-#
-# It is highly advisable to create own systemd services or udev rules
-# to run scripts during boot instead of using this file.
-#
-# In contrast to previous versions due to parallel execution during boot
-# this script will NOT be run after all other services.
-#
-# Please note that you must run &#39;chmod +x /etc/rc.d/rc.local&#39; to ensure
-# that this script will be executed during boot.
+</code></pre>
+<p>然后 我们不能每次都这么启动tracker，我们需要给tracker加入开机启动<br>首先需要给执行权限，</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">chmod</span> +x /etc/rc.d/rc.local
+</code></pre>
+<p>然后开始修改rc.local</p>
+<pre class=" language-bash"><code class="language-bash">vim /etc/rc.d/rc.local
+</code></pre>
+<p>在配置文件最后加下最后一句话即可</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token comment" spellcheck="true"># THIS FILE IS ADDED FOR COMPATIBILITY PURPOSES</span>
+<span class="token comment" spellcheck="true">#</span>
+<span class="token comment" spellcheck="true"># It is highly advisable to create own systemd services or udev rules</span>
+<span class="token comment" spellcheck="true"># to run scripts during boot instead of using this file.</span>
+<span class="token comment" spellcheck="true">#</span>
+<span class="token comment" spellcheck="true"># In contrast to previous versions due to parallel execution during boot</span>
+<span class="token comment" spellcheck="true"># this script will NOT be run after all other services.</span>
+<span class="token comment" spellcheck="true">#</span>
+<span class="token comment" spellcheck="true"># Please note that you must run 'chmod +x /etc/rc.d/rc.local' to ensure</span>
+<span class="token comment" spellcheck="true"># that this script will be executed during boot.</span>
 
-touch /var/lock/subsys/local
-service fdfs_trackerd start
-</code></pre><p>保存，然后 查看tracker端口监听情况</p>
-<pre><code>[root@izwz9hx50rbasf6sqasl7vz fastdfs_tracker]# netstat -unltp|grep fdfs
+<span class="token function">touch</span> /var/lock/subsys/local
+<span class="token function">service</span> fdfs_trackerd start
+</code></pre>
+<p>保存，然后 查看tracker端口监听情况</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@izwz9hx50rbasf6sqasl7vz fastdfs_tracker<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># netstat -unltp|grep fdfs</span>
 tcp        0      0 0.0.0.0:22122           0.0.0.0:*               LISTEN      2233/fdfs_trackerd
-</code></pre><p>到此22122端口监听成功。</p>
+</code></pre>
+<p>到此22122端口监听成功。</p>
 <h3 id="安装storage"><a href="#安装storage" class="headerlink" title="安装storage"></a>安装storage</h3><p>为storage配置工作目录，由于storage还需要一个目录用来存储数据，所以我另外多建了一个fastdfs_storage_data </p>
-<pre><code>[root@izwz9hx50rbasf6sqasl7vz fastdfs]# ls
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@izwz9hx50rbasf6sqasl7vz fastdfs<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ls</span>
 fastdfs_storage  fastdfs_storage_data  fastdfs_tracker
-</code></pre><p>修改storage配置文件</p>
-<p>修改storage.conf</p>
-<pre><code>vim /etc/fdfs/storage.conf
-</code></pre><p>找到如下几处地方修改即可</p>
-<pre><code>1. disabled=false 
-2. group_name=group1 #组名，根据实际情况修改 
-3. port=23000  #设置storage的端口号，默认是23000，同一个组的storage端口号必须一致 
-4. base_path=/var/fastdfs/fastdfs_storage  #设置storage数据文件和日志目录 
-5. store_path_count=1 #存储路径个数，需要和store_path个数匹配 
-6. store_path0=/var/fastdfs/fastdfs_storage_data #实际文件存储路径 
-7. tracker_server=120.\*\*.\*\*\*.165:22122 #我CentOS7的ip地址 
-8. http.server_port=8888 #设置 http 端口号
-</code></pre><p>保存之后 创建软引用</p>
-<pre><code>ln -s /usr/bin/fdfs_storaged /usr/local/bin
-</code></pre><p>启动storage</p>
-<pre><code>service fdfs_storaged start
-</code></pre><p>同理 如果不能启动可以用下述命令</p>
-<pre><code>systemctl start fdfs_storaged
-</code></pre><p>成功应该是如下</p>
-<pre><code>[root@izwz9hx50rbasf6sqasl7vz fdfs]# service fdfs_stroaged start
-Starting fdfs_storaged (via systemctl):                    [  OK  ]
-</code></pre><p>同样设置开机启动</p>
-<p>修改rc.local</p>
-<pre><code>vim /etc/rc.d/rc.local
+</code></pre>
+<p>修改storage配置文件<br>修改storage.conf</p>
+<pre class=" language-bash"><code class="language-bash">vim /etc/fdfs/storage.conf
+</code></pre>
+<p>找到如下几处地方修改即可</p>
+<pre class=" language-bash"><code class="language-bash">1. disabled<span class="token operator">=</span>false 
+2. group_name<span class="token operator">=</span>group1 <span class="token comment" spellcheck="true">#组名，根据实际情况修改 </span>
+3. port<span class="token operator">=</span>23000  <span class="token comment" spellcheck="true">#设置storage的端口号，默认是23000，同一个组的storage端口号必须一致 </span>
+4. base_path<span class="token operator">=</span>/var/fastdfs/fastdfs_storage  <span class="token comment" spellcheck="true">#设置storage数据文件和日志目录 </span>
+5. store_path_count<span class="token operator">=</span>1 <span class="token comment" spellcheck="true">#存储路径个数，需要和store_path个数匹配 </span>
+6. store_path0<span class="token operator">=</span>/var/fastdfs/fastdfs_storage_data <span class="token comment" spellcheck="true">#实际文件存储路径 </span>
+7. tracker_server<span class="token operator">=</span>120.**.***.165:22122 <span class="token comment" spellcheck="true">#我CentOS7的ip地址 </span>
+8. http.server_port<span class="token operator">=</span>8888 <span class="token comment" spellcheck="true">#设置 http 端口号</span>
+</code></pre>
+<p>保存之后 创建软引用</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">ln</span> -s /usr/bin/fdfs_storaged /usr/local/bin
+</code></pre>
+<p>启动storage</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">service</span> fdfs_storaged start
+</code></pre>
+<p>同理 如果不能启动可以用下述命令</p>
+<pre class=" language-bash"><code class="language-bash">systemctl start fdfs_storaged
+</code></pre>
+<p>成功应该是如下</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@izwz9hx50rbasf6sqasl7vz fdfs<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># service fdfs_stroaged start</span>
+Starting fdfs_storaged <span class="token punctuation">(</span>via systemctl<span class="token punctuation">)</span>:                    <span class="token punctuation">[</span>  OK  <span class="token punctuation">]</span>
+</code></pre>
+<p>同样设置开机启动<br>修改rc.local</p>
+<pre class=" language-bash"><code class="language-bash">vim /etc/rc.d/rc.local
 
-#!/bin/bash
-# THIS FILE IS ADDED FOR COMPATIBILITY PURPOSES
-#
-# It is highly advisable to create own systemd services or udev rules
-# to run scripts during boot instead of using this file.
-#
-# In contrast to previous versions due to parallel execution during boot
-# this script will NOT be run after all other services.
-#
-# Please note that you must run &#39;chmod +x /etc/rc.d/rc.local&#39; to ensure
-# that this script will be executed during boot.
+<span class="token comment" spellcheck="true">#!/bin/bash</span>
+<span class="token comment" spellcheck="true"># THIS FILE IS ADDED FOR COMPATIBILITY PURPOSES</span>
+<span class="token comment" spellcheck="true">#</span>
+<span class="token comment" spellcheck="true"># It is highly advisable to create own systemd services or udev rules</span>
+<span class="token comment" spellcheck="true"># to run scripts during boot instead of using this file.</span>
+<span class="token comment" spellcheck="true">#</span>
+<span class="token comment" spellcheck="true"># In contrast to previous versions due to parallel execution during boot</span>
+<span class="token comment" spellcheck="true"># this script will NOT be run after all other services.</span>
+<span class="token comment" spellcheck="true">#</span>
+<span class="token comment" spellcheck="true"># Please note that you must run 'chmod +x /etc/rc.d/rc.local' to ensure</span>
+<span class="token comment" spellcheck="true"># that this script will be executed during boot.</span>
 
-touch /var/lock/subsys/local
-service fdfs_trackerd start
-service fdfs_storaged start
-</code></pre><p>同样查看服务是否启动</p>
-<pre><code>[root@izwz9hx50rbasf6sqasl7vz fastdfs]# netstat -unltp | grep fdfs
+<span class="token function">touch</span> /var/lock/subsys/local
+<span class="token function">service</span> fdfs_trackerd start
+<span class="token function">service</span> fdfs_storaged start
+</code></pre>
+<p>同样查看服务是否启动</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@izwz9hx50rbasf6sqasl7vz fastdfs<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># netstat -unltp | grep fdfs</span>
 tcp        0      0 0.0.0.0:22122           0.0.0.0:*               LISTEN      2233/fdfs_trackerd
 tcp        0      0 0.0.0.0:23000           0.0.0.0:*               LISTEN      2323/fdfs_storaged
-</code></pre><p>服务启动，到此fastdfs已经配置完成了。最后我们再确认一下，storage是否注册到了tracker中去。 </p>
-<pre><code>/usr/bin/fdfs_monitor /etc/fdfs/storage.conf
-</code></pre><p>成功后可以看到：   </p>
-<pre><code>ip_addr = 120.\*\*.\*\*\*.165 (localhost.localdomain) ACTIVE 的字样
-</code></pre><p>ok，修改客户端配置文件</p>
-<pre><code>vim /etc/fdfs/client.conf
+</code></pre>
+<p>服务启动，到此fastdfs已经配置完成了。最后我们再确认一下，storage是否注册到了tracker中去。 </p>
+<pre class=" language-bash"><code class="language-bash">/usr/bin/fdfs_monitor /etc/fdfs/storage.conf
+</code></pre>
+<p>成功后可以看到： </p>
+<pre class=" language-bash"><code class="language-bash">ip_addr <span class="token operator">=</span> 120.**.***.165 <span class="token punctuation">(</span>localhost.localdomain<span class="token punctuation">)</span> ACTIVE 的字样
+</code></pre>
+<p>ok，修改客户端配置文件</p>
+<pre class=" language-bash"><code class="language-bash">vim /etc/fdfs/client.conf
 
-base_path=/var/fastdfs/fastdfs_tracker #tracker服务器文件路径
-tracker_server=120.\*\*.\*\*\*.165:22122 #tracker服务器IP地址和端口号
-http.tracker_server_port=6666 # tracker 服务器的 http端口号，必须和tracker的设置对应起来
-</code></pre><p>接下来上传图片到centos7为测试</p>
-<p>rz 命令选择一张照片 上传到随便一个目录但是 一定要复制出来</p>
-<p>接下来</p>
-<pre><code>/usr/bin/fdfs_upload_file  /etc/fdfs/client.conf  /root/测试.jpg  #你上传的图片路径（linux上的）
-</code></pre><p>成功之后会返回图片的路径</p>
-<pre><code>group1/M00/00/00/rBEcC1ykgdiALaceAACZsuwCbKE956.jpg
-</code></pre><p>我们去刚才上传的路径查看是否上传成功~~~</p>
-<pre><code>cd /var/fastdfs/fastdfs_storage_data/data
+base_path<span class="token operator">=</span>/var/fastdfs/fastdfs_tracker <span class="token comment" spellcheck="true">#tracker服务器文件路径</span>
+tracker_server<span class="token operator">=</span>120.**.***.165:22122 <span class="token comment" spellcheck="true">#tracker服务器IP地址和端口号</span>
+http.tracker_server_port<span class="token operator">=</span>6666 <span class="token comment" spellcheck="true"># tracker 服务器的 http端口号，必须和tracker的设置对应起来</span>
+</code></pre>
+<p>接下来上传图片到centos7为测试<br>rz 命令选择一张照片 上传到随便一个目录但是 一定要复制出来<br>接下来</p>
+<pre class=" language-bash"><code class="language-bash">/usr/bin/fdfs_upload_file  /etc/fdfs/client.conf  /root/测试.jpg  <span class="token comment" spellcheck="true">#你上传的图片路径（linux上的）</span>
+</code></pre>
+<p>成功之后会返回图片的路径</p>
+<pre class=" language-bash"><code class="language-bash">group1/M00/00/00/rBEcC1ykgdiALaceAACZsuwCbKE956.jpg
+</code></pre>
+<p>我们去刚才上传的路径查看是否上传成功</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /var/fastdfs/fastdfs_storage_data/data
 
-ls
+<span class="token function">ls</span>
 
 0  0D  1A  27  34  41  4E  5B  68  75  82  8F  9C  A9  B6  C3  D0  DD  EA  F7
 01  0E  1B  28  35  42  4F  5C  69  76  83  90  9D  AA  B7  C4  D1  DE  EB  F8
@@ -667,8 +664,8 @@ ls
 0A  17  24  31  3E  4B  58  65  72  7F  8C  99  A6  B3  C0  CD  DA  E7  F4
 0B  18  25  32  3F  4C  59  66  73  80  8D  9A  A7  B4  C1  CE  DB  E8  F5
 0C  19  26  33  40  4D  5A  67  74  81  8E  9B  A8  B5  C2  CF  DC  E9  F6
-[root@izwz9hx50rbasf6sqasl7vz data]# cd 00
-[root@izwz9hx50rbasf6sqasl7vz 00]# ls
+<span class="token punctuation">[</span>root@izwz9hx50rbasf6sqasl7vz data<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># cd 00</span>
+<span class="token punctuation">[</span>root@izwz9hx50rbasf6sqasl7vz 00<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ls</span>
 00  0D  1A  27  34  41  4E  5B  68  75  82  8F  9C  A9  B6  C3  D0  DD  EA  F7
 01  0E  1B  28  35  42  4F  5C  69  76  83  90  9D  AA  B7  C4  D1  DE  EB  F8
 02  0F  1C  29  36  43  50  5D  6A  77  84  91  9E  AB  B8  C5  D2  DF  EC  F9
@@ -682,166 +679,167 @@ ls
 0A  17  24  31  3E  4B  58  65  72  7F  8C  99  A6  B3  C0  CD  DA  E7  F4
 0B  18  25  32  3F  4C  59  66  73  80  8D  9A  A7  B4  C1  CE  DB  E8  F5
 0C  19  26  33  40  4D  5A  67  74  81  8E  9B  A8  B5  C2  CF  DC  E9  F6
-[root@localhost 00]# cd 00
-[root@localhost 00]# ls
+<span class="token punctuation">[</span>root@localhost 00<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># cd 00</span>
+<span class="token punctuation">[</span>root@localhost 00<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ls</span>
 
 rBEcC1ykgdiALaceAACZsuwCbKE956.jpg 
-</code></pre><p>果然我们找到了图片了。  </p>
-<p>data下有256个1级目录，每级目录下又有256个2级子目录，总共65536个文件，新写的文件会以hash的方式被路由到其中某个子目录下，然后将文件数据直接作为一个本地文件存储到该目录中。</p>
-<p>然后我们HTTP访问文件</p>
-<p><a href="http://120.\*\*.\*\*\*.165:9999/group1/M00/00/00/rBEcC1ykgdiALaceAACZsuwCbKE956.jpg" rel="external nofollow noopener noreferrer" target="_blank">http://120.\*\*.\*\*\*.165:9999/group1/M00/00/00/rBEcC1ykgdiALaceAACZsuwCbKE956.jpg</a> </p>
-<p><img src="https://s2.ax1x.com/2019/04/04/A2YbVK.png" alt="">  </p>
-<p>我们发现，http不能直接访问到图片。这是为什么呢。   </p>
-<p>原来早在4.05的时候，就remove embed HTTP support</p>
-<pre><code>Version 4.05  2012-12-30
+</code></pre>
+<p>果然我们找到了图片了。<br>data下有256个1级目录，每级目录下又有256个2级子目录，总共65536个文件，新写的文件会以hash的方式被路由到其中某个子目录下，然后将文件数据直接作为一个本地文件存储到该目录中。<br>然后我们HTTP访问文件<br><a href="http://120.**.**.165:9999/group1/M00/00/00/rBEcC1ykgdiALaceAACZsuwCbKE956.jpg" rel="external nofollow noopener noreferrer" target="_blank">http://120.**.**.165:9999/group1/M00/00/00/rBEcC1ykgdiALaceAACZsuwCbKE956.jpg</a><br><img src="https://s2.ax1x.com/2019/04/04/A2YbVK.png" alt=""><br>我们发现，http不能直接访问到图片。这是为什么呢。<br>原来早在4.05的时候，就remove embed HTTP support</p>
+<pre class=" language-bash"><code class="language-bash">Version 4.05  2012-12-30
  * client/fdfs_upload_file.c can specify storage ip port and store path index
  * add connection pool
  * client load storage ids config
  * common/ini_file_reader.c does NOT call chdir
- * keep the mtime of file same
- * use g_current_time instead of call time function
+ * keep the mtime of <span class="token function">file</span> same
+ * use g_current_time instead of call <span class="token function">time</span> <span class="token keyword">function</span>
  * remove embed HTTP support
-</code></pre><p>HTTP请求不能访问文件的原因</p>
+</code></pre>
+<p>HTTP请求不能访问文件的原因</p>
 <blockquote>
-<p>我们在使用FastDFS部署一个分布式文件系统的时候，通过FastDFS的客户端API来进行文件的上传、下载、删除等操作。同时通过FastDFS的HTTP服务器来提供HTTP服务。但是FastDFS的HTTP服务较为简单，无法提供负载均衡等高性能的服务，所以FastDFS的开发者——淘宝的架构师余庆同学，为我们提供了Nginx上使用的FastDFS模块（也可以叫FastDFS的Nginx模块）。<br>FastDFS通过Tracker服务器,将文件放在Storage服务器存储,但是同组之间的服务器需要复制文件,有延迟的问题.假设Tracker服务器将文件上传到了120.**.***.165,文件ID已经返回客户端,这时,后台会将这个文件复制到120.**.***.1651,如果复制没有完成,客户端就用这个ID在120.**.***.165取文件,肯定会出现错误。这个fastdfs-nginx-module可以重定向连接到源服务器取文件,避免客户端由于复制延迟的问题,出现错误。<br>正是这样，FastDFS需要结合nginx，所以取消原来对HTTP的直接支持。</p>
+<p>我们在使用FastDFS部署一个分布式文件系统的时候，通过FastDFS的客户端API来进行文件的上传、下载、删除等操作。同时通过FastDFS的HTTP服务器来提供HTTP服务。但是FastDFS的HTTP服务较为简单，无法提供负载均衡等高性能的服务，所以FastDFS的开发者——淘宝的架构师余庆同学，为我们提供了Nginx上使用的FastDFS模块（也可以叫FastDFS的Nginx模块）。<br>FastDFS通过Tracker服务器,将文件放在Storage服务器存储,但是同组之间的服务器需要复制文件,有延迟的问题.假设Tracker服务器将文件上传到了120.<strong>.</strong>.165,文件ID已经返回客户端,这时,后台会将这个文件复制到120.<strong>.</strong>.1651,如果复制没有完成,客户端就用这个ID在120.<strong>.</strong>.165取文件,肯定会出现错误。这个fastdfs-nginx-module可以重定向连接到源服务器取文件,避免客户端由于复制延迟的问题,出现错误。<br>正是这样，FastDFS需要结合nginx，所以取消原来对HTTP的直接支持。</p>
 </blockquote>
 <h2 id="FastDFS的nginx模块安装"><a href="#FastDFS的nginx模块安装" class="headerlink" title="FastDFS的nginx模块安装"></a>FastDFS的nginx模块安装</h2><h3 id="配置storage-nginx"><a href="#配置storage-nginx" class="headerlink" title="配置storage nginx"></a>配置storage nginx</h3><p>准备nginx安装</p>
-<p>cd /var/fdfs</p>
-<p>在安装nginx之前要安装nginx所需的依赖lib:  </p>
-<pre><code>yum -y install pcre pcre-devel  
-yum -y install zlib zlib-devel  
-yum -y install openssl openssl-devel
-</code></pre><p>安装nginx并添加fastdfs-nginx-module</p>
-<p>解压nginx,和fastdfs-nginx-module:  </p>
-<pre><code>tar -zxvf nginx-1.12.0.tar.gz
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /var/fdfs
+</code></pre>
+<p>在安装nginx之前要安装nginx所需的依赖lib:</p>
+<pre class=" language-bash"><code class="language-bash">yum -y <span class="token function">install</span> pcre pcre-devel  
+yum -y <span class="token function">install</span> zlib zlib-devel  
+yum -y <span class="token function">install</span> openssl openssl-devel
+</code></pre>
+<p>安装nginx并添加fastdfs-nginx-module<br>解压nginx,和fastdfs-nginx-module:</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">tar</span> -zxvf nginx-1.12.0.tar.gz
 unzip fastdfs-nginx-module-master.zip
-</code></pre><p>然后进入nginx安装目录，添加fastdfs-nginx-module：</p>
-<pre><code>./configure --prefix=/usr/local/nginx \
---add-module=/var/fdfs/fastdfs-nginx-module-master/src    
-</code></pre><blockquote>
+</code></pre>
+<p>然后进入nginx安装目录，添加fastdfs-nginx-module：</p>
+<pre class=" language-bash"><code class="language-bash">./configure --prefix<span class="token operator">=</span>/usr/local/nginx \
+--add-module<span class="token operator">=</span>/var/fdfs/fastdfs-nginx-module-master/src    
+</code></pre>
+<blockquote>
 <p>注意，这里有个坑！一开始对nginx的插件安装并不了解，使用的是yum下载的nginx，这样下载后的nginx好像是自带了某些插件，不需要配置SSL(因为博主的博客使用nginx做的静态代理，并且使用了SSL加密)。然而！从官网下载的nginx并不带有这个插件，所有导致博主在编译的时候一直报错。因为nginx的插件是批量添加的，所以，如果配置了HTTPS代理，那么就需要按如下方式配置两个插件！</p>
-</blockquote>
-<pre><code>./configure --prefix=/usr/local/nginx \
+<pre class=" language-bash"><code class="language-bash">./configure --prefix<span class="token operator">=</span>/usr/local/nginx \
 --with-http_ssl_module \
---add-module=/var/fdfs/fastdfs-nginx-module-master/src 
-</code></pre><p>如果没有错误信息，开始安装</p>
-<pre><code>make
-make install
-</code></pre><blockquote>
-<p>这里还有个坑！<code>make</code>编译的时候可能会报这个错<code>/usr/include/fastdfs/fdfs_define.h:15:27: fatal error: common_define.h: No such file or directory</code>。<br>下面给出解决方案：<br>修改fastdfs-nginx-module-1.20/src/config文件，并且重新配置一次./configure<br>ngx_module_incs=<code>&quot;/usr/include/fastdfs /usr/include/fastcommon/&quot;</code><br>CORE_INCS=<code>&quot;$CORE_INCS /usr/include/fastdfs /usr/include/fastcommon/&quot;</code><br>配置完毕后再次./configure后进行make。</p>
-</blockquote>
-<p>nginx的默认目录是/usr/local/nginx 开始 配置storage nginx</p>
-<pre><code>root@izwz9hx50rbasf6sqasl7vz nginx-1.12.0]# cd /usr/local/nginx
-[root@izwz9hx50rbasf6sqasl7vz nginx]# ll
-</code></pre><p>修改nginx.conf:  </p>
-<pre><code>[root@izwz9hx50rbasf6sqasl7vz nginx]# cd conf/
-[root@izwz9hx50rbasf6sqasl7vz conf]# ls
+--add-module<span class="token operator">=</span>/var/fdfs/fastdfs-nginx-module-master/src 
+</code></pre>
+<p>如果没有错误信息，开始安装</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">make</span>
+<span class="token function">make</span> <span class="token function">install</span>
+</code></pre>
+<p>这里还有个坑！<code>make</code>编译的时候可能会报这个错<code>/usr/include/fastdfs/fdfs_define.h:15:27: fatal error: common_define.h: No such file or directory</code>。<br>下面给出解决方案：<br>修改fastdfs-nginx-module-1.20/src/config文件，并且重新配置一次./configure<br>ngx_module_incs=<code>&quot;/usr/include/fastdfs /usr/include/fastcommon/&quot;</code><br>CORE_INCS=<code>&quot;$CORE_INCS /usr/include/fastdfs /usr/include/fastcommon/&quot;</code><br>配置完毕后再次./configure后进行make。<br>nginx的默认目录是/usr/local/nginx 开始 配置storage nginx</p>
+<pre class=" language-bash"><code class="language-bash">root@izwz9hx50rbasf6sqasl7vz nginx-1.12.0<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># cd /usr/local/nginx</span>
+<span class="token punctuation">[</span>root@izwz9hx50rbasf6sqasl7vz nginx<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ll</span>
+</code></pre>
+<p>修改nginx.conf:</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@izwz9hx50rbasf6sqasl7vz nginx<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># cd conf/</span>
+<span class="token punctuation">[</span>root@izwz9hx50rbasf6sqasl7vz conf<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># ls</span>
 fastcgi.conf            koi-win             scgi_params
 fastcgi.conf.default    mime.types          scgi_params.default
 fastcgi_params          mime.types.default  uwsgi_params
 fastcgi_params.default  nginx.conf          uwsgi_params.default
 koi-utf                 nginx.conf.default  win-utf
-[root@izwz9hx50rbasf6sqasl7vz conf]# vi nginx.conf
-</code></pre><p>修改listen 9999.然后 新增本地location</p>
-<pre><code>server {
-        listen       9999;
-        server_name  localhost;
-
-        location / {
-            root   html;
-            index  index.html index.htm;
-        }
-
-        location /group1/M00 {
-            root /var/fastdfs/fastdfs_storage_data/data;
-            ngx_fastdfs_module;
-        }
+<span class="token punctuation">[</span>root@izwz9hx50rbasf6sqasl7vz conf<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># vi nginx.conf</span>
+</code></pre>
+<p>修改listen 9999.然后 新增本地location<br><code>`</code>bash<br>server {<br>        listen       9999;<br>        server_name  localhost;</p>
+</blockquote>
+<pre><code>    location / {
+        root   html;
+        index  index.html index.htm;
     }
-</code></pre><p>然后进入FastDFS安装时的解压过的目录</p>
-<pre><code>[root@izwz9hx50rbasf6sqasl7vz fastdfs-5.11]# cd /var/fdfs/fastdfs-5.11/conf
+
+    location /group1/M00 {
+        root /var/fastdfs/fastdfs_storage_data/data;
+        ngx_fastdfs_module;
+    }
+}
+</code></pre><pre><code>然后进入FastDFS安装时的解压过的目录
+```bash
+[root@izwz9hx50rbasf6sqasl7vz fastdfs-5.11]# cd /var/fdfs/fastdfs-5.11/conf
 [root@izwz9hx50rbasf6sqasl7vz conf]# ls
 anti-steal.jpg  http.conf   storage.conf      tracker.conf
 client.conf     mime.types  storage_ids.conf
 </code></pre><p>将http.conf和mime.types拷贝到/etc/fdfs目录下</p>
-<pre><code>cp http.conf /etc/fdfs/
-cp mime.types /etc/fdfs/
-</code></pre><p>另外还需要把fastdfs-nginx-module安装目录中src目录下的mod_fastdfs.conf也拷贝到/etc/fdfs目录下：</p>
-<pre><code>cp /var/fdfs/fastdfs-nginx-module-master/src/mod_fastdfs.conf /etc/fdfs/
-</code></pre><p>对刚刚拷贝的mod_fastdfs.conf文件进行修改：</p>
-<pre><code>vim /etc/fdfs/mod_fastdfs.conf
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cp</span> http.conf /etc/fdfs/
+<span class="token function">cp</span> mime.types /etc/fdfs/
+</code></pre>
+<p>另外还需要把fastdfs-nginx-module安装目录中src目录下的mod_fastdfs.conf也拷贝到/etc/fdfs目录下：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cp</span> /var/fdfs/fastdfs-nginx-module-master/src/mod_fastdfs.conf /etc/fdfs/
+</code></pre>
+<p>对刚刚拷贝的mod_fastdfs.conf文件进行修改：</p>
+<pre class=" language-bash"><code class="language-bash">vim /etc/fdfs/mod_fastdfs.conf
 
-base_path=/var/fastdfs/fastdfs_storage  #保存日志目录
-tracker_server=120.\*\*.\*\*\*.165:22122 #tracker服务器的IP地址以及端口号
-storage_server_port=23000 #storage服务器的端口号
-url_have_group_name = true #文件 url 中是否有 group 名
-store_path0=/var/fastdfs/fastdfs_storage_data   #存储路径
-group_count = 3 #设置组的个数，事实上这次只使用了group1
-</code></pre><p>在文件的最后，设置group  </p>
-<pre><code>[group1]
-group_name=group1
-storage_server_port=23000
-store_path_count=1
-store_path0=/var/fastdfs/fastdfs_storage_data
-store_path1=/var/fastdfs/fastdfs_storage_data
+base_path<span class="token operator">=</span>/var/fastdfs/fastdfs_storage  <span class="token comment" spellcheck="true">#保存日志目录</span>
+tracker_server<span class="token operator">=</span>120.**.***.165:22122 <span class="token comment" spellcheck="true">#tracker服务器的IP地址以及端口号</span>
+storage_server_port<span class="token operator">=</span>23000 <span class="token comment" spellcheck="true">#storage服务器的端口号</span>
+url_have_group_name <span class="token operator">=</span> <span class="token boolean">true</span> <span class="token comment" spellcheck="true">#文件 url 中是否有 group 名</span>
+store_path0<span class="token operator">=</span>/var/fastdfs/fastdfs_storage_data   <span class="token comment" spellcheck="true">#存储路径</span>
+group_count <span class="token operator">=</span> 3 <span class="token comment" spellcheck="true">#设置组的个数，事实上这次只使用了group1</span>
+</code></pre>
+<p>在文件的最后，设置group</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>group1<span class="token punctuation">]</span>
+group_name<span class="token operator">=</span>group1
+storage_server_port<span class="token operator">=</span>23000
+store_path_count<span class="token operator">=</span>1
+store_path0<span class="token operator">=</span>/var/fastdfs/fastdfs_storage_data
+store_path1<span class="token operator">=</span>/var/fastdfs/fastdfs_storage_data
 
-# group settings for group #2
-# since v1.14
-# when support multi-group, uncomment following section as neccessary
-[group2]
-group_name=group2
-storage_server_port=23000
-store_path_count=1
-store_path0=/var/fastdfs/fastdfs_storage_data
+<span class="token comment" spellcheck="true"># group settings for group #2</span>
+<span class="token comment" spellcheck="true"># since v1.14</span>
+<span class="token comment" spellcheck="true"># when support multi-group, uncomment following section as neccessary</span>
+<span class="token punctuation">[</span>group2<span class="token punctuation">]</span>
+group_name<span class="token operator">=</span>group2
+storage_server_port<span class="token operator">=</span>23000
+store_path_count<span class="token operator">=</span>1
+store_path0<span class="token operator">=</span>/var/fastdfs/fastdfs_storage_data
 
-[group3]
-group_name=group3
-storage_server_port=23000
-store_path_count=1
-store_path0=/var/fastdfs/fastdfs_storage_dat
-</code></pre><p>创建M00至storage存储目录的符号连接：  </p>
-<pre><code>ln  -s  /var/fastdfs/fastdfs_storage_data/data/ /var/fastdfs/fastdfs_storage_data/data/M00
-</code></pre><p>启动nginx:  </p>
-<pre><code>/usr/local/nginx/sbin/nginx
-</code></pre><p>成功启动：  </p>
-<pre><code>[root@localhost conf]# /usr/local/nginx/sbin/nginx
-ngx_http_fastdfs_set pid=1231
-</code></pre><p><img src="https://s2.ax1x.com/2019/04/04/A2DAvF.png" alt=""> </p>
-<p>恭喜你，storage的nginx已配置成功。接下来，我们还要继续配置tracker的nginx。  </p>
-<h3 id="配置tracker-nginx"><a href="#配置tracker-nginx" class="headerlink" title="配置tracker nginx"></a>配置tracker nginx</h3><p>一样的还是修改nginx.conf。需将upstream指向tracker的nginx地址。  </p>
-<pre><code>vim /usr/local/nginx/conf/nginx.conf
+<span class="token punctuation">[</span>group3<span class="token punctuation">]</span>
+group_name<span class="token operator">=</span>group3
+storage_server_port<span class="token operator">=</span>23000
+store_path_count<span class="token operator">=</span>1
+store_path0<span class="token operator">=</span>/var/fastdfs/fastdfs_storage_dat
+</code></pre>
+<p>创建M00至storage存储目录的符号连接：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">ln</span>  -s  /var/fastdfs/fastdfs_storage_data/data/ /var/fastdfs/fastdfs_storage_data/data/M00
+</code></pre>
+<p>启动nginx:</p>
+<pre class=" language-bash"><code class="language-bash">/usr/local/nginx/sbin/nginx
+</code></pre>
+<p>成功启动：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost conf<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># /usr/local/nginx/sbin/nginx</span>
+ngx_http_fastdfs_set pid<span class="token operator">=</span>1231
+</code></pre>
+<p><img src="https://s2.ax1x.com/2019/04/04/A2DAvF.png" alt=""><br>恭喜你，storage的nginx已配置成功。接下来，我们还要继续配置tracker的nginx。  </p>
+<h3 id="配置tracker-nginx"><a href="#配置tracker-nginx" class="headerlink" title="配置tracker nginx"></a>配置tracker nginx</h3><p>一样的还是修改nginx.conf。需将upstream指向tracker的nginx地址。</p>
+<pre class=" language-bash"><code class="language-bash">vim /usr/local/nginx/conf/nginx.conf
 
- upstream fdfs_group1 {
-        server 127.0.0.1:9999;
-    }
-    server {
-        listen       9989;
-        server_name  localhost;
+ upstream fdfs_group1 <span class="token punctuation">{</span>
+        server 127.0.0.1:9999<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    server <span class="token punctuation">{</span>
+        listen       9989<span class="token punctuation">;</span>
+        server_name  localhost<span class="token punctuation">;</span>
 
-        #charset koi8-r;
+        <span class="token comment" spellcheck="true">#charset koi8-r;</span>
 
-        #access_log  logs/host.access.log  main;
+        <span class="token comment" spellcheck="true">#access_log  logs/host.access.log  main;</span>
 
-        location /group1/M00 {
-            proxy_pass http://fdfs_group1;
-        }
-    }
-</code></pre><p>重新加载nginx的配置文件:</p>
+        location /group1/M00 <span class="token punctuation">{</span>
+            proxy_pass http://fdfs_group1<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<p>重新加载nginx的配置文件:</p>
 <pre><code>[root@localhost conf]# /usr/local/nginx/sbin/nginx -s reload
-</code></pre><p><img src="https://s2.ax1x.com/2019/04/04/A2Deb9.png" alt=""></p>
-<p>如果 访问不了 那就修改防火墙吧(阿里服务器上请不要随意关闭防火墙，可能是安全组没有打开！)</p>
-<p>firewall-cmd –zone=public –add-port=23000/tcp –permanent #开户端口号  </p>
+</code></pre><p><img src="https://s2.ax1x.com/2019/04/04/A2Deb9.png" alt=""><br>如果 访问不了 那就修改防火墙吧(阿里服务器上请不要随意关闭防火墙，可能是安全组没有打开！)</p>
+<pre class=" language-bash"><code class="language-bash">firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span>23000/tcp --permanent <span class="token comment" spellcheck="true">#开户端口号</span>
+</code></pre>
 <p>或者</p>
-<p>systemctl enable firewalld.service #开启防火墙</p>
-<p>systemctl stop firewalld.service  #关闭防火墙(开机会仍会启动)</p>
-<p>systemctl disable firewalld.service  #禁用防火墙(开机后不再启动)</p>
-<p>然后在找刚才那个路径 测试</p>
-<p><img src="https://s2.ax1x.com/2019/04/04/A2D9Nq.png" alt="">  </p>
-<p>OK，到此已经结束，大功告成~</p>
+<pre class=" language-bash"><code class="language-bash">systemctl <span class="token function">enable</span> firewalld.service <span class="token comment" spellcheck="true">#开启防火墙</span>
+systemctl stop firewalld.service  <span class="token comment" spellcheck="true">#关闭防火墙(开机会仍会启动)</span>
+systemctl disable firewalld.service  <span class="token comment" spellcheck="true">#禁用防火墙(开机后不再启动)</span>
+</code></pre>
+<p>然后在找刚才那个路径 测试<br><img src="https://s2.ax1x.com/2019/04/04/A2D9Nq.png" alt=""><br>OK，到此已经结束，大功告成\~</p>
 <h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><ul>
-<li><p>本篇博客基于网上很多资料完成，按照流程搭建下来不会报错。但碍于linux环境的复杂多样，如果遇到未知错误，请多耐心查找原因(百度是个好东西！)。当然也可以联系博主~博主有时间会解答的噢。</p>
-</li>
-<li><p>FastDFS的Java客户端，<a href="https://chihiro.org.cn/blogs/504695146.html">点我达~</a></p>
-</li>
+<li>本篇博客基于网上很多资料完成，按照流程搭建下来不会报错。但碍于linux环境的复杂多样，如果遇到未知错误，请多耐心查找原因(百度是个好东西！)。当然也可以联系博主~博主有时间会解答的噢。</li>
+<li>FastDFS的Java客户端，<a href="https://chihiro.org.cn/blogs/504695146.html">点我达~</a></li>
 </ul>
 
             </div>
@@ -1283,11 +1281,11 @@ ngx_http_fastdfs_set pid=1231
                     </div>
                 </a>
                 <div class="card-content article-content">
-		    <div class="summary">
-			
-			分布式文件服务器FastDFS的Java客户端。
-			
-		    </div>
+                    <div class="summary block-with-text">
+                        
+                            分布式文件服务器FastDFS的Java客户端。
+                        
+                    </div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-08
@@ -1335,10 +1333,11 @@ ngx_http_fastdfs_set pid=1231
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">
-			
-			适配器模式介绍及使用。
-			
+                    <div class="summary block-with-text">
+                        
+                            适配器模式介绍及使用。
+                        
+                    </div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-31
@@ -1372,46 +1371,9 @@ ngx_http_fastdfs_set pid=1231
         </div>
         
     </div>
-</div></article>
+</article>
 </div>
 
-
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('120')) {
-            return;
-        }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
-        }
-
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + '来源: 千与千寻<br />'
-            + '作者: Chihiro<br />'
-            + '链接: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
-
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
 
     </div>
     <div class="col l3 hide-on-med-and-down">
@@ -1473,7 +1435,7 @@ ngx_http_fastdfs_set pid=1231
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-matery</a>主题搭建.&nbsp;
             
                 <i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">40.3k</span>&nbsp;
+                <span class="white-color">42.3k</span>&nbsp;
             
 	    <span class="white-color"><a href="https://996.icu" target="_blank" style="color: white;font-size: 15px;" rel="external nofollow noopener noreferrer"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu" border="0"></a></span><br>
 	    <span class="white-color"><a href="http://www.beian.miit.gov.cn" target="_blank" style="color: white;font-size: 15px;" rel="external nofollow noopener noreferrer">粤ICP备19022950号</a></span>&nbsp;&nbsp;

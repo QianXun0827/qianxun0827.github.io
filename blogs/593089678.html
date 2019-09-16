@@ -458,18 +458,20 @@
 <li>Target Directory 表示项目在服务器下tomcat的webapps位置，项目的war包就是放在此路径下，这里博主贴出自己的路径<code>/mnt2/pm-project/qhcon-netty/webapps</code>。</li>
 <li>Command表示war包上传至服务器之后需要执行的命令。这里博主使用的是一段组合命令，用于删除一些因为运行产生的的文件以及后续项目的启动。</li>
 </ul>
-<pre><code>mv /mnt2/pm-project/qhcon-netty/webapps/mc-0.0.1-SNAPSHOT.war ROOT.war &amp;&amp; 
-kill -9 `cat /mnt2/pm-project/qhcon-netty/tomcat.pid` &amp;&amp; 
-rm -rf /mnt2/pm-project/qhcon-netty/logs/* &amp;&amp; 
-rm -rf /mnt2/pm-project/qhcon-netty/work/* &amp;&amp; 
+<pre class=" language-bash"><code class="language-bash"><span class="token function">mv</span> /mnt2/pm-project/qhcon-netty/webapps/mc-0.0.1-SNAPSHOT.war ROOT.war <span class="token operator">&amp;&amp;</span> 
+<span class="token function">kill</span> -9 <span class="token variable"><span class="token variable">`</span><span class="token function">cat</span> /mnt2/pm-project/qhcon-netty/tomcat.pid<span class="token variable">`</span></span> <span class="token operator">&amp;&amp;</span> 
+<span class="token function">rm</span> -rf /mnt2/pm-project/qhcon-netty/logs/* <span class="token operator">&amp;&amp;</span> 
+<span class="token function">rm</span> -rf /mnt2/pm-project/qhcon-netty/work/* <span class="token operator">&amp;&amp;</span> 
 sh /mnt2/pm-project/qhcon-netty/bin/startup.sh
-</code></pre><blockquote>
+</code></pre>
+<blockquote>
 <p>注意：此处的<code>kill -9</code>命令需要单独配置</p>
 <p>修改$TOMCAT_HOME/bin/catalina.sh文件，在<strong>PRGDIR</strong>下面一行添加<strong>CATALINAPID</strong>参数行，如下：</p>
 </blockquote>
-<pre><code> PRGDIR=`dirname &quot;$PRG&quot;`
- CATALINA_PID=$PRGDIR/tomcat.pid
-</code></pre><ul>
+<pre class=" language-bash"><code class="language-bash"> PRGDIR<span class="token operator">=</span>`dirname <span class="token string">"<span class="token variable">$PRG</span>"</span>`
+ CATALINA_PID<span class="token operator">=</span><span class="token variable">$PRGDIR</span>/tomcat.pid
+</code></pre>
+<ul>
 <li><p>博主使用的是maven项目，所以使用maven进行项目的打包。</p>
 <p><img src="https://s2.ax1x.com/2019/07/17/ZLWaef.png" alt=""></p>
 </li>
@@ -488,7 +490,7 @@ sh /mnt2/pm-project/qhcon-netty/bin/startup.sh
 <li><p>此插件还可以查看数据库，RDS之类的数据，有兴趣的朋友可以网上找资料查看。个人认为部署功能最为实用！</p>
 </li>
 </ul>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>后续可能会出别的教程，也可能不会，以上~</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>后续可能会出别的教程，也可能不会，以上\~</p>
 
             </div>
             <hr>
@@ -929,11 +931,11 @@ sh /mnt2/pm-project/qhcon-netty/bin/startup.sh
                     </div>
                 </a>
                 <div class="card-content article-content">
-		    <div class="summary">
-			
-			简单高效的搭建出一个nginx服务器。
-			
-		    </div>
+                    <div class="summary block-with-text">
+                        
+                            简单高效的搭建出一个nginx服务器。
+                        
+                    </div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-25
@@ -977,10 +979,11 @@ sh /mnt2/pm-project/qhcon-netty/bin/startup.sh
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">
-			
-			将ssl证书整合至netty中。
-			
+                    <div class="summary block-with-text">
+                        
+                            将ssl证书整合至netty中。
+                        
+                    </div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-15
@@ -1018,46 +1021,9 @@ sh /mnt2/pm-project/qhcon-netty/bin/startup.sh
         </div>
         
     </div>
-</div></article>
+</article>
 </div>
 
-
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('120')) {
-            return;
-        }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
-        }
-
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + '来源: 千与千寻<br />'
-            + '作者: Chihiro<br />'
-            + '链接: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
-
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
 
     </div>
     <div class="col l3 hide-on-med-and-down">
@@ -1119,7 +1085,7 @@ sh /mnt2/pm-project/qhcon-netty/bin/startup.sh
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-matery</a>主题搭建.&nbsp;
             
                 <i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">40.3k</span>&nbsp;
+                <span class="white-color">42.3k</span>&nbsp;
             
 	    <span class="white-color"><a href="https://996.icu" target="_blank" style="color: white;font-size: 15px;" rel="external nofollow noopener noreferrer"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu" border="0"></a></span><br>
 	    <span class="white-color"><a href="http://www.beian.miit.gov.cn" target="_blank" style="color: white;font-size: 15px;" rel="external nofollow noopener noreferrer">粤ICP备19022950号</a></span>&nbsp;&nbsp;

@@ -453,40 +453,47 @@ yum -y install gcc zlib zlib-devel pcre-devel openssl openssl-devel
 <h2 id="下载并解压安装包"><a href="#下载并解压安装包" class="headerlink" title="下载并解压安装包"></a>下载并解压安装包</h2><ul>
 <li>先新建一个文件夹，博主喜欢在<code>/var</code>下面安装服务器软件</li>
 </ul>
-<pre><code>cd /var
-mkdir nginx
-cd nginx
-</code></pre><ul>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /var
+<span class="token function">mkdir</span> nginx
+<span class="token function">cd</span> nginx
+</code></pre>
+<ul>
 <li>下载tar包并解压缩</li>
 </ul>
-<pre><code>wget http://nginx.org/download/nginx-1.13.7.tar.gz &amp;&amp; tar -xvf nginx-1.13.7.tar.gz
-</code></pre><h2 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h2><ul>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">wget</span> http://nginx.org/download/nginx-1.13.7.tar.gz <span class="token operator">&amp;&amp;</span> <span class="token function">tar</span> -xvf nginx-1.13.7.tar.gz
+</code></pre>
+<h2 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h2><ul>
 <li>进入nginx目录</li>
 </ul>
-<pre><code>cd /var/nginx
-</code></pre><ul>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /var/nginx
+</code></pre>
+<ul>
 <li>执行编译命令</li>
 </ul>
-<pre><code>./configure &amp;&amp; make &amp;&amp; make install
-</code></pre><h2 id="配置nginx-conf"><a href="#配置nginx-conf" class="headerlink" title="配置nginx.conf"></a>配置nginx.conf</h2><ul>
+<pre class=" language-bash"><code class="language-bash">./configure <span class="token operator">&amp;&amp;</span> <span class="token function">make</span> <span class="token operator">&amp;&amp;</span> <span class="token function">make</span> <span class="token function">install</span>
+</code></pre>
+<h2 id="配置nginx-conf"><a href="#配置nginx-conf" class="headerlink" title="配置nginx.conf"></a>配置nginx.conf</h2><ul>
 <li>编辑配置文件</li>
 </ul>
-<pre><code>vim /usr/local/ngnix/conf/nginx.conf
-</code></pre><blockquote>
+<pre class=" language-bash"><code class="language-bash">vim /usr/local/ngnix/conf/nginx.conf
+</code></pre>
+<blockquote>
 <p>先将端口改为8081，因为80端口多是apeache占用的端口，对于开发者来说apeache端口尽量不要修改，变更nginx代理端口显得更为妥当。</p>
 </blockquote>
 <p><img src="https://s2.ax1x.com/2019/08/01/eagFMD.png" alt=""></p>
-<h2 id="启动nginx"><a href="#启动nginx" class="headerlink" title="启动nginx"></a>启动nginx</h2><pre><code>/usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
-</code></pre><ul>
+<h2 id="启动nginx"><a href="#启动nginx" class="headerlink" title="启动nginx"></a>启动nginx</h2><pre class=" language-bash"><code class="language-bash">/usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
+</code></pre>
+<ul>
 <li>查看nginx是否启动：<code>ps -ef | grep nginx</code></li>
 </ul>
 <p><img src="https://s2.ax1x.com/2019/08/01/eagYon.png" alt=""></p>
 <h2 id="打开防火墙"><a href="#打开防火墙" class="headerlink" title="打开防火墙"></a>打开防火墙</h2><ul>
 <li>博主使用的CentOS7，开放防火墙的8081端口</li>
 </ul>
-<pre><code>firewall-cmd --zone=public --add-port=8081/tcp --permanent
+<pre class=" language-bash"><code class="language-bash">firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span>8081/tcp --permanent
 firewall-cmd --reload
-</code></pre><ul>
+</code></pre>
+<ul>
 <li>之后访问该ip端口即可看到nginx界面</li>
 </ul>
 <h2 id="访问nginx服务"><a href="#访问nginx服务" class="headerlink" title="访问nginx服务"></a>访问nginx服务</h2><p><img src="https://s2.ax1x.com/2019/08/01/eag2Jx.png" alt=""></p>
@@ -931,11 +938,11 @@ firewall-cmd --reload
                     </div>
                 </a>
                 <div class="card-content article-content">
-		    <div class="summary">
-			
-			简单高效的搭建出一个haproxy服务器。
-			
-		    </div>
+                    <div class="summary block-with-text">
+                        
+                            简单高效的搭建出一个haproxy服务器。
+                        
+                    </div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-01
@@ -979,10 +986,11 @@ firewall-cmd --reload
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">
-			
-			在本地一键部署项目至服务器，大幅度提升部署效率。
-			
+                    <div class="summary block-with-text">
+                        
+                            在本地一键部署项目至服务器，大幅度提升部署效率。
+                        
+                    </div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-17
@@ -1012,46 +1020,9 @@ firewall-cmd --reload
         </div>
         
     </div>
-</div></article>
+</article>
 </div>
 
-
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('120')) {
-            return;
-        }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
-        }
-
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + '来源: 千与千寻<br />'
-            + '作者: Chihiro<br />'
-            + '链接: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
-
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
 
     </div>
     <div class="col l3 hide-on-med-and-down">
@@ -1113,7 +1084,7 @@ firewall-cmd --reload
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-matery</a>主题搭建.&nbsp;
             
                 <i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">40.3k</span>&nbsp;
+                <span class="white-color">42.3k</span>&nbsp;
             
 	    <span class="white-color"><a href="https://996.icu" target="_blank" style="color: white;font-size: 15px;" rel="external nofollow noopener noreferrer"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu" border="0"></a></span><br>
 	    <span class="white-color"><a href="http://www.beian.miit.gov.cn" target="_blank" style="color: white;font-size: 15px;" rel="external nofollow noopener noreferrer">粤ICP备19022950号</a></span>&nbsp;&nbsp;

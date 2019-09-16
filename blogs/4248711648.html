@@ -11,11 +11,12 @@
 haproxy部署安装对环境有要求，一键安装以下依赖即可。
 
 yum -y install wget  gcc gcc-c++
+
 下载并解压安装包
 先新建一个文件夹，博主喜欢在/var下面安装服务器软件
 
 cd /var
-mkdi">
+mkd">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -452,89 +453,100 @@ mkdi">
                 <h2 id="安装依赖包"><a href="#安装依赖包" class="headerlink" title="安装依赖包"></a>安装依赖包</h2><ul>
 <li>haproxy部署安装对环境有要求，一键安装以下依赖即可。</li>
 </ul>
-<pre><code>yum -y install wget  gcc gcc-c++
-</code></pre><h2 id="下载并解压安装包"><a href="#下载并解压安装包" class="headerlink" title="下载并解压安装包"></a>下载并解压安装包</h2><ul>
+<pre class=" language-bash"><code class="language-bash">yum -y <span class="token function">install</span> <span class="token function">wget</span>  gcc gcc-c++
+</code></pre>
+<h2 id="下载并解压安装包"><a href="#下载并解压安装包" class="headerlink" title="下载并解压安装包"></a>下载并解压安装包</h2><ul>
 <li>先新建一个文件夹，博主喜欢在<code>/var</code>下面安装服务器软件</li>
 </ul>
-<pre><code>cd /var
-mkdir haproxy
-cd haproxy
-</code></pre><ul>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /var
+<span class="token function">mkdir</span> haproxy
+<span class="token function">cd</span> haproxy
+</code></pre>
+<ul>
 <li>下载tar包并解压缩</li>
 </ul>
-<pre><code>wget https://github.com/haproxy/haproxy/archive/v1.5-dev20.tar.gz &amp;&amp; tar -zvxf v1.5-dev20.tar.gz
-cd haproxy-1.5-dev20
-</code></pre><h2 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h2><ul>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">wget</span> https://github.com/haproxy/haproxy/archive/v1.5-dev20.tar.gz <span class="token operator">&amp;&amp;</span> <span class="token function">tar</span> -zvxf v1.5-dev20.tar.gz
+<span class="token function">cd</span> haproxy-1.5-dev20
+</code></pre>
+<h2 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h2><ul>
 <li>查看内核版本</li>
 </ul>
-<pre><code>uname -a
-</code></pre><p><img src="https://s2.ax1x.com/2019/08/01/ea2mm4.png" alt=""></p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">uname</span> -a
+</code></pre>
+<p><img src="https://s2.ax1x.com/2019/08/01/ea2mm4.png" alt=""></p>
 <ul>
 <li>如图所示内核版本为3.10开头，执行下列编译命令：</li>
 </ul>
-<pre><code>make TARGET=linux310 ARCH=x86_64 PREFIX=/usr/local/haproxy
-make install PREFIX=/usr/local/haproxy
-</code></pre><blockquote>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">make</span> TARGET<span class="token operator">=</span>linux310 ARCH<span class="token operator">=</span>x86_64 PREFIX<span class="token operator">=</span>/usr/local/haproxy
+<span class="token function">make</span> <span class="token function">install</span> PREFIX<span class="token operator">=</span>/usr/local/haproxy
+</code></pre>
+<blockquote>
 <p>这里可能会报错<code>cannot bind UNIX socket [/var/lib/haproxy/stats]</code><br>解决方案：<code>mkdir -p /var/lib/haproxy &amp;&amp; touch /var/lib/haproxy/stats</code></p>
 </blockquote>
 <h2 id="配置haproxy-conf"><a href="#配置haproxy-conf" class="headerlink" title="配置haproxy.conf"></a>配置haproxy.conf</h2><ul>
 <li>进入编译后的haproxy文件夹</li>
 </ul>
-<pre><code>cd /usr/local/haproxy
-</code></pre><ul>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /usr/local/haproxy
+</code></pre>
+<ul>
 <li>新建conf目录，并新建一个配置文件</li>
 </ul>
-<pre><code>mkdir conf
-touch /usr/local/haproxyconf/haproxy.conf
-</code></pre><ul>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">mkdir</span> conf
+<span class="token function">touch</span> /usr/local/haproxyconf/haproxy.conf
+</code></pre>
+<ul>
 <li>编辑配置文件</li>
 </ul>
-<pre><code>vim /usr/local/haproxyconf/haproxy.conf
-</code></pre><blockquote>
+<pre class=" language-bash"><code class="language-bash">vim /usr/local/haproxyconf/haproxy.conf
+</code></pre>
+<blockquote>
 <p>这里配置从简，制作最基本的配置。</p>
 </blockquote>
-<pre><code>global
-  log 127.0.0.1 local2 #[err warning info debug]
-  chroot /usr/local/haproxy
-  pidfile /var/run/haproxy.pid #haproxy的pid存放路径,启动进程的用户必须有权限访问此文件
-  maxconn 65535 #最大连接数，默认4000
-  daemon        #后台启动
+<pre class=" language-bash"><code class="language-bash">global
+  log 127.0.0.1 local2 <span class="token comment" spellcheck="true">#[err warning info debug]</span>
+  <span class="token function">chroot</span> /usr/local/haproxy
+  pidfile /var/run/haproxy.pid <span class="token comment" spellcheck="true">#haproxy的pid存放路径,启动进程的用户必须有权限访问此文件</span>
+  maxconn 65535 <span class="token comment" spellcheck="true">#最大连接数，默认4000</span>
+  daemon        <span class="token comment" spellcheck="true">#后台启动</span>
 
 defaults
   mode tcp
   log global
-  timeout connect 20s
-  timeout server 60s
-  timeout client 60s
+  <span class="token function">timeout</span> connect 20s
+  <span class="token function">timeout</span> server 60s
+  <span class="token function">timeout</span> client 60s
   retries 3
 
 listen stats
   mode http
-  bind 0.0.0.0:8989 #监听端口
-  stats refresh 10s #统计页面自动刷新时间
-  stats uri /stats #统计页面url
-  stats realm Haproxy Manager #统计页面密码框上提示文本
-  stats auth chihiro:chihiroadmin #统计页面用户名和密码设置
-  stats hide-version #隐藏统计页面上HAProxy的版本信息
+  bind 0.0.0.0:8989 <span class="token comment" spellcheck="true">#监听端口</span>
+  stats refresh 10s <span class="token comment" spellcheck="true">#统计页面自动刷新时间</span>
+  stats uri /stats <span class="token comment" spellcheck="true">#统计页面url</span>
+  stats realm Haproxy Manager <span class="token comment" spellcheck="true">#统计页面密码框上提示文本</span>
+  stats auth chihiro:chihiroadmin <span class="token comment" spellcheck="true">#统计页面用户名和密码设置</span>
+  stats hide-version <span class="token comment" spellcheck="true">#隐藏统计页面上HAProxy的版本信息</span>
 
 listen chihirov1
-  bind :8901     #监听端口
-  server s1 xxx.xxx.xxx.xxx:1234 #转发IP+端口
+  bind :8901     <span class="token comment" spellcheck="true">#监听端口</span>
+  server s1 xxx.xxx.xxx.xxx:1234 <span class="token comment" spellcheck="true">#转发IP+端口</span>
 
 listen chihirov2
-  bind :8902     #监听端口
-  server s2  xxx.xxx.xxx.xxx:5678  #转发IP+端口
-</code></pre><h2 id="启动haproxy"><a href="#启动haproxy" class="headerlink" title="启动haproxy"></a>启动haproxy</h2><pre><code>/usr/local/haproxy/sbin/haproxy -f /usr/local/haproxy/conf/haproxy.cfg
-</code></pre><ul>
+  bind :8902     <span class="token comment" spellcheck="true">#监听端口</span>
+  server s2  xxx.xxx.xxx.xxx:5678  <span class="token comment" spellcheck="true">#转发IP+端口</span>
+</code></pre>
+<h2 id="启动haproxy"><a href="#启动haproxy" class="headerlink" title="启动haproxy"></a>启动haproxy</h2><pre class=" language-bash"><code class="language-bash">/usr/local/haproxy/sbin/haproxy -f /usr/local/haproxy/conf/haproxy.cfg
+</code></pre>
+<ul>
 <li>查看nginx是否启动：<code>ps -ef | grep haproxy</code></li>
 </ul>
 <p><img src="https://s2.ax1x.com/2019/08/01/ea2HuF.png" alt=""></p>
 <h2 id="打开防火墙"><a href="#打开防火墙" class="headerlink" title="打开防火墙"></a>打开防火墙</h2><ul>
 <li>博主使用的CentOS7，开放防火墙的8989端口</li>
 </ul>
-<pre><code>firewall-cmd --zone=public --add-port=8989/tcp --permanent
+<pre class=" language-bash"><code class="language-bash">firewall-cmd --zone<span class="token operator">=</span>public --add-port<span class="token operator">=</span>8989/tcp --permanent
 firewall-cmd --reload
-</code></pre><blockquote>
+</code></pre>
+<blockquote>
 <p>这里只打开了haproxy的监控端口，后续代理了什么端口也要相应的打开防火墙端口。</p>
 </blockquote>
 <p>至此haproxy已经搭建完成，去做测试吧WwW</p>
@@ -978,11 +990,11 @@ firewall-cmd --reload
                     </div>
                 </a>
                 <div class="card-content article-content">
-		    <div class="summary">
-			
-			Role-Based Access Control，基于角色的访问控制。
-			
-		    </div>
+                    <div class="summary block-with-text">
+                        
+                            Role-Based Access Control，基于角色的访问控制。
+                        
+                    </div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-07
@@ -1026,10 +1038,11 @@ firewall-cmd --reload
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">
-			
-			简单高效的搭建出一个nginx服务器。
-			
+                    <div class="summary block-with-text">
+                        
+                            简单高效的搭建出一个nginx服务器。
+                        
+                    </div>
                     <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-25
@@ -1059,46 +1072,9 @@ firewall-cmd --reload
         </div>
         
     </div>
-</div></article>
+</article>
 </div>
 
-
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('120')) {
-            return;
-        }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
-        }
-
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + '来源: 千与千寻<br />'
-            + '作者: Chihiro<br />'
-            + '链接: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
-
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
 
     </div>
     <div class="col l3 hide-on-med-and-down">
@@ -1160,7 +1136,7 @@ firewall-cmd --reload
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="external nofollow noopener noreferrer">hexo-theme-matery</a>主题搭建.&nbsp;
             
                 <i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">40.3k</span>&nbsp;
+                <span class="white-color">42.3k</span>&nbsp;
             
 	    <span class="white-color"><a href="https://996.icu" target="_blank" style="color: white;font-size: 15px;" rel="external nofollow noopener noreferrer"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu" border="0"></a></span><br>
 	    <span class="white-color"><a href="http://www.beian.miit.gov.cn" target="_blank" style="color: white;font-size: 15px;" rel="external nofollow noopener noreferrer">粤ICP备19022950号</a></span>&nbsp;&nbsp;
