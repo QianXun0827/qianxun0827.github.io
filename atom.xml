@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://chihiro.org.cn/"/>
-  <updated>2019-09-16T01:00:45.309Z</updated>
+  <updated>2019-09-16T01:00:45.312Z</updated>
   <id>https://chihiro.org.cn/</id>
   
   <author>
@@ -15,28 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title></title>
-    <link href="https://chihiro.org.cn/blogs/0.html"/>
-    <id>https://chihiro.org.cn/blogs/0.html</id>
-    <published>2019-09-16T00:59:32.773Z</published>
-    <updated>2019-09-16T01:00:45.309Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;—&lt;br&gt;title: srs流媒体服务器集群搭建&lt;br&gt;author: chihiro&lt;br&gt;top: false&lt;br&gt;cover: false&lt;br&gt;img: ‘&lt;a href=&quot;https://s2.ax1x.com/2019/06/11/VgHugf.jpg’&quot;
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>使用SpringAop记录日志</title>
@@ -73,7 +51,7 @@
     <link href="https://chihiro.org.cn/blogs/1451877531.html"/>
     <id>https://chihiro.org.cn/blogs/1451877531.html</id>
     <published>2019-09-10T12:12:00.000Z</published>
-    <updated>2019-09-05T08:26:43.815Z</updated>
+    <updated>2019-09-05T08:26:43.000Z</updated>
     
     <summary type="html">
     
@@ -159,7 +137,7 @@
     <link href="https://chihiro.org.cn/blogs/2455283662.html"/>
     <id>https://chihiro.org.cn/blogs/2455283662.html</id>
     <published>2019-08-07T15:30:00.000Z</published>
-    <updated>2019-08-08T07:37:31.927Z</updated>
+    <updated>2019-08-08T07:37:31.000Z</updated>
     
     <summary type="html">
     
@@ -569,6 +547,37 @@
     
     
       <category term="Java" scheme="https://chihiro.org.cn/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用阿里云搭配git搭建博客</title>
+    <link href="https://chihiro.org.cn/blogs/166738594.html"/>
+    <id>https://chihiro.org.cn/blogs/166738594.html</id>
+    <published>2019-03-11T11:30:00.000Z</published>
+    <updated>2019-06-29T09:13:19.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;近期在阿里云买了个学生服务器，就想着把github上的博客迁移过来。整个过程陆陆续续花了一个多星期的时间，也踩了不少坑，在此做个记录备忘。&lt;/p&gt;
+&lt;h2 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="服务器" scheme="https://chihiro.org.cn/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    
+      <category term="阿里云" scheme="https://chihiro.org.cn/tags/%E9%98%BF%E9%87%8C%E4%BA%91/"/>
+    
+      <category term="hexo" scheme="https://chihiro.org.cn/tags/hexo/"/>
+    
+      <category term="git" scheme="https://chihiro.org.cn/tags/git/"/>
     
   </entry>
   
