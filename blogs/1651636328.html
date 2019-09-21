@@ -6,9 +6,10 @@
     <meta charset="utf-8">
     <meta name="google-site-verification" content="I-NYDDDjiAX8GQEQ_lE0inL4AJtjz4z-HyL122q_swc">
     <meta name="baidu-site-verification" content="ZeyYBV52u1">
-    <meta name="keywords" content="Java 多级菜单树工具, chihiro">
-    <meta name="description" content="关于Java中多级菜单树的处理
-今天被一个菜单列表的展现折磨得不轻，自己写代码发现实在是费时费力，而且代码量太大，逻辑亟待优化，后续找到了这个代码十分简洁的工具类，说实话我只能看得懂，写不出来这种东西。在此分享给大家，避免重复造轮子的工作~">
+    <meta name="keywords" content="srs流媒体服务器集群搭建, chihiro">
+    <meta name="description" content="单台服务器做直播，总归有单点风险，利用SRS的[Forward机制][1] + [Edge Server][2]设计，可以很容易搭建一个大规模的高可用集群，示意图如下
+
+源站服务器集群：origin server cluster，可以借助f">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +21,7 @@
     <meta name="keywords" content="{% for tag in page.tags %}{{ tag.name }},{% endfor %}">
     <meta name="keywords" content="{{ theme.keywords }}">
 
-    <title>Java 多级菜单树工具 | 千与千寻</title>
+    <title>srs流媒体服务器集群搭建 | 千与千寻</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -283,13 +284,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s2.ax1x.com/2019/03/11/ACXKDU.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('‘https://s2.ax1x.com/2019/06/11/VgHugf.jpg’')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Java 多级菜单树工具
+                        srs流媒体服务器集群搭建
                     </div>
                 </div>
             </div>
@@ -381,8 +382,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Java/" target="_blank">
-                                <span class="chip bg-color">Java</span>
+                            <a href="/tags/srs/" target="_blank">
+                                <span class="chip bg-color">srs</span>
+                            </a>
+                        
+                            <a href="/tags/流媒体服务器/" target="_blank">
+                                <span class="chip bg-color">流媒体服务器</span>
                             </a>
                         
                     </div>
@@ -393,8 +398,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/后端/" class="post-category" target="_blank">
-                                后端
+                            <a href="/categories/服务器/" class="post-category" target="_blank">
+                                服务器
                             </a>
                         
                     </div>
@@ -405,7 +410,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-03-06
+                    2019-06-11
                 </div>
 
 		
@@ -419,14 +424,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        419
+                        1,989
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        9 分
                     </div>
                     
                 
@@ -442,91 +447,421 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="关于Java中多级菜单树的处理"><a href="#关于Java中多级菜单树的处理" class="headerlink" title="关于Java中多级菜单树的处理"></a>关于Java中多级菜单树的处理</h2><ul>
-<li>今天被一个菜单列表的展现折磨得不轻，自己写代码发现实在是费时费力，而且代码量太大，逻辑亟待优化，后续找到了这个代码十分简洁的工具类，说实话我只能看得懂，写不出来这种东西。在此分享给大家，避免重复造轮子的工作~</li>
+                <p>单台服务器做直播，总归有单点风险，利用SRS的[Forward机制][1] + [Edge Server][2]设计，可以很容易搭建一个大规模的高可用集群，示意图如下</p>
+<p><img src="https://s2.ax1x.com/2019/06/11/Vg7quF.png" alt=""></p>
+<p>源站服务器集群：origin server cluster，可以借助forward机制，仅用少量的服务器，专用于处理推流请求。</p>
+<p>边缘服务器集群：edge server cluster，可以用N台机器，从源站拉流，用于较大规模的实时播放。</p>
+<p>源站前置负载均衡（硬件或软件负载均衡都行），上图中用haproxy来实现tcp的软负载均衡。</p>
+<p>边缘服务器前置反向代理（比如：nginx），用于提供统一的播放地址，同时解决跨域问题，给客户端拉流播放。</p>
+<p>这样架构的好处有以下：</p>
+<ul>
+<li>不管是源站集群，还是连缘服务器集群，均可水平扩展，理论上没有上限。</li>
+<li>源站可以仅用较少的机器，比如2主2从，就能实现一个高可用且性能尚可的集群（如果业务量不大，连slave server都可以省掉）</li>
+<li>边缘服务器集群，可以根据实际用户量随时调整规模，另外hls切片，可以放在edge server上切片，减轻源站服务器压力。</li>
 </ul>
-<h3 id="多级树Bean"><a href="#多级树Bean" class="headerlink" title="多级树Bean"></a>多级树Bean</h3><p>这是一个基础bean：</p>
-<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
- * 功能描述：
- * 【分组信息bean】
- * 注意，下面的bean每个属性都为必要属性，不可缺一
- * 继承此bean再添加多个属性，不会影响树结构
- * 类上的三个注解为lombok插件
- *
- * @author chihiro
- * @version V1.0
- * @date 2019/03/06 17:35
- */</span>
-<span class="token annotation punctuation">@Data</span>
-<span class="token annotation punctuation">@NoArgsConstructor</span>
-<span class="token annotation punctuation">@AllArgsConstructor</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BaseTree</span> <span class="token keyword">implements</span> <span class="token class-name">Serializable</span> <span class="token punctuation">{</span>
+<p>开始实战，博主2台服务器(centos 7.x)，只能在每个虚拟机上用不同的端口启动多个srs实例，模拟master/slave/edge server （注：大家根据实际情况，将下面的ip换成自己真实的ip地址）</p>
+<ul>
+<li>执行此命令拉取srs源文件<code>wget http://ossrs.net/srs.release/releases/files/SRS-CentOS6-x86_64-latest.zip &amp;&amp; unzip -q SRS-CentOS6-x86_64-latest.zip</code></li>
+<li>srs文件夹路径<code>/mnt/srs/SRS-CentOS6-x86_64-2.0.263</code></li>
+<li>进入SRS文件夹内执行命令<code>sudo bash INSTALL</code>编译源文件</li>
+<li>srs编译后配置文件路径<code>/usr/local/srs/conf</code></li>
+<li>在conf下新建pm文件夹<code>mkdir pm</code>，后面所有自己的集群配置文件都会放入此文件夹</li>
+</ul>
+<p><img src="https://s2.ax1x.com/2019/06/11/Vg7hAs.png" alt=""></p>
+<h2 id="master配置"><a href="#master配置" class="headerlink" title="master配置"></a>master配置</h2><p>配置：/usr/local/srs/conf/pm/master.conf</p>
+<pre class=" language-bash"><code class="language-bash">listen              1945<span class="token punctuation">;</span>
+max_connections     1000<span class="token punctuation">;</span>
+pid                 ./objs/pids/srs.master.pid
+srs_log_tank        <span class="token function">file</span><span class="token punctuation">;</span>
+srs_log_file        ./objs/logs/master/srs.master.log<span class="token punctuation">;</span>
 
-    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">long</span> serialVersionUID <span class="token operator">=</span> 8L<span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">/**
-     * 树主键
-     */</span>
-    <span class="token keyword">private</span> String treeId<span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">/**
-     * 父节点id
-     */</span>
-    <span class="token keyword">private</span> String parentId<span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">/**
-     * 子节点集合
-     */</span>
-    <span class="token keyword">private</span> List<span class="token operator">&lt;</span><span class="token operator">?</span> <span class="token keyword">extends</span> <span class="token class-name">BaseTree</span><span class="token operator">></span> childrens<span class="token punctuation">;</span>
+http_api <span class="token punctuation">{</span>
+    enabled         on<span class="token punctuation">;</span>
+    listen          1995<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+http_server <span class="token punctuation">{</span>
+    enabled         on<span class="token punctuation">;</span>
+    listen          8180<span class="token punctuation">;</span>
+    <span class="token function">dir</span>             ./objs/nginx/html<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+stats <span class="token punctuation">{</span>
+    network         0<span class="token punctuation">;</span>
+    disk            sda sdb xvda xvdb<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+vhost __defaultVhost__ <span class="token punctuation">{</span>
+        forward        172.**.***.71:1946 172.**.***.71:1947 172.**.***.73:1946 172.**.***.73:1947<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h3 id="树工具类"><a href="#树工具类" class="headerlink" title="树工具类"></a>树工具类</h3><p>核心工具类：</p>
-<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
- * 功能描述：
- * 【多级树util】
- * 核心是使用递归
- *
- * @author chihiro
- * @version V1.0
- * @date 2019/03/06 18:45
- */</span>
-<span class="token annotation punctuation">@AllArgsConstructor</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TreeToolUtil</span><span class="token operator">&lt;</span>T <span class="token keyword">extends</span> <span class="token class-name">BaseTree</span><span class="token operator">></span> <span class="token punctuation">{</span>
+<p>注：最后一段的forward，表示将视频流转发到4台slave服务器</p>
+<h2 id="slave配置"><a href="#slave配置" class="headerlink" title="slave配置"></a>slave配置</h2><p>配置：/usr/local/srs/conf/pm/slave1.conf、/usr/local/srs/conf/pm/slave2.conf</p>
+<blockquote>
+<p>slave1:</p>
+</blockquote>
+<pre class=" language-bash"><code class="language-bash">listen              1946<span class="token punctuation">;</span>
+max_connections     1000<span class="token punctuation">;</span>
+pid                 ./objs/pids/srs.slave1.pid
+srs_log_tank        <span class="token function">file</span><span class="token punctuation">;</span>
+srs_log_file        ./objs/logs/slave/srs.slave1.log<span class="token punctuation">;</span>
 
-    <span class="token comment" spellcheck="true">/**
-     * 根节点
-     */</span>
-    <span class="token keyword">private</span> List<span class="token operator">&lt;</span>T<span class="token operator">></span> rootList<span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">/**
-     * 叶子节点
-     */</span>
-    <span class="token keyword">private</span> List<span class="token operator">&lt;</span>T<span class="token operator">></span> bodyList<span class="token punctuation">;</span>
+http_api <span class="token punctuation">{</span>
+    enabled         on<span class="token punctuation">;</span>
+    listen          1996<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-    <span class="token keyword">public</span> List<span class="token operator">&lt;</span>T<span class="token operator">></span> <span class="token function">getTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>CollUtil<span class="token punctuation">.</span><span class="token function">isNotEmpty</span><span class="token punctuation">(</span>bodyList<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">//声明一个map，用来过滤已操作过的数据</span>
-            Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> String<span class="token operator">></span> map <span class="token operator">=</span> MapUtil<span class="token punctuation">.</span><span class="token function">newHashMap</span><span class="token punctuation">(</span>bodyList<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            rootList<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>beanTree <span class="token operator">-</span><span class="token operator">></span> <span class="token function">getChild</span><span class="token punctuation">(</span>beanTree<span class="token punctuation">,</span> map<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> rootList<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> null<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+http_server <span class="token punctuation">{</span>
+    enabled         on<span class="token punctuation">;</span>
+    listen          8181<span class="token punctuation">;</span>
+    <span class="token function">dir</span>             ./objs/nginx/html<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">getChild</span><span class="token punctuation">(</span>T beanTree<span class="token punctuation">,</span> Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> String<span class="token operator">></span> map<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        List<span class="token operator">&lt;</span>BaseTree<span class="token operator">></span> childList <span class="token operator">=</span> CollUtil<span class="token punctuation">.</span><span class="token function">newArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        bodyList<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>group <span class="token operator">-</span><span class="token operator">></span> <span class="token operator">!</span>map<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>group<span class="token punctuation">.</span><span class="token function">getTreeId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>group <span class="token operator">-</span><span class="token operator">></span> group<span class="token punctuation">.</span><span class="token function">getParentId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>beanTree<span class="token punctuation">.</span><span class="token function">getTreeId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>group <span class="token operator">-</span><span class="token operator">></span> <span class="token punctuation">{</span>
-                    map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>group<span class="token punctuation">.</span><span class="token function">getTreeId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> group<span class="token punctuation">.</span><span class="token function">getParentId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token function">getChild</span><span class="token punctuation">(</span>group<span class="token punctuation">,</span> map<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    childList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>group<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        beanTree<span class="token punctuation">.</span><span class="token function">setChildrens</span><span class="token punctuation">(</span>childList<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+stats <span class="token punctuation">{</span>
+    network         0<span class="token punctuation">;</span>
+    disk            sda sdb xvda xvdb<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+vhost __defaultVhost__ <span class="token punctuation">{</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><ul>
-<li>这套代码是博主从网上找来调整为自己使用的，非博主独立构建。</li>
-<li>若遇到其他Bug，请通过博客内联系方式找博主修复。</li>
+<blockquote>
+<p>slave2:</p>
+</blockquote>
+<pre class=" language-bash"><code class="language-bash">listen              1947<span class="token punctuation">;</span>
+max_connections     1000<span class="token punctuation">;</span>
+pid                 ./objs/pids/srs.slave2.pid
+srs_log_tank        <span class="token function">file</span><span class="token punctuation">;</span>
+srs_log_file        ./objs/logs/slave/srs.slave2.log<span class="token punctuation">;</span>
+
+http_api <span class="token punctuation">{</span>
+    enabled         on<span class="token punctuation">;</span>
+    listen          1997<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+http_server <span class="token punctuation">{</span>
+    enabled         on<span class="token punctuation">;</span>
+    listen          8182<span class="token punctuation">;</span>
+    <span class="token function">dir</span>             ./objs/nginx/html<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+stats <span class="token punctuation">{</span>
+    network         0<span class="token punctuation">;</span>
+    disk            sda sdb xvda xvdb<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+vhost __defaultVhost__ <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="edge配置"><a href="#edge配置" class="headerlink" title="edge配置"></a>edge配置</h2><p>配置：/usr/local/srs/conf/pm/edge1.conf、/usr/local/srs/conf/pm/edge2.conf</p>
+<blockquote>
+<p>edge1:</p>
+</blockquote>
+<pre class=" language-bash"><code class="language-bash">listen              1948<span class="token punctuation">;</span>
+max_connections     1000<span class="token punctuation">;</span>
+pid                 ./objs/pids/srs.edge1.pid
+srs_log_tank        <span class="token function">file</span><span class="token punctuation">;</span>
+srs_log_file        ./objs/logs/edge/srs.edge1.log<span class="token punctuation">;</span>
+
+http_api <span class="token punctuation">{</span>
+    enabled         on<span class="token punctuation">;</span>
+    listen          1998<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+http_server <span class="token punctuation">{</span>
+    enabled         on<span class="token punctuation">;</span>
+    listen          8183<span class="token punctuation">;</span>
+    <span class="token function">dir</span>             ./objs/nginx/html<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+stats <span class="token punctuation">{</span>
+    network         0<span class="token punctuation">;</span>
+    disk            sda sdb xvda xvdb<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+vhost __defaultVhost__ <span class="token punctuation">{</span>
+
+    http_remux<span class="token punctuation">{</span>
+        enabled     on<span class="token punctuation">;</span>
+        <span class="token function">mount</span>       <span class="token punctuation">[</span>vhost<span class="token punctuation">]</span>/<span class="token punctuation">[</span>app<span class="token punctuation">]</span>/<span class="token punctuation">[</span>stream<span class="token punctuation">]</span>.flv<span class="token punctuation">;</span>
+        hstrs       on<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    hls<span class="token punctuation">{</span>
+        enabled         on<span class="token punctuation">;</span>
+        hls_path        ./objs/nginx/html<span class="token punctuation">;</span>
+        hls_fragment    3<span class="token punctuation">;</span>
+        hls_window      60<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    mode            remote<span class="token punctuation">;</span>
+    origin          172.**.***.71:1945 172.**.***.71:1946 172.**.***.71:1947 172.**.***.73:1945 172.**.***.73:1946 172.**.***.73:1947<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
+<p>edge2:</p>
+</blockquote>
+<pre class=" language-bash"><code class="language-bash">listen              1949<span class="token punctuation">;</span>
+max_connections     1000<span class="token punctuation">;</span>
+pid                 ./objs/pids/srs.edge2.pid
+srs_log_tank        <span class="token function">file</span><span class="token punctuation">;</span>
+srs_log_file        ./objs/logs/edge/srs.edge2.log<span class="token punctuation">;</span>
+
+http_api <span class="token punctuation">{</span>
+    enabled         on<span class="token punctuation">;</span>
+    listen          1999<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+http_server <span class="token punctuation">{</span>
+    enabled         on<span class="token punctuation">;</span>
+    listen          8184<span class="token punctuation">;</span>
+    <span class="token function">dir</span>             ./objs/nginx/html<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+stats <span class="token punctuation">{</span>
+    network         0<span class="token punctuation">;</span>
+    disk            sda sdb xvda xvdb<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+vhost __defaultVhost__ <span class="token punctuation">{</span>
+
+    http_remux<span class="token punctuation">{</span>
+        enabled     on<span class="token punctuation">;</span>
+        <span class="token function">mount</span>       <span class="token punctuation">[</span>vhost<span class="token punctuation">]</span>/<span class="token punctuation">[</span>app<span class="token punctuation">]</span>/<span class="token punctuation">[</span>stream<span class="token punctuation">]</span>.flv<span class="token punctuation">;</span>
+        hstrs       on<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    hls<span class="token punctuation">{</span>
+        enabled         on<span class="token punctuation">;</span>
+        hls_path        ./objs/nginx/html<span class="token punctuation">;</span>
+        hls_fragment    3<span class="token punctuation">;</span>
+        hls_window      60<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    mode            remote<span class="token punctuation">;</span>
+    origin          172.**.***.71:1945 172.**.***.71:1946 172.**.***.71:1947 172.**.***.73:1945 172.**.***.73:1946 172.**.***.73:1947<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>注：最后一段的origin 将所有master、slave均做为视频源(origin server)，如果播放时，edge发现自己机器上没有数据，会从origin配置的这些源站上去拉视频流。</p>
+<p>每台虚拟机上，依次启动：slave1、slave2、master、edge1、edge2</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">cd</span> /usr/local/srs
+<span class="token function">sudo</span> ./objs/srs -c ./conf/pm/slave1.conf
+<span class="token function">sudo</span> ./objs/srs -c ./conf/pm/slave2.conf
+<span class="token function">sudo</span> ./objs/srs -c ./conf/pm/master.conf
+<span class="token function">sudo</span> ./objs/srs -c ./conf/pm/edge1.conf
+<span class="token function">sudo</span> ./objs/srs -c ./conf/pm/edge2.conf
+</code></pre>
+<p>启动成功后，建议先验证下是否工作正常：</p>
+<ol>
+<li><p>测试前先打开阿里云安全组上述端口，并打开防火墙端口。</p>
+<ul>
+<li>阿里云开启安全组端口在此不做说明，具体方法请自行百度。</li>
+<li>linux开启防火墙端口命令<ul>
+<li><code>firewall-cmd --zone=public --add-port=1945-1949/tcp --permanent</code></li>
+<li><code>firewall-cmd --zone=public --add-port=1995-1999/tcp --permanent</code></li>
+<li><code>firewall-cmd --zone=public --add-port=8180-8184/tcp --permanent</code></li>
+<li><code>firewall-cmd --reload</code></li>
 </ul>
+</li>
+</ul>
+</li>
+<li><p>可以用obs向每个master或slave推流试试，比如 <code>rtmp://47.**.***.38:1945/live/test</code> 或 <code>rtmp://101. **.***.215:1945/live/test</code>，如果推流不报错，说明master/slave工作正常</p>
+<blockquote>
+<p>注意：此处使用的是外网ip，而配置中使用的是内网ip通信，务必区分！</p>
+</blockquote>
+</li>
+<li><p>然后用vlc播放器，验证从slave/edge这些服务器上拉流(比如 rtmp://47.**.***.38:1945/live/test 或 rtmp://101.**.***.215:1945/live/test，是否播放正常。</p>
+</li>
+</ol>
+<h2 id="srs日志切割"><a href="#srs日志切割" class="headerlink" title="srs日志切割"></a>srs日志切割</h2><blockquote>
+<p>这里说一下日志切割：在<code>/etc/logrotate.d/</code>目录下新建如下5个文件：</p>
+</blockquote>
+<p><strong><code>srs_edge1</code>:</strong></p>
+<pre class=" language-bash"><code class="language-bash">/usr/local/srs/objs/logs/edge/srs.edge1.log<span class="token punctuation">{</span>
+    copytruncate
+    daily
+    rotate 7
+    missingok
+    compress
+    size 16M
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong><code>srs_edge2</code>:</strong></p>
+<pre class=" language-bash"><code class="language-bash">/usr/local/srs/objs/logs/edge/srs.edge2.log<span class="token punctuation">{</span>
+    copytruncate
+    daily
+    rotate 7
+    missingok
+    compress
+    size 16M
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong><code>srs_master</code>:</strong></p>
+<pre class=" language-bash"><code class="language-bash">/usr/local/srs/objs/logs/master/srs.master.log<span class="token punctuation">{</span>
+    copytruncate
+    daily
+    rotate 7
+    missingok
+    compress
+    size 16M
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong><code>srs_slave1</code>:</strong></p>
+<pre class=" language-bash"><code class="language-bash">/usr/local/srs/objs/logs/slave/srs.slave1.log<span class="token punctuation">{</span>
+    copytruncate
+    daily
+    rotate 7
+    missingok
+    compress
+    size 16M
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong><code>srs_slave2</code>:</strong></p>
+<pre class=" language-bash"><code class="language-bash">/usr/local/srs/objs/logs/slave/srs.slave2.log<span class="token punctuation">{</span>
+    copytruncate
+    daily
+    rotate 7
+    missingok
+    compress
+    size 16M
+<span class="token punctuation">}</span>
+</code></pre>
+<p>之后重启日志切割脚本：<code>/usr/sbin/logrotate /etc/logrotate.conf</code></p>
+<h2 id="haproxy配置启动"><a href="#haproxy配置启动" class="headerlink" title="haproxy配置启动"></a>haproxy配置启动</h2><p>如果上述2个步骤均验证ok，接下来就是如何配置haproxy</p>
+<p>haproxy可做高性能负载均衡服务器，在其中一台机器上安装haproxy，这里我们使用<code>47.**.***.38</code>：</p>
+<ol>
+<li><p>yum install haproxy (非常简单)</p>
+</li>
+<li><p>vim /etc/haproxy/haproxy.cfg (修改配置文件)</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#---------------------------------------------------------------------  </span>
+<span class="token comment" spellcheck="true"># Example configuration for a possible web application.  See the  </span>
+<span class="token comment" spellcheck="true"># full configuration options online.  </span>
+<span class="token comment" spellcheck="true">#</span>
+<span class="token comment" spellcheck="true">#   http://haproxy.1wt.eu/download/1.4/doc/configuration.txt</span>
+<span class="token comment" spellcheck="true">#</span>
+<span class="token comment" spellcheck="true">#---------------------------------------------------------------------</span>
+
+<span class="token comment" spellcheck="true">#---------------------------------------------------------------------  </span>
+<span class="token comment" spellcheck="true"># Global settings  </span>
+<span class="token comment" spellcheck="true">#---------------------------------------------------------------------  </span>
+global
+    log         127.0.0.1 local2
+
+    <span class="token function">chroot</span>      /var/lib/haproxy
+    pidfile     /var/run/haproxy.pid
+    maxconn     4000
+    user        haproxy
+    group       haproxy
+    daemon
+
+    stats socket /var/lib/haproxy/stats
+
+defaults
+    mode            tcp
+    log             global
+    option          tcplog
+    option          dontlognull
+    option          redispatch
+    retries         3
+    <span class="token function">timeout</span> http-request    10s
+    <span class="token function">timeout</span> queue       1m
+    <span class="token function">timeout</span> connect     10s
+    <span class="token function">timeout</span> client      1m
+    <span class="token function">timeout</span> server      1m
+    <span class="token function">timeout</span> http-keep-alive 10s
+    <span class="token function">timeout</span> check       10s
+    maxconn         3000
+
+listen srs-cluster
+    bind *:1935
+    mode tcp
+    balance roundrobin
+    server master1 172.**.***.71:1945
+    server master2 172.**.***.73:1945
+</code></pre>
+</li>
+</ol>
+<p>注：关键是最后一段，把本机1935端口，转发到后端2台master服务器的1945端口。</p>
+<ol start="3">
+<li><code>sudo systemctl restart haproxy</code> (重启haproxy)</li>
+</ol>
+<p>重启haproxy成功后，可以用obs推流到 rtmp://haproxy_server_ip:1935/live/test 试下推流是否正常，如果ok，可以尝试把其中一台master停掉，看看是否有影响。</p>
+<h2 id="nginx配置启动"><a href="#nginx配置启动" class="headerlink" title="nginx配置启动"></a>nginx配置启动</h2><p>最后是nginx出场了，ngnix的安装类似haproxy，yum install nginx 即可，关键是配置：</p>
+<ul>
+<li>新建配置文件<code>nginx_srs.conf</code></li>
+</ul>
+<pre class=" language-bash"><code class="language-bash">  <span class="token comment" spellcheck="true">#user  nobody;</span>
+  worker_processes  1<span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">#error_log  logs/error.log;</span>
+  <span class="token comment" spellcheck="true">#error_log  logs/error.log  notice;</span>
+  <span class="token comment" spellcheck="true">#error\_log  logs/error.log  info;</span>
+  <span class="token comment" spellcheck="true">#pid        logs/nginx.pid;</span>
+
+
+  events <span class="token punctuation">{</span>
+  worker_connections  1024<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  http <span class="token punctuation">{</span>
+  include       mime.types<span class="token punctuation">;</span>
+  default_type  application/octet-stream<span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">#log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '</span>
+  <span class="token comment" spellcheck="true">#                  '$status $body_bytes_sent "$http_referer" '</span>
+  <span class="token comment" spellcheck="true">#                  '"$http_user_agent" "$http_x_forwarded_for"';</span>
+
+  <span class="token comment" spellcheck="true">#access_log  logs/access.log  main;</span>
+
+  sendfile        on<span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">#tcp_nopush     on;</span>
+
+  <span class="token comment" spellcheck="true">#keepalive_timeout  0;</span>
+  keepalive_timeout  65<span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">#gzip  on;</span>
+
+  upstream srs <span class="token punctuation">{</span>
+  ip_hash<span class="token punctuation">;</span>
+  server 172.**.***.71:8183<span class="token punctuation">;</span>
+  server 172.**.***.71:8184<span class="token punctuation">;</span>
+  server 172.**.***.73:8183<span class="token punctuation">;</span>
+  server 172.**.***.73:8184<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  server <span class="token punctuation">{</span>
+  listen       80<span class="token punctuation">;</span>
+  server_name  localhost<span class="token punctuation">;</span>
+
+  location ~ /* <span class="token punctuation">{</span>
+      proxy_pass http://srs<span class="token punctuation">;</span>
+      add_header Cache-Control no-cache<span class="token punctuation">;</span>
+      add_header Access-Control-Allow-Origin *<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  location / <span class="token punctuation">{</span>
+      root   html<span class="token punctuation">;</span>
+      index  index.html index.htm<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  error_page   500 502 503 504  /50x.html<span class="token punctuation">;</span>
+  location <span class="token operator">=</span> /50x.html <span class="token punctuation">{</span>
+      root   html<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token punctuation">}</span>
+
+  include servers /*<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li>nginx启动：<code>/usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx_srs.conf</code></li>
+<li>nginx重启：<code>/usr/local/nginx/sbin/nginx -s reload</code></li>
+</ul>
+<p>注：新增一个upstream用于指定要转发的edge服务器节点，然后在location ~ /* 这里proxy_pass 指定upstream的名字即可（location ~ /* 切记要写在 location / 前面）。这样配置后，访问 <a href="http://nginx\_server\_ip/live/test.m3u8" rel="external nofollow noopener noreferrer" target="_blank">http://nginx\_server\_ip/live/test.m3u8</a> 理论上就能转到后端的edge服务器。</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>发现一个比较严重的bug，nginx无法转发master与slave的流到edge，导致hls的切片无法获取。后续再排查，单独每个edge服务器可以正常工作。</p>
+<blockquote>
+<p>nginx无法分发流的问题可以通过在haproxy配置分发解决，在实际测试中可以流可以得到分发并切片。</p>
+</blockquote>
+<p>博客参考：[开源流媒体服务器SRS学习笔记(4) - Cluster集群方案][3]</p>
 
             </div>
             <hr>
@@ -674,7 +1009,7 @@
                     </span>
                     <a href="https://chihiro.org.cn" class="b-link-green">千与千寻</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/blogs/1705435210.html" class="b-link-green">Java 多级菜单树工具</a>
+                    <a href="/blogs/1651636328.html" class="b-link-green">srs流媒体服务器集群搭建</a>
                 </p>
             </div>
         </div>
@@ -958,30 +1293,30 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/blogs/166738594.html">
+                <a href="/blogs/784033432.html">
                     <div class="card-image">
                         
-                        <img src="https://s2.ax1x.com/2019/03/11/ACXtv6.jpg" class="responsive-img" alt="使用阿里云搭配git搭建博客">
+                        <img src="https://s2.ax1x.com/2019/06/15/VI8vgx.jpg" class="responsive-img" alt="Netty的WebSocket客户端通过SSL连接服务器">
                         
-                        <span class="card-title">使用阿里云搭配git搭建博客</span>
+                        <span class="card-title">Netty的WebSocket客户端通过SSL连接服务器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            使用git、hexo、nodejs、nginx搭建一个远程部署的博客。
+                            将ssl证书整合至netty中。
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-11
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-15
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/服务器/" class="post-category" target="_blank">
-                                    服务器
+                            <a href="/categories/后端/" class="post-category" target="_blank">
+                                    后端
                                 </a>
                             
                             
@@ -991,16 +1326,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/阿里云/" target="_blank">
-                        <span class="chip bg-color">阿里云</span>
+                    <a href="/tags/Java/" target="_blank">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
-                    <a href="/tags/hexo/" target="_blank">
-                        <span class="chip bg-color">hexo</span>
+                    <a href="/tags/Netty/" target="_blank">
+                        <span class="chip bg-color">Netty</span>
                     </a>
                     
-                    <a href="/tags/git/" target="_blank">
-                        <span class="chip bg-color">git</span>
+                    <a href="/tags/SSL/" target="_blank">
+                        <span class="chip bg-color">SSL</span>
                     </a>
                     
                 </div>
@@ -1014,30 +1349,30 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/blogs/1523215152.html">
+                <a href="/blogs/504695146.html">
                     <div class="card-image">
                         
-                        <img src="https://s2.ax1x.com/2019/03/11/ACXMbF.jpg" class="responsive-img" alt="博客说明">
+                        <img src="https://s2.ax1x.com/2019/04/08/A4Hu9I.png" class="responsive-img" alt="FastDFS的Java客户端">
                         
-                        <span class="card-title">博客说明</span>
+                        <span class="card-title">FastDFS的Java客户端</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            欢迎来到我的博客，博客说明。
+                            分布式文件服务器FastDFS的Java客户端。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-06
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-08
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/其他/" class="post-category" target="_blank">
-                                    其他
+                            <a href="/categories/后端/" class="post-category" target="_blank">
+                                    后端
                                 </a>
                             
                             
@@ -1047,8 +1382,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Markdown/" target="_blank">
-                        <span class="chip bg-color">Markdown</span>
+                    <a href="/tags/Java/" target="_blank">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/FastDFS/" target="_blank">
+                        <span class="chip bg-color">FastDFS</span>
                     </a>
                     
                 </div>

@@ -6,9 +6,10 @@
     <meta charset="utf-8">
     <meta name="google-site-verification" content="I-NYDDDjiAX8GQEQ_lE0inL4AJtjz4z-HyL122q_swc">
     <meta name="baidu-site-verification" content="ZeyYBV52u1">
-    <meta name="keywords" content="Java 多级菜单树工具, chihiro">
-    <meta name="description" content="关于Java中多级菜单树的处理
-今天被一个菜单列表的展现折磨得不轻，自己写代码发现实在是费时费力，而且代码量太大，逻辑亟待优化，后续找到了这个代码十分简洁的工具类，说实话我只能看得懂，写不出来这种东西。在此分享给大家，避免重复造轮子的工作~">
+    <meta name="keywords" content="CentOS7.5安装confluence6.15.2, chihiro">
+    <meta name="description" content="Confluence简介
+Confluence是一个专业的企业知识管理与协同软件，也可以用于构建企业wiki。使用简单，但它强大的编辑和站点管理特征能够帮助团队成员之间共享信息、文档协作、集体讨论，信息推送。
+Confluence为团队提供">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +21,7 @@
     <meta name="keywords" content="{% for tag in page.tags %}{{ tag.name }},{% endfor %}">
     <meta name="keywords" content="{{ theme.keywords }}">
 
-    <title>Java 多级菜单树工具 | 千与千寻</title>
+    <title>CentOS7.5安装confluence6.15.2 | 千与千寻</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -283,13 +284,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s2.ax1x.com/2019/03/11/ACXKDU.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://www.chihiro.org.cn/upload/2019/9/7acb0a46f21fbe09dc4672c461600c338644adc2-2afa50f34b2a4c87a2b3a6083e5f21df.png')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Java 多级菜单树工具
+                        CentOS7.5安装confluence6.15.2
                     </div>
                 </div>
             </div>
@@ -381,8 +382,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Java/" target="_blank">
-                                <span class="chip bg-color">Java</span>
+                            <a href="/tags/confluence/" target="_blank">
+                                <span class="chip bg-color">confluence</span>
                             </a>
                         
                     </div>
@@ -393,8 +394,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/后端/" class="post-category" target="_blank">
-                                后端
+                            <a href="/categories/服务器/" class="post-category" target="_blank">
+                                服务器
                             </a>
                         
                     </div>
@@ -405,7 +406,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-03-06
+                    2019-09-21
                 </div>
 
 		
@@ -419,14 +420,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        419
+                        1,801
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        8 分
                     </div>
                     
                 
@@ -442,91 +443,302 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="关于Java中多级菜单树的处理"><a href="#关于Java中多级菜单树的处理" class="headerlink" title="关于Java中多级菜单树的处理"></a>关于Java中多级菜单树的处理</h2><ul>
-<li>今天被一个菜单列表的展现折磨得不轻，自己写代码发现实在是费时费力，而且代码量太大，逻辑亟待优化，后续找到了这个代码十分简洁的工具类，说实话我只能看得懂，写不出来这种东西。在此分享给大家，避免重复造轮子的工作~</li>
+                <h2 id="Confluence简介"><a href="#Confluence简介" class="headerlink" title="Confluence简介"></a>Confluence简介</h2><ul>
+<li>Confluence是一个专业的企业知识管理与协同软件，也可以用于构建企业wiki。使用简单，但它强大的编辑和站点管理特征能够帮助团队成员之间共享信息、文档协作、集体讨论，信息推送。</li>
+<li>Confluence为团队提供一个协作环境。在这里，团队成员齐心协力，各擅其能，协同地编写文档和管理项目。从此打破不同团队、不同部门以及个人之间信息孤岛的僵局，Confluence真正实现了组织资源共享。</li>
+<li>Confluence 已经在超过100个国家，13500个组织中成功地应用于企业内网平台、知识管理及文档管理，涉及财富1000企业、政府机构、教育机构、财务金融机构及技术研究领域。包括IBM、Sun MicroSystems、SAP等众多知名企业使用Confluence来构建企业Wiki并面向公众开放。</li>
 </ul>
-<h3 id="多级树Bean"><a href="#多级树Bean" class="headerlink" title="多级树Bean"></a>多级树Bean</h3><p>这是一个基础bean：</p>
-<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
- * 功能描述：
- * 【分组信息bean】
- * 注意，下面的bean每个属性都为必要属性，不可缺一
- * 继承此bean再添加多个属性，不会影响树结构
- * 类上的三个注解为lombok插件
- *
- * @author chihiro
- * @version V1.0
- * @date 2019/03/06 17:35
- */</span>
-<span class="token annotation punctuation">@Data</span>
-<span class="token annotation punctuation">@NoArgsConstructor</span>
-<span class="token annotation punctuation">@AllArgsConstructor</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BaseTree</span> <span class="token keyword">implements</span> <span class="token class-name">Serializable</span> <span class="token punctuation">{</span>
-
-    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">long</span> serialVersionUID <span class="token operator">=</span> 8L<span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">/**
-     * 树主键
-     */</span>
-    <span class="token keyword">private</span> String treeId<span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">/**
-     * 父节点id
-     */</span>
-    <span class="token keyword">private</span> String parentId<span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">/**
-     * 子节点集合
-     */</span>
-    <span class="token keyword">private</span> List<span class="token operator">&lt;</span><span class="token operator">?</span> <span class="token keyword">extends</span> <span class="token class-name">BaseTree</span><span class="token operator">></span> childrens<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h3 id="树工具类"><a href="#树工具类" class="headerlink" title="树工具类"></a>树工具类</h3><p>核心工具类：</p>
-<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
- * 功能描述：
- * 【多级树util】
- * 核心是使用递归
- *
- * @author chihiro
- * @version V1.0
- * @date 2019/03/06 18:45
- */</span>
-<span class="token annotation punctuation">@AllArgsConstructor</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TreeToolUtil</span><span class="token operator">&lt;</span>T <span class="token keyword">extends</span> <span class="token class-name">BaseTree</span><span class="token operator">></span> <span class="token punctuation">{</span>
-
-    <span class="token comment" spellcheck="true">/**
-     * 根节点
-     */</span>
-    <span class="token keyword">private</span> List<span class="token operator">&lt;</span>T<span class="token operator">></span> rootList<span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">/**
-     * 叶子节点
-     */</span>
-    <span class="token keyword">private</span> List<span class="token operator">&lt;</span>T<span class="token operator">></span> bodyList<span class="token punctuation">;</span>
-
-    <span class="token keyword">public</span> List<span class="token operator">&lt;</span>T<span class="token operator">></span> <span class="token function">getTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>CollUtil<span class="token punctuation">.</span><span class="token function">isNotEmpty</span><span class="token punctuation">(</span>bodyList<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">//声明一个map，用来过滤已操作过的数据</span>
-            Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> String<span class="token operator">></span> map <span class="token operator">=</span> MapUtil<span class="token punctuation">.</span><span class="token function">newHashMap</span><span class="token punctuation">(</span>bodyList<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            rootList<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>beanTree <span class="token operator">-</span><span class="token operator">></span> <span class="token function">getChild</span><span class="token punctuation">(</span>beanTree<span class="token punctuation">,</span> map<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> rootList<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> null<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">getChild</span><span class="token punctuation">(</span>T beanTree<span class="token punctuation">,</span> Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> String<span class="token operator">></span> map<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        List<span class="token operator">&lt;</span>BaseTree<span class="token operator">></span> childList <span class="token operator">=</span> CollUtil<span class="token punctuation">.</span><span class="token function">newArrayList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        bodyList<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>group <span class="token operator">-</span><span class="token operator">></span> <span class="token operator">!</span>map<span class="token punctuation">.</span><span class="token function">containsKey</span><span class="token punctuation">(</span>group<span class="token punctuation">.</span><span class="token function">getTreeId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>group <span class="token operator">-</span><span class="token operator">></span> group<span class="token punctuation">.</span><span class="token function">getParentId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>beanTree<span class="token punctuation">.</span><span class="token function">getTreeId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>group <span class="token operator">-</span><span class="token operator">></span> <span class="token punctuation">{</span>
-                    map<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>group<span class="token punctuation">.</span><span class="token function">getTreeId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> group<span class="token punctuation">.</span><span class="token function">getParentId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token function">getChild</span><span class="token punctuation">(</span>group<span class="token punctuation">,</span> map<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    childList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>group<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        beanTree<span class="token punctuation">.</span><span class="token function">setChildrens</span><span class="token punctuation">(</span>childList<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><ul>
-<li>这套代码是博主从网上找来调整为自己使用的，非博主独立构建。</li>
-<li>若遇到其他Bug，请通过博客内联系方式找博主修复。</li>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="Java环境安装配置"><a href="#Java环境安装配置" class="headerlink" title="Java环境安装配置"></a>Java环境安装配置</h3><ul>
+<li>查看<code>JDK</code>软件包列表</li>
 </ul>
+<pre class=" language-basic"><code class="language-basic">yum search java | grep <span class="token operator">-</span>i <span class="token operator">-</span><span class="token operator">-</span><span class="token function">color</span> jdk
+</code></pre>
+<p><img src="https://www.chihiro.org.cn/upload/2019/9/jdk%E7%89%88%E6%9C%AC-ceddae10188d4b059761f8fed12256c5.png" alt=""></p>
+<ul>
+<li>选择版本安装</li>
+</ul>
+<pre class=" language-basic"><code class="language-basic">yum install <span class="token operator">-</span>y java<span class="token operator">-</span><span class="token number">1.8</span><span class="token number">.0</span><span class="token operator">-</span>openjdk java<span class="token operator">-</span><span class="token number">1.8</span><span class="token number">.0</span><span class="token operator">-</span>openjdk<span class="token operator">-</span>devel
+</code></pre>
+<ul>
+<li>查看<code>JDK</code>是否安装成功</li>
+</ul>
+<pre class=" language-basic"><code class="language-basic">java <span class="token operator">-</span>version
+</code></pre>
+<blockquote>
+<p>出现jdk版本信息即安装成功</p>
+</blockquote>
+<ul>
+<li><p>配置环境变量</p>
+<ul>
+<li>在<code>/etc/profile</code>文件添加如下命令</li>
+</ul>
+<pre class=" language-basic"><code class="language-basic"># <span class="token function">set</span> java environment  
+JAVA_HOME<span class="token operator">=</span><span class="token operator">/</span>usr<span class="token operator">/</span>lib<span class="token operator">/</span>jvm<span class="token operator">/</span>java<span class="token operator">-</span><span class="token number">1.8</span><span class="token number">.0</span><span class="token operator">-</span>openjdk<span class="token operator">-</span><span class="token number">1.8</span><span class="token number">.0.181</span><span class="token number">-3.</span>b13.el7_5.x86_64
+PATH<span class="token operator">=</span>$PATH<span class="token punctuation">:</span>$JAVA_HOME<span class="token operator">/</span>bin  
+CLASSPATH<span class="token operator">=</span>.<span class="token punctuation">:</span>$JAVA_HOME<span class="token operator">/</span>lib<span class="token operator">/</span>dt.jar<span class="token punctuation">:</span>$JAVA_HOME<span class="token operator">/</span>lib<span class="token operator">/</span>tools.jar  
+export JAVA_HOME  CLASSPATH  PATH 
+</code></pre>
+<ul>
+<li>保存关闭<code>profile</code>文件，执行如下命令生效</li>
+</ul>
+<pre class=" language-basic"><code class="language-basic">source  <span class="token operator">/</span>etc<span class="token operator">/</span>profile
+</code></pre>
+<ul>
+<li>查看<code>JDK</code>变量</li>
+</ul>
+<pre class=" language-basic"><code class="language-basic"> echo $JAVA_HOME
+ echo $PATH
+ echo $CLASSPATH
+</code></pre>
+</li>
+</ul>
+<h3 id="mariadb安装"><a href="#mariadb安装" class="headerlink" title="mariadb安装"></a>mariadb安装</h3><ul>
+<li><p>这里依旧使用<code>yum</code>安装，在使用安装命令之前先改下<code>yum</code>的配置文件，走国外镜像下载速度太慢了。</p>
+<ul>
+<li>创建<code>MariaDB.repo</code>文件</li>
+</ul>
+<pre class=" language-basic"><code class="language-basic">vim <span class="token operator">/</span>etc<span class="token operator">/</span>yum.repos.d<span class="token operator">/</span>MariaDB.repo
+</code></pre>
+<ul>
+<li>在文件中加入如下代码</li>
+</ul>
+<pre class=" language-basic"><code class="language-basic">[mariadb]
+<span class="token keyword">name</span><span class="token operator">=</span>MariaDB
+baseurl<span class="token operator">=</span>http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors.ustc.edu.cn<span class="token operator">/</span>mariadb<span class="token operator">/</span>yum<span class="token operator">/</span><span class="token number">10.3</span><span class="token operator">/</span>centos7<span class="token operator">-</span>amd64<span class="token operator">/</span>
+gpgkey<span class="token operator">=</span>http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors.ustc.edu.cn<span class="token operator">/</span>mariadb<span class="token operator">/</span>yum<span class="token operator">/</span>RPM<span class="token operator">-</span>GPG<span class="token operator">-</span><span class="token keyword">KEY</span><span class="token operator">-</span>MariaDB
+gpgcheck<span class="token operator">=</span><span class="token number">1</span>
+</code></pre>
+<blockquote>
+<p>注意：如果你的文件中已有<code>[mariadb]</code>标签，请直接下该标签下修改对象配置即可。</p>
+</blockquote>
+</li>
+<li><p>安装命令</p>
+</li>
+</ul>
+<pre class=" language-basic"><code class="language-basic">yum <span class="token operator">-</span>y install mariadb mariadb<span class="token operator">-</span>server
+</code></pre>
+<ul>
+<li>安装完成MariaDB，首先启动MariaDB，两条命令都可以</li>
+</ul>
+<pre class=" language-basic"><code class="language-basic">systemctl start mariadb
+</code></pre>
+<ul>
+<li>设置开机启动</li>
+</ul>
+<pre class=" language-basic"><code class="language-basic">systemctl enable mariadb
+</code></pre>
+<ul>
+<li>对MariaDB的相关简单配置</li>
+</ul>
+<pre class=" language-basic"><code class="language-basic">mysql_secure_installation
+
+首先是设置密码，会提示先输入密码
+Enter current password <span class="token keyword">for</span> root <span class="token punctuation">(</span>enter <span class="token keyword">for</span> none<span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token operator">&lt;</span>–初次运行直接回车
+设置密码
+<span class="token function">Set</span> root password? [Y<span class="token operator">/</span>n] <span class="token operator">&lt;</span>– 是否设置root用户密码，输入y并回车或直接回车
+New password<span class="token punctuation">:</span> <span class="token operator">&lt;</span>– 设置root用户的密码
+Re<span class="token operator">-</span>enter new password<span class="token punctuation">:</span> <span class="token operator">&lt;</span>– 再输入一次你设置的密码
+其他配置
+Remove anonymous users? [Y<span class="token operator">/</span>n] <span class="token operator">&lt;</span>– 是否删除匿名用户，回车
+Disallow root login remotely? [Y<span class="token operator">/</span>n] <span class="token operator">&lt;</span>–是否禁止root远程登录<span class="token punctuation">,</span>回车<span class="token punctuation">,</span>
+Remove test database <span class="token operator">and</span> <span class="token function">access</span> <span class="token keyword">to</span> it? [Y<span class="token operator">/</span>n] <span class="token operator">&lt;</span>– 是否删除test数据库，回车
+Reload privilege tables now? [Y<span class="token operator">/</span>n] <span class="token operator">&lt;</span>– 是否重新加载权限表，回车
+初始化MariaDB完成，接下来测试登录
+</code></pre>
+<ul>
+<li>初始化MariaDB完成，接下来测试登录</li>
+</ul>
+<pre class=" language-basic"><code class="language-basic">mysql <span class="token operator">-</span>uroot <span class="token operator">-</span>ppassword
+</code></pre>
+<ul>
+<li><p>配置MariaDB的字符集</p>
+<ul>
+<li>文件<code>/etc/my.cnf</code></li>
+</ul>
+<pre class=" language-basic"><code class="language-basic">vim <span class="token operator">/</span>etc<span class="token operator">/</span>my.cnf
+</code></pre>
+<ul>
+<li>在[mysqld]标签下添加</li>
+</ul>
+<pre class=" language-basic"><code class="language-basic">[mysqld]
+init_connect<span class="token operator">=</span>'<span class="token function">SET</span> collation_connection <span class="token operator">=</span> utf8_unicode_ci' 
+init_connect<span class="token operator">=</span>'<span class="token function">SET</span> NAMES utf8' 
+character<span class="token operator">-</span><span class="token function">set</span><span class="token operator">-</span>server<span class="token operator">=</span>utf8 
+collation<span class="token operator">-</span>server<span class="token operator">=</span>utf8_unicode_ci 
+<span class="token function">skip</span><span class="token operator">-</span>character<span class="token operator">-</span><span class="token function">set</span><span class="token operator">-</span>client<span class="token operator">-</span>handshake
+</code></pre>
+<ul>
+<li>继续在[mysqld]下设置confluence对应的数据库隔离级别</li>
+</ul>
+<pre class=" language-basic"><code class="language-basic">transaction<span class="token operator">-</span>isolation <span class="token operator">=</span> <span class="token keyword">READ</span><span class="token operator">-</span>COMMITTED
+max_allowed_packet <span class="token operator">=</span> <span class="token number">512</span>M
+innodb_log_file_size <span class="token operator">=</span> <span class="token number">2</span>GB
+</code></pre>
+<ul>
+<li>文件<code>/etc/my.cnf.d/client.cnf</code></li>
+</ul>
+<pre class=" language-basic"><code class="language-basic">vim <span class="token operator">/</span>etc<span class="token operator">/</span>my.cnf.d<span class="token operator">/</span>client.cnf
+</code></pre>
+<ul>
+<li>在<code>[client]</code>中添加</li>
+</ul>
+<pre class=" language-basic"><code class="language-basic">default<span class="token operator">-</span>character<span class="token operator">-</span><span class="token function">set</span><span class="token operator">=</span>utf8
+</code></pre>
+<ul>
+<li>文件<code>/etc/my.cnf.d/mysql-clients.cnf</code></li>
+</ul>
+<pre class=" language-basic"><code class="language-basic">vim <span class="token operator">/</span>etc<span class="token operator">/</span>my.cnf.d<span class="token operator">/</span>mysql<span class="token operator">-</span>clients.cnf
+</code></pre>
+<ul>
+<li>在<code>[mysql]</code>中添加</li>
+</ul>
+<pre class=" language-basic"><code class="language-basic">default<span class="token operator">-</span>character<span class="token operator">-</span><span class="token function">set</span><span class="token operator">=</span>utf8
+</code></pre>
+<ul>
+<li>全部配置完成，重启mariadb</li>
+</ul>
+<pre class=" language-basic"><code class="language-basic">systemctl restart mariadb
+</code></pre>
+<ul>
+<li>之后进入MariaDB查看字符集</li>
+</ul>
+<pre class=" language-mariadb"><code class="language-mariadb">mysql> show variables like "%character%";show variables like "%collation%";
+</code></pre>
+<p><img src="https://www.chihiro.org.cn/upload/2019/9/mariadb%E5%AD%97%E7%AC%A6%E9%9B%86-0923a33973134c50b517732476ccf7fe.png" alt=""></p>
+</li>
+<li><p>添加用户，设置权限</p>
+<ul>
+<li>创建数据库</li>
+</ul>
+<pre class=" language-mariadb"><code class="language-mariadb">create database confluence default character set utf8 collate utf8_bin;
+</code></pre>
+<ul>
+<li>授权</li>
+</ul>
+<pre class=" language-mariadb"><code class="language-mariadb">grant all on confluence.* to 'confluence'@'%' identified by 'confluencepasswd';
+</code></pre>
+<ul>
+<li>即时生效</li>
+</ul>
+<pre class=" language-mariadb"><code class="language-mariadb">flush privileges;
+</code></pre>
+<blockquote>
+<p>这里只开放了<code>confluence</code>用户的内网访问权限，这样访问比较快，也比较安全。如果<code>confluence</code>与<code>mariadb</code>不再同一服务器，需要把<code>localhost</code>换成对应<code>confluence</code>所在的内网<code>ip</code>地址。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="Confluence安装"><a href="#Confluence安装" class="headerlink" title="Confluence安装"></a>Confluence安装</h2><ul>
+<li>下载安装包</li>
+</ul>
+<pre class=" language-basic"><code class="language-basic"><span class="token keyword">mkdir</span> <span class="token operator">/</span>mnt<span class="token operator">/</span>confluence
+cd <span class="token operator">/</span>mnt<span class="token operator">/</span>confluence
+wget https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>downloads.atlassian.<span class="token keyword">com</span><span class="token operator">/</span>software<span class="token operator">/</span>confluence<span class="token operator">/</span>downloads<span class="token operator">/</span>atlassian<span class="token operator">-</span>confluence<span class="token operator">-</span><span class="token number">6.15</span><span class="token number">.2</span><span class="token operator">-</span>x64.bin
+</code></pre>
+<ul>
+<li>给二进制文件授执行权限，然后执行二进制文件进行安装。</li>
+</ul>
+<pre class=" language-basic"><code class="language-basic">chmod <span class="token operator">+</span>x atlassian<span class="token operator">-</span>confluence<span class="token operator">-</span><span class="token number">6.15</span><span class="token number">.2</span><span class="token operator">-</span>x64.bin
+sudo .<span class="token operator">/</span>atlassian<span class="token operator">-</span>confluence<span class="token operator">-</span><span class="token number">6.15</span><span class="token number">.2</span><span class="token operator">-</span>x64.bin
+</code></pre>
+<ul>
+<li>安装过程中课自定义部分参数</li>
+</ul>
+<p><img src="https://www.chihiro.org.cn/upload/2019/9/confluence%E7%AB%AF%E5%8F%A3%E8%AE%BE%E7%BD%AE-f33307d556e343f9bcfb55b212265f31.png" alt=""></p>
+<blockquote>
+<p>通过上图可以看出confluence安装到了<code>/opt/atlassian/confluence</code>和<code>/var/atlassian/application-data/confluence</code>目录下。并且confluence默认监听的端口是8090，一路按[Enter]键默认安装即可。</p>
+<p><code>confluence</code>的主要配置文件为<code>/opt/atlassian/confluence/conf/server.xml</code>。此<code>server.xml</code>相当于<code>tomcat</code>中的<code>server.xml</code>配置文件，如果要修改访问端口，可以这里修改。后续如果要配置域名访问也需要到此处配置。</p>
+<p>如果要修改confluence的数据目录，可以在安装的时候，在安装过程中进行更换（默认是<code>/var/atlassian/application-data/confluence</code>）</p>
+</blockquote>
+<h2 id="破解安装"><a href="#破解安装" class="headerlink" title="破解安装"></a>破解安装</h2><ul>
+<li><p>下载注册机，以及其他jar包<a href="https://www.chihiro.org.cn/upload/2019/9/confluence-6.15.4%E7%A0%B4%E8%A7%A3-db535ccdd7ef400bb5992c82f4325ab8.zip" rel="external nofollow noopener noreferrer" target="_blank">下载地址</a></p>
+</li>
+<li><p>从服务器获取<code>atlassian-extras-decoder-v2-3.4.1.jar</code>，命令为<code>atlassian-extras-2.4.jar</code></p>
+<pre class=" language-basic"><code class="language-basic">cd <span class="token operator">/</span>opt<span class="token operator">/</span>atlassian<span class="token operator">/</span>confluence<span class="token operator">/</span>confluence<span class="token operator">/</span>WEB<span class="token operator">-</span>INF<span class="token operator">/</span>lib<span class="token operator">/</span>
+cp atlassian<span class="token operator">-</span>extras<span class="token operator">-</span>decoder<span class="token operator">-</span>v2<span class="token operator">-</span><span class="token number">3.4</span><span class="token number">.1.</span>jar <span class="token operator">/</span>mnt<span class="token operator">/</span>confluence<span class="token operator">/</span>atlassian<span class="token operator">-</span>extras<span class="token operator">-</span><span class="token number">2.4</span>.jar
+scp root@<span class="token operator">*</span>.<span class="token operator">*</span>.<span class="token operator">*</span>.<span class="token operator">*</span><span class="token punctuation">:</span><span class="token operator">/</span>mnt<span class="token operator">/</span>confluence<span class="token operator">/</span>atlassian<span class="token operator">-</span>extras<span class="token operator">-</span><span class="token number">2.4</span>.jar
+</code></pre>
+</li>
+<li><p>压缩包下载好之后，解压出来启动<code>confluence_keygen.jar</code>文件</p>
+</li>
+</ul>
+<p><img src="https://www.chihiro.org.cn/upload/2019/9/%E6%B3%A8%E5%86%8C%E6%9C%BA-9b0881f62a8749cc926044fc2ebea4ab.png" alt=""></p>
+<ul>
+<li>点击<code>.patch</code>，找到刚才传回来的<code>atlassian-extras-2.4.jar</code>文件，点击打开，破解器左下角会提示<code>jar</code>文件破解成功</li>
+<li><p>找到已经破解的jar文件，<strong>在文件旁边会有一个<code>atlassian-extras-2.4.jar.bak</code>文件，这是破解器自动备份的，不出问题就不用理会。</strong></p>
+</li>
+<li><p>上传文件到服务器</p>
+</li>
+</ul>
+<pre class=" language-basic"><code class="language-basic">#破解文件
+scp atlassian<span class="token operator">-</span>extras<span class="token operator">-</span><span class="token number">2.4</span>.jar root@<span class="token operator">*</span>.<span class="token operator">*</span>.<span class="token operator">*</span>.<span class="token operator">*</span><span class="token punctuation">:</span><span class="token operator">/</span>mnt<span class="token operator">/</span>confluence
+#数据库连接
+scp mysql<span class="token operator">-</span>connector<span class="token operator">-</span>java<span class="token operator">-</span><span class="token number">5.1</span><span class="token number">.25</span><span class="token operator">-</span>bin.jar root@<span class="token operator">*</span>.<span class="token operator">*</span>.<span class="token operator">*</span>.<span class="token operator">*</span><span class="token punctuation">:</span><span class="token operator">/</span>mnt<span class="token operator">/</span>confluence
+#插件破解
+scp atlassian<span class="token operator">-</span>universal<span class="token operator">-</span>plugin<span class="token operator">-</span>manager<span class="token operator">-</span>plugin<span class="token operator">-</span><span class="token number">3.0</span>.jar root@<span class="token operator">*</span>.<span class="token operator">*</span>.<span class="token operator">*</span>.<span class="token operator">*</span><span class="token punctuation">:</span><span class="token operator">/</span>mnt<span class="token operator">/</span>confluence
+# 暂停confluence服务
+sudo service confluence <span class="token keyword">stop</span>
+#将破解文件置入lib包下
+cd <span class="token operator">/</span>opt<span class="token operator">/</span>atlassian<span class="token operator">/</span>confluence<span class="token operator">/</span>confluence<span class="token operator">/</span>WEB<span class="token operator">-</span>INF<span class="token operator">/</span>lib
+sudo cp <span class="token operator">/</span>mnt<span class="token operator">/</span>confluence<span class="token operator">/</span>atlassian<span class="token operator">-</span>extras<span class="token operator">-</span><span class="token number">2.4</span>.jar atlassian<span class="token operator">-</span>extras<span class="token operator">-</span>decoder<span class="token operator">-</span>v2<span class="token operator">-</span><span class="token number">3.4</span><span class="token number">.1.</span>jar
+sudo cp <span class="token operator">/</span>mnt<span class="token operator">/</span>confluence<span class="token operator">/</span>mysql<span class="token operator">-</span>connector<span class="token operator">-</span>java<span class="token operator">-</span><span class="token number">5.1</span><span class="token number">.25</span><span class="token operator">-</span>bin.jar mysql<span class="token operator">-</span>connector<span class="token operator">-</span>java<span class="token operator">-</span><span class="token number">5.1</span><span class="token number">.25</span><span class="token operator">-</span>bin.jar
+sudo cp <span class="token operator">/</span>mnt<span class="token operator">/</span>confluence<span class="token operator">/</span>atlassian<span class="token operator">-</span>universal<span class="token operator">-</span>plugin<span class="token operator">-</span>manager<span class="token operator">-</span>plugin<span class="token operator">-</span><span class="token number">3.0</span>.jar atlassian<span class="token operator">-</span>universal<span class="token operator">-</span>plugin<span class="token operator">-</span>manager<span class="token operator">-</span>plugin<span class="token operator">-</span><span class="token number">3.0</span>.jar
+# 启动confluence服务
+sudo service confluence start
+</code></pre>
+<ul>
+<li>选择安装</li>
+</ul>
+<p><img src="https://www.chihiro.org.cn/upload/2019/9/QQ%E6%88%AA%E5%9B%BE20190921153011-f3db59c015cf4409a86891f2592f6bd0.png" alt=""></p>
+<ul>
+<li>选择Empty Site</li>
+</ul>
+<p><img src="https://www.chihiro.org.cn/upload/2019/9/QQ%E6%88%AA%E5%9B%BE20190921153029-d7c950195a4f4b7cbc2951600593c5e4.png" alt=""></p>
+<ul>
+<li><p>填写授权码</p>
+<ul>
+<li>将页面上显示的机器码复制好，打开注册机准备破解。</li>
+</ul>
+<p><img src="https://www.chihiro.org.cn/upload/2019/9/265EiFI6Dc-d632c55ae80045bd9961637d273cac79.png" alt=""></p>
+<ul>
+<li>打开破解机器，输入serverID，确保和网页上显示的服务器ID一致</li>
+</ul>
+<p><img src="https://www.chihiro.org.cn/upload/2019/9/b085lhIhH2-286bf3fc907e47ffb0640badb935b609.png" alt=""></p>
+<ul>
+<li>点击[.gen!]获得授权码。</li>
+<li>复制key内的内容，到confluence</li>
+</ul>
+<p><img src="https://www.chihiro.org.cn/upload/2019/9/mbI94LFDDC-88004388148341e5a24b4819e7adc0db.png" alt=""></p>
+</li>
+<li><p>设置自己的数据库，正式生产环境直接选择第一项。</p>
+</li>
+</ul>
+<p><img src="https://www.chihiro.org.cn/upload/2019/9/QQ%E6%88%AA%E5%9B%BE20190921154052-a4426edc824242e5bb039935fccaad2c.png" alt=""></p>
+<ul>
+<li>输入数据库连接信息</li>
+</ul>
+<p><img src="https://www.chihiro.org.cn/upload/2019/9/QQ%E6%88%AA%E5%9B%BE20190921154103-a5d15528bc954af98c39a96d8a8403b8.png" alt=""></p>
+<ul>
+<li>配置admin账号</li>
+</ul>
+<p><img src="https://www.chihiro.org.cn/upload/2019/9/QQ%E6%88%AA%E5%9B%BE20190921154205-f9e97e405b83410895d2d33d0eb088e9.png" alt=""></p>
+<p><img src="https://www.chihiro.org.cn/upload/2019/9/QQ%E6%88%AA%E5%9B%BE20190921154127-ee26f22cbfdf4000a9f6769ec8ca2165.png" alt=""></p>
+<ul>
+<li>成功界面</li>
+</ul>
+<p><img src="https://www.chihiro.org.cn/upload/2019/9/QQ%E6%88%AA%E5%9B%BE20190921154425-43d630e72cc74541807777178173d0d5.png" alt=""></p>
+<ul>
+<li>到这里我们的破解安装<code>confluence</code>就已经全部搞定，<code>confluence</code>已经可以愉快的和你一起玩耍了~~</li>
+</ul>
+<h2 id="插件破解"><a href="#插件破解" class="headerlink" title="插件破解"></a>插件破解</h2><ul>
+<li>将插件破解jar包丢入<code>lib</code>下后，在插件管理中心安装好插件，点击免费试用，申请license填入框中即可。</li>
+</ul>
+<p><img src="https://www.chihiro.org.cn/upload/2019/9/20180905141815119-f82ec2f57f6a41a888d08e45801c8fbf.png" alt=""></p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><ul>
+<li>如果需要做备份迁移，只要需将原confluence的备份文件导入新的服务器即可</li>
+</ul>
+<blockquote>
+<p>注意：备份还原会替换新服务所有数据，请确保自己知晓愿confluence的管理员账号</p>
+</blockquote>
 
             </div>
             <hr>
@@ -674,7 +886,7 @@
                     </span>
                     <a href="https://chihiro.org.cn" class="b-link-green">千与千寻</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/blogs/1705435210.html" class="b-link-green">Java 多级菜单树工具</a>
+                    <a href="/blogs/4100983457.html" class="b-link-green">CentOS7.5安装confluence6.15.2</a>
                 </p>
             </div>
         </div>
@@ -956,26 +1168,27 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/blogs/166738594.html">
+                <a href="/blogs/4100983457.html">
                     <div class="card-image">
                         
-                        <img src="https://s2.ax1x.com/2019/03/11/ACXtv6.jpg" class="responsive-img" alt="使用阿里云搭配git搭建博客">
+                        <img src="https://www.chihiro.org.cn/upload/2019/9/7acb0a46f21fbe09dc4672c461600c338644adc2-2afa50f34b2a4c87a2b3a6083e5f21df.png" class="responsive-img" alt="CentOS7.5安装confluence6.15.2">
                         
-                        <span class="card-title">使用阿里云搭配git搭建博客</span>
+                        <span class="card-title">CentOS7.5安装confluence6.15.2</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            使用git、hexo、nodejs、nginx搭建一个远程部署的博客。
+                            CentOS7.5安装confluence6.15.2。
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-11
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -988,19 +1201,12 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/阿里云/" target="_blank">
-                        <span class="chip bg-color">阿里云</span>
-                    </a>
-                    
-                    <a href="/tags/hexo/" target="_blank">
-                        <span class="chip bg-color">hexo</span>
-                    </a>
-                    
-                    <a href="/tags/git/" target="_blank">
-                        <span class="chip bg-color">git</span>
+                    <a href="/tags/confluence/" target="_blank">
+                        <span class="chip bg-color">confluence</span>
                     </a>
                     
                 </div>
@@ -1014,30 +1220,30 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/blogs/1523215152.html">
+                <a href="/blogs/104139301.html">
                     <div class="card-image">
                         
-                        <img src="https://s2.ax1x.com/2019/03/11/ACXMbF.jpg" class="responsive-img" alt="博客说明">
+                        <img src="https://www.chihiro.org.cn/upload/2019/9/log-390495f17c85438695326d55ee6ead4f.jpeg" class="responsive-img" alt="使用SpringAop记录日志">
                         
-                        <span class="card-title">博客说明</span>
+                        <span class="card-title">使用SpringAop记录日志</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            欢迎来到我的博客，博客说明。
+                            使用AOP对项目日志进行记录与打印
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-06
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-10
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/其他/" class="post-category" target="_blank">
-                                    其他
+                            <a href="/categories/后端/" class="post-category" target="_blank">
+                                    后端
                                 </a>
                             
                             
@@ -1047,8 +1253,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Markdown/" target="_blank">
-                        <span class="chip bg-color">Markdown</span>
+                    <a href="/tags/Java/" target="_blank">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/aop/" target="_blank">
+                        <span class="chip bg-color">aop</span>
+                    </a>
+                    
+                    <a href="/tags/spring/" target="_blank">
+                        <span class="chip bg-color">spring</span>
                     </a>
                     
                 </div>
